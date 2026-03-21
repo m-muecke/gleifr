@@ -14,7 +14,3 @@
 #' @importFrom httr2 resps_data
 #' @importFrom stats setNames
 "_PACKAGE"
-
-gleif_user_agent <- function() {
-  sprintf("gleif/%s", utils::packageVersion("gleif"))
-}

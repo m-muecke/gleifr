@@ -147,8 +147,8 @@ lei_regions <- function() {
     nms <- x$attributes$names
     data.frame(
       code = code,
-      language = vapply(nms, \(y) y$language, NA_character_),
-      name = vapply(nms, \(y) y$name, NA_character_),
+      language = vapply(nms, \(y) y$language, ""),
+      name = vapply(nms, \(y) y$name, ""),
       check.names = FALSE
     )
   })
@@ -274,8 +274,8 @@ lei_isins <- function(id) {
   path <- paste("lei-records", id, "isins", sep = "/")
   data <- fetch_lei_iter(path, `page[size]` = 200L)
   rows <- lapply(data, function(x) {
-    a <- x$attributes
-    data.frame(lei = a$lei, isin = a$isin, check.names = FALSE)
+    attrs <- x$attributes
+    data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
   })
   do.call(rbind, rows)
 }
@@ -368,4 +368,8 @@ gleif_download <- function(url) {
   file <- utils::unzip(tf, exdir = td)
   mapping <- utils::read.csv(file)
   setNames(mapping, tolower(names(mapping)))
+}
+
+gleif_user_agent <- function() {
+  sprintf("gleif/%s", utils::packageVersion("gleif"))
 }
