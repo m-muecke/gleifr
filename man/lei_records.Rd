@@ -10,6 +10,7 @@ lei_records(
   jurisdiction = NULL,
   status = NULL,
   fulltext = NULL,
+  ...,
   page_size = 200L,
   page_number = NULL,
   simplify = TRUE
@@ -30,6 +31,10 @@ Filter by entity status. Only relevant when \code{id} is \code{NULL}.}
 
 \item{fulltext}{(\code{NULL} | \code{character(1)})\cr
 Full-text search query. Only relevant when \code{id} is \code{NULL}.}
+
+\item{...}{Additional filter parameters passed to the GLEIF API.
+These are appended as query parameters, e.g.
+\code{"filter[entity.legalAddress.country]" = "DE"}.}
 
 \item{page_size}{(\code{NULL} | \code{integer(1)})\cr
 The number of records per page. Only relevant when \code{id} is \code{NULL}. Default \code{200L}.}

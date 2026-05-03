@@ -30,6 +30,9 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 #'   Filter by entity status. Only relevant when `id` is `NULL`.
 #' @param fulltext (`NULL` | `character(1)`)\cr
 #'   Full-text search query. Only relevant when `id` is `NULL`.
+#' @param ... Additional filter parameters passed to the GLEIF API.
+#'   These are appended as query parameters, e.g.
+#'   `"filter[entity.legalAddress.country]" = "DE"`.
 #' @param page_size (`NULL` | `integer(1)`)\cr
 #'   The number of records per page. Only relevant when `id` is `NULL`. Default `200L`.
 #' @param page_number (`NULL` | `integer(1)`)\cr
@@ -61,6 +64,7 @@ lei_records <- function(
   jurisdiction = NULL,
   status = NULL,
   fulltext = NULL,
+  ...,
   page_size = 200L,
   page_number = NULL,
   simplify = TRUE
@@ -75,11 +79,13 @@ lei_records <- function(
     is_count(page_number, null_ok = TRUE),
     is_flag(simplify)
   )
+  dots <- list(...)
   has_id <- !is.null(id)
   has_filter <- !is.null(legal_name) ||
     !is.null(jurisdiction) ||
     !is.null(status) ||
-    !is.null(fulltext)
+    !is.null(fulltext) ||
+    length(dots) > 0L
   if (has_id && has_filter) {
     stop("Cannot combine `id` with filter parameters.", call. = FALSE)
   }
@@ -88,14 +94,17 @@ lei_records <- function(
     path <- paste(path, id, sep = "/")
     res <- fetch_lei(path)
   } else if (is.null(page_number)) {
-    data <- fetch_lei_iter(
-      path,
-      `page[size]` = page_size,
-      `filter[entity.legalName]` = legal_name,
-      `filter[entity.jurisdiction]` = jurisdiction,
-      `filter[entity.status]` = status,
-      `filter[fulltext]` = fulltext
+    params <- c(
+      list(
+        `page[size]` = page_size,
+        `filter[entity.legalName]` = legal_name,
+        `filter[entity.jurisdiction]` = jurisdiction,
+        `filter[entity.status]` = status,
+        `filter[fulltext]` = fulltext
+      ),
+      dots
     )
+    data <- fetch_lei_iter(path, params)
     if (!simplify) {
       return(data)
     }
@@ -103,15 +112,18 @@ lei_records <- function(
     tab <- do.call(rbind, val)
     return(clean_names(tab))
   } else {
-    res <- fetch_lei(
-      path,
-      `page[size]` = page_size,
-      `page[number]` = page_number,
-      `filter[entity.legalName]` = legal_name,
-      `filter[entity.jurisdiction]` = jurisdiction,
-      `filter[entity.status]` = status,
-      `filter[fulltext]` = fulltext
+    params <- c(
+      list(
+        `page[size]` = page_size,
+        `page[number]` = page_number,
+        `filter[entity.legalName]` = legal_name,
+        `filter[entity.jurisdiction]` = jurisdiction,
+        `filter[entity.status]` = status,
+        `filter[fulltext]` = fulltext
+      ),
+      dots
     )
+    res <- fetch_lei(path, params)
   }
   if (!simplify) {
     return(res)
@@ -140,7 +152,7 @@ lei_records <- function(
 #' lei_regions()
 #' }
 lei_regions <- function() {
-  resp <- fetch_lei("regions", `page[size]` = 100L)
+  resp <- fetch_lei("regions", list(`page[size]` = 100L))
   data <- resp$data
   rows <- lapply(data, function(x) {
     code <- x$attributes$code
@@ -171,7 +183,7 @@ lei_regions <- function() {
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
-  resp <- fetch_lei("lei-issuers", `page[size]` = 100L)
+  resp <- fetch_lei("lei-issuers", list(`page[size]` = 100L))
   data <- resp$data
   rows <- lapply(data, function(x) {
     a <- x$attributes
@@ -246,7 +258,7 @@ lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 lei_children <- function(id, simplify = TRUE) {
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, "direct-children", sep = "/")
-  data <- fetch_lei_iter(path, `page[size]` = 200L)
+  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
   if (!simplify) {
     return(data)
   }
@@ -272,7 +284,7 @@ lei_children <- function(id, simplify = TRUE) {
 lei_isins <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "isins", sep = "/")
-  data <- fetch_lei_iter(path, `page[size]` = 200L)
+  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
@@ -299,8 +311,7 @@ clean_names <- function(tab) {
   tab
 }
 
-fetch_lei_iter <- function(path, ...) {
-  params <- list(...)
+fetch_lei_iter <- function(path, params = list()) {
   req <- request("https://api.gleif.org/api/v1") |>
     req_user_agent(gleif_user_agent()) |>
     req_url_path_append(path) |>
@@ -320,8 +331,7 @@ fetch_lei_iter <- function(path, ...) {
   resps_data(resps, \(resp) resp_body_json(resp)$data)
 }
 
-fetch_lei <- function(path, ...) {
-  params <- list(...)
+fetch_lei <- function(path, params = list()) {
   request("https://api.gleif.org/api/v1") |>
     req_user_agent(gleif_user_agent()) |>
     req_url_path_append(path) |>

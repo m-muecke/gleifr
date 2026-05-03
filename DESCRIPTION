@@ -6,8 +6,7 @@ Authors@R:
            comment = c(ORCID = "0009-0000-9432-9795"))
 Description: Download data from GLEIF API.
 License: MIT + file LICENSE
-URL: https://m-muecke.github.io/gleif,
-    https://github.com/m-muecke/gleif
+URL: https://m-muecke.github.io/gleif, https://github.com/m-muecke/gleif
 BugReports: https://github.com/m-muecke/gleif/issues
 Depends:
     R (>= 4.1.0)
@@ -18,7 +17,7 @@ Imports:
     utils
 Suggests:
     testthat (>= 3.0.0)
+Config/roxygen2/markdown: TRUE
+Config/roxygen2/version: 8.0.0
 Config/testthat/edition: 3
 Encoding: UTF-8
-Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3

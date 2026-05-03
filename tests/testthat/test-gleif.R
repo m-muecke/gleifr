@@ -26,6 +26,13 @@ test_that("lei_records rejects id with filters", {
     lei_records(id = "529900W18LQJJN6SJ336", legal_name = "foo"),
     "Cannot combine"
   )
+  expect_error(
+    lei_records(
+      id = "529900W18LQJJN6SJ336",
+      `filter[entity.legalAddress.country]` = "DE"
+    ),
+    "Cannot combine"
+  )
 })
 
 test_that("lei_children validates inputs", {
