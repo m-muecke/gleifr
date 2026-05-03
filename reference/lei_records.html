@@ -50,6 +50,7 @@
 <span>  jurisdiction <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  status <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  fulltext <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  <span class="va">...</span>,</span>
 <span>  page_size <span class="op">=</span> <span class="fl">200L</span>,</span>
 <span>  page_number <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  simplify <span class="op">=</span> <span class="cn">TRUE</span></span>
@@ -83,6 +84,12 @@ Filter by entity status. Only relevant when <code>id</code> is <code>NULL</code>
 <dt id="arg-fulltext">fulltext<a class="anchor" aria-label="anchor" href="#arg-fulltext"></a></dt>
 <dd><p>(<code>NULL</code> | <code>character(1)</code>)<br>
 Full-text search query. Only relevant when <code>id</code> is <code>NULL</code>.</p></dd>
+
+
+<dt id="arg--">...<a class="anchor" aria-label="anchor" href="#arg--"></a></dt>
+<dd><p>Additional filter parameters passed to the GLEIF API.
+These are appended as query parameters, e.g.
+<code>"filter[entity.legalAddress.country]" = "DE"</code>.</p></dd>
 
 
 <dt id="arg-page-size">page_size<a class="anchor" aria-label="anchor" href="#arg-page-size"></a></dt>

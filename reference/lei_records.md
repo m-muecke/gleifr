@@ -11,6 +11,7 @@ lei_records(
   jurisdiction = NULL,
   status = NULL,
   fulltext = NULL,
+  ...,
   page_size = 200L,
   page_number = NULL,
   simplify = TRUE
@@ -43,6 +44,12 @@ lei_records(
 
   (`NULL` \| `character(1)`)  
   Full-text search query. Only relevant when `id` is `NULL`.
+
+- ...:
+
+  Additional filter parameters passed to the GLEIF API. These are
+  appended as query parameters, e.g.
+  `"filter[entity.legalAddress.country]" = "DE"`.
 
 - page_size:
 

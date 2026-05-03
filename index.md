@@ -12,6 +12,7 @@ You can install the development version of gleif from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("m-muecke/gleif")
 ```
@@ -22,6 +23,7 @@ Currently the download of the lei mapping data and the retrieval of
 records by LEI is supported:
 
 ``` r
+
 library(gleif)
 
 # fetch the latest LEI mapping data (single file with all mappings)
