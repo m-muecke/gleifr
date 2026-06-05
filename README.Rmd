@@ -20,7 +20,6 @@ options(str = strOptions(strict.width = "cut"))
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml)
-[![CRAN status](https://www.r-pkg.org/badges/version/gleifr)](https://CRAN.R-project.org/package=gleifr)
 <!-- badges: end -->
 
 gleifr is a minimal R client for the [GLEIF](https://www.gleif.org) API.
