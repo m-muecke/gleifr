@@ -10,13 +10,13 @@
 Source:
 [`DESCRIPTION`](https://github.com/m-muecke/gleifr/blob/main/DESCRIPTION)
 
-Mücke M (2026). *gleifr: GLEIF API Wrapper*. R package version 0.0.1,
-<https://m-muecke.github.io/gleifr>.
+Mücke M (2026). *gleifr: Client for the 'GLEIF' API*. R package version
+0.0.1, <https://m-muecke.github.io/gleifr/>.
 
     @Manual{,
-      title = {gleifr: GLEIF API Wrapper},
+      title = {gleifr: Client for the 'GLEIF' API},
       author = {Maximilian Mücke},
       year = {2026},
       note = {R package version 0.0.1},
-      url = {https://m-muecke.github.io/gleifr},
+      url = {https://m-muecke.github.io/gleifr/},
     }
