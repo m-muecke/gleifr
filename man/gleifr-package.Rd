@@ -4,14 +4,14 @@
 \name{gleifr-package}
 \alias{gleifr}
 \alias{gleifr-package}
-\title{gleifr: GLEIF API Wrapper}
+\title{gleifr: Client for the 'GLEIF' API}
 \description{
-Download data from GLEIF API.
+Download legal entity reference data from the 'Global Legal Entity Identifier Foundation' ('GLEIF') API. Retrieve Legal Entity Identifier ('LEI') records, their direct and ultimate parent and child relationships, accredited issuers ('Local Operating Units'), and mappings from 'LEI' codes to other identifiers such as 'ISIN', 'BIC', and 'MIC'. See \url{https://www.gleif.org/en/lei-data/gleif-api} for further details.
 }
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://m-muecke.github.io/gleifr}
+  \item \url{https://m-muecke.github.io/gleifr/}
   \item \url{https://github.com/m-muecke/gleifr}
   \item Report bugs at \url{https://github.com/m-muecke/gleifr/issues}
 }
