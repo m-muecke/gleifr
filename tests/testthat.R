@@ -7,6 +7,6 @@
 # * https://testthat.r-lib.org/articles/special-files.html
 
 library(testthat)
-library(gleif)
+library(gleifr)
 
-test_check("gleif")
+test_check("gleifr")

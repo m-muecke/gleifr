@@ -1,4 +1,4 @@
-Package: gleif
+Package: gleifr
 Title: GLEIF API Wrapper
 Version: 0.0.1
 Authors@R:
@@ -6,8 +6,8 @@ Authors@R:
            comment = c(ORCID = "0009-0000-9432-9795"))
 Description: Download data from GLEIF API.
 License: MIT + file LICENSE
-URL: https://m-muecke.github.io/gleif, https://github.com/m-muecke/gleif
-BugReports: https://github.com/m-muecke/gleif/issues
+URL: https://m-muecke.github.io/gleifr, https://github.com/m-muecke/gleifr
+BugReports: https://github.com/m-muecke/gleifr/issues
 Depends:
     R (>= 4.1.0)
 Imports:

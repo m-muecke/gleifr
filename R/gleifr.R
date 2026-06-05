@@ -15,7 +15,7 @@
 #' }
 lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
   url <- latest_url(type)
-  gleif_download(url)
+  gleifr_download(url)
 }
 
 #' Fetch LEI records
@@ -313,12 +313,12 @@ clean_names <- function(tab) {
 
 fetch_lei_iter <- function(path, params = list()) {
   req <- request("https://api.gleif.org/api/v1") |>
-    req_user_agent(gleif_user_agent()) |>
+    req_user_agent(gleifr_user_agent()) |>
     req_url_path_append(path) |>
     req_url_query(!!!params) |>
     req_headers(Accept = "application/json") |>
     req_error(body = lei_error_body) |>
-    req_gleif_cache()
+    req_gleifr_cache()
 
   resps <- req_perform_iterative(
     req,
@@ -333,12 +333,12 @@ fetch_lei_iter <- function(path, params = list()) {
 
 fetch_lei <- function(path, params = list()) {
   request("https://api.gleif.org/api/v1") |>
-    req_user_agent(gleif_user_agent()) |>
+    req_user_agent(gleifr_user_agent()) |>
     req_url_path_append(path) |>
     req_url_query(!!!params) |>
     req_headers(Accept = "application/json") |>
     req_error(body = lei_error_body) |>
-    req_gleif_cache() |>
+    req_gleifr_cache() |>
     req_perform() |>
     resp_body_json()
 }
@@ -369,7 +369,7 @@ latest_url <- function(type = c("isin", "bic", "mic", "oc")) {
   files[[1L]]
 }
 
-gleif_download <- function(url) {
+gleifr_download <- function(url) {
   td <- tempfile()
   dir.create(td)
   on.exit(unlink(td, recursive = TRUE), add = TRUE)
@@ -380,6 +380,6 @@ gleif_download <- function(url) {
   setNames(mapping, tolower(names(mapping)))
 }
 
-gleif_user_agent <- function() {
-  sprintf("gleif/%s", utils::packageVersion("gleif"))
+gleifr_user_agent <- function() {
+  sprintf("gleifr/%s", utils::packageVersion("gleifr"))
 }

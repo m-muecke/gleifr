@@ -1,18 +1,18 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# gleif
+# gleifr
 
 <!-- badges: start -->
 
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![R-CMD-check](https://github.com/m-muecke/gleif/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/gleif/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml)
 [![CRAN
-status](https://www.r-pkg.org/badges/version/gleif)](https://CRAN.R-project.org/package=gleif)
+status](https://www.r-pkg.org/badges/version/gleifr)](https://CRAN.R-project.org/package=gleifr)
 <!-- badges: end -->
 
-gleif is a minimal R client for the [gleif](https://www.gleif.org) API.
+gleifr is a minimal R client for the [GLEIF](https://www.gleif.org) API.
 A major challenge when dealing with financial data is the mapping of
 entities across different data sources. Especially when dealing with
 legal entities, the Legal Entity Identifier (LEI) can be used to
@@ -20,12 +20,12 @@ uniquely identify entities.
 
 ## Installation
 
-You can install the development version of gleif from
+You can install the development version of gleifr from
 [GitHub](https://github.com/) with:
 
 ``` r
 # install.packages("pak")
-pak::pak("m-muecke/gleif")
+pak::pak("m-muecke/gleifr")
 ```
 
 ## Usage
@@ -34,7 +34,7 @@ Currently the download of the lei mapping data and the retrieval of
 records by LEI is supported:
 
 ``` r
-library(gleif)
+library(gleifr)
 
 # fetch the latest LEI mapping data (single file with all mappings)
 mapping <- lei_mapping("isin")

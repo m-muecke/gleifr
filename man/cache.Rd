@@ -2,32 +2,32 @@
 % Please edit documentation in R/cache.R
 \name{cache}
 \alias{cache}
-\alias{gleif_cache_dir}
-\alias{gleif_cache_clear}
-\title{Get or manage the gleif API cache}
+\alias{gleifr_cache_dir}
+\alias{gleifr_cache_clear}
+\title{Get or manage the gleifr API cache}
 \usage{
-gleif_cache_dir()
+gleifr_cache_dir()
 
-gleif_cache_clear()
+gleifr_cache_clear()
 }
 \description{
-\code{gleif_cache_dir()} returns the path where cached API responses are stored.
-\code{gleif_cache_clear()} clears all cached responses.
+\code{gleifr_cache_dir()} returns the path where cached API responses are stored.
+\code{gleifr_cache_clear()} clears all cached responses.
 }
 \details{
-The cache is only used when enabled with \code{options(gleif.cache = TRUE)}.
+The cache is only used when enabled with \code{options(gleifr.cache = TRUE)}.
 Cached responses are stored for 1 day by default, but this can be customized with
-\code{options(gleif.cache_max_age = seconds)}.
+\code{options(gleifr.cache_max_age = seconds)}.
 }
 \examples{
 \dontrun{
 # enable caching
-options(gleif.cache = TRUE)
+options(gleifr.cache = TRUE)
 
 # view cache location
-gleif_cache_dir()
+gleifr_cache_dir()
 
 # clear the cache
-gleif_cache_clear()
+gleifr_cache_clear()
 }
 }
