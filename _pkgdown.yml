@@ -7,7 +7,9 @@ template:
 reference:
   - title: LEI data
     contents:
+      - lei_autocomplete
       - lei_children
+      - lei_fuzzy
       - lei_isins
       - lei_issuers
       - lei_mapping

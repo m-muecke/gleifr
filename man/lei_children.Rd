@@ -4,11 +4,14 @@
 \alias{lei_children}
 \title{Fetch LEI child records}
 \usage{
-lei_children(id, simplify = TRUE)
+lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
 }
 \arguments{
 \item{id}{(\code{character(1)})\cr
 The Legal Entity Identifier (LEI) to fetch the children for.}
+
+\item{type}{(\code{character(1)})\cr
+The type of children to fetch. One of \code{"direct"} or \code{"ultimate"}. Default is \code{"direct"}.}
 
 \item{simplify}{(\code{logical(1)})\cr
 Should the output be simplified? Default \code{TRUE}.}
@@ -24,10 +27,14 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 When \code{simplify = FALSE}, a named \code{list()} containing the raw API response.
 }
 \description{
-Fetches the direct child records of a given LEI.
+Fetches the direct or ultimate child records of a given LEI.
 }
 \examples{
 \dontrun{
+# get direct children
 lei_children("529900W18LQJJN6SJ336")
+
+# get ultimate children
+lei_children("529900W18LQJJN6SJ336", type = "ultimate")
 }
 }

@@ -38,6 +38,7 @@ test_that("lei_records rejects id with filters", {
 test_that("lei_children validates inputs", {
   expect_error(lei_children(id = 123))
   expect_error(lei_children(id = "foo", simplify = "yes"))
+  expect_error(lei_children(id = "foo", type = "sideways"))
 })
 
 test_that("lei_isins validates inputs", {
@@ -47,6 +48,16 @@ test_that("lei_isins validates inputs", {
 test_that("lei_parents validates inputs", {
   expect_error(lei_parents(id = 123))
   expect_error(lei_parents(id = "foo", simplify = "yes"))
+})
+
+test_that("lei_fuzzy validates inputs", {
+  expect_error(lei_fuzzy(q = 123))
+  expect_error(lei_fuzzy(q = "foo", field = "unsupported"))
+})
+
+test_that("lei_autocomplete validates inputs", {
+  expect_error(lei_autocomplete(q = 123))
+  expect_error(lei_autocomplete(q = "foo", field = "unsupported"))
 })
 
 test_that("lei_issuers returns expected format", {
@@ -100,5 +111,23 @@ test_that("lei_parents returns expected format", {
   res <- lei_parents("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "value"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_fuzzy returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_fuzzy("Deutsche Bank", field = "entity.legalName")
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("value", "lei"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_autocomplete returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_autocomplete("Deutsche Bank")
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("value", "lei"))
   expect_gt(nrow(res), 0L)
 })

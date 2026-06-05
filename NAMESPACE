@@ -2,7 +2,9 @@
 
 export(gleifr_cache_clear)
 export(gleifr_cache_dir)
+export(lei_autocomplete)
 export(lei_children)
+export(lei_fuzzy)
 export(lei_isins)
 export(lei_issuers)
 export(lei_mapping)

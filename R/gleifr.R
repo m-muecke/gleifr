@@ -238,10 +238,12 @@ lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 
 #' Fetch LEI child records
 #'
-#' Fetches the direct child records of a given LEI.
+#' Fetches the direct or ultimate child records of a given LEI.
 #'
 #' @param id (`character(1)`)\cr
 #'   The Legal Entity Identifier (LEI) to fetch the children for.
+#' @param type (`character(1)`)\cr
+#'   The type of children to fetch. One of `"direct"` or `"ultimate"`. Default is `"direct"`.
 #' @param simplify (`logical(1)`)\cr
 #'   Should the output be simplified? Default `TRUE`.
 #' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
@@ -253,11 +255,16 @@ lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' @export
 #' @examples
 #' \dontrun{
+#' # get direct children
 #' lei_children("529900W18LQJJN6SJ336")
+#'
+#' # get ultimate children
+#' lei_children("529900W18LQJJN6SJ336", type = "ultimate")
 #' }
-lei_children <- function(id, simplify = TRUE) {
+lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
+  type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
-  path <- paste("lei-records", id, "direct-children", sep = "/")
+  path <- paste("lei-records", id, paste0(type, "-children"), sep = "/")
   data <- fetch_lei_iter(path, list(`page[size]` = 200L))
   if (!simplify) {
     return(data)
@@ -288,6 +295,74 @@ lei_isins <- function(id) {
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
+  })
+  do.call(rbind, rows)
+}
+
+#' Fuzzy search for LEI records
+#'
+#' Performs a typo-tolerant, approximate search against the GLEIF API. Unlike the filters in
+#' [lei_records()], which match literal substrings, this matches on edit distance and returns
+#' candidate values together with their LEI. Useful for resolving messy or misspelled entity names
+#' to a LEI, which can then be passed to [lei_records()].
+#'
+#' @param q (`character(1)`)\cr
+#'   The search query.
+#' @param field (`character(1)`)\cr
+#'   The field to search. One of `"fulltext"`, `"entity.legalName"`, `"owns"`, or `"ownedBy"`.
+#'   Default is `"fulltext"`.
+#' @returns A `data.frame()` with columns:
+#' - **value**: The matched value
+#' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
+#' @source <https://www.gleif.org/en/lei-data/gleif-api>
+#' @seealso [lei_autocomplete()] for prefix-based completion, [lei_records()] for full records.
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_fuzzy("Deutsch Bank", field = "entity.legalName")
+#' }
+lei_fuzzy <- function(
+  q,
+  field = c("fulltext", "entity.legalName", "owns", "ownedBy")
+) {
+  field <- match.arg(field)
+  stopifnot(is_string(q))
+  fetch_completions("fuzzycompletions", field, q)
+}
+
+#' Autocomplete LEI records
+#'
+#' Performs a prefix-based completion against the GLEIF API, returning candidate values together
+#' with their LEI. Useful for typeahead-style lookups. For typo-tolerant matching, see [lei_fuzzy()].
+#'
+#' @param q (`character(1)`)\cr
+#'   The search query.
+#' @param field (`character(1)`)\cr
+#'   The field to search. One of `"fulltext"` or `"owns"`. Default is `"fulltext"`.
+#' @returns A `data.frame()` with columns:
+#' - **value**: The matched value
+#' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
+#' @source <https://www.gleif.org/en/lei-data/gleif-api>
+#' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_records()] for full records.
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_autocomplete("Appl")
+#' }
+lei_autocomplete <- function(q, field = c("fulltext", "owns")) {
+  field <- match.arg(field)
+  stopifnot(is_string(q))
+  fetch_completions("autocompletions", field, q)
+}
+
+fetch_completions <- function(path, field, q) {
+  res <- fetch_lei(path, list(field = field, q = q))
+  rows <- lapply(res$data, function(x) {
+    data.frame(
+      value = x$attributes$value,
+      lei = x$relationships$`lei-records`$data$id %||% NA_character_,
+      check.names = FALSE
+    )
   })
   do.call(rbind, rows)
 }
