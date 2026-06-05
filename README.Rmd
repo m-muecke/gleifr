@@ -106,16 +106,6 @@ To fetch the ISINs for a single entity instead of the full file, use `lei_isins(
 lei_isins("529900W18LQJJN6SJ336")
 ```
 
-### Reference data
-
-`lei_regions()` and `lei_issuers()` return supporting reference data, the latter listing the accredited Local Operating Units (LOUs) that issue LEIs:
-
-```{r}
-#| eval: false
-lei_regions()
-lei_issuers()
-```
-
 ## Caching
 
 API responses can be cached locally to avoid repeated downloads.
@@ -133,7 +123,3 @@ options(gleifr.cache_max_age = 3600)
 gleifr_cache_dir()
 gleifr_cache_clear()
 ```
-
-## Related work
-
-- [gleifr](https://github.com/Financial-Times/gleifr) - R package to support analysis of GLEIF data
