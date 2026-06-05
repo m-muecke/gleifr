@@ -1,33 +1,33 @@
-# Get or manage the gleif API cache
+# Get or manage the gleifr API cache
 
-`gleif_cache_dir()` returns the path where cached API responses are
-stored. `gleif_cache_clear()` clears all cached responses.
+`gleifr_cache_dir()` returns the path where cached API responses are
+stored. `gleifr_cache_clear()` clears all cached responses.
 
 ## Usage
 
 ``` r
-gleif_cache_dir()
+gleifr_cache_dir()
 
-gleif_cache_clear()
+gleifr_cache_clear()
 ```
 
 ## Details
 
-The cache is only used when enabled with `options(gleif.cache = TRUE)`.
+The cache is only used when enabled with `options(gleifr.cache = TRUE)`.
 Cached responses are stored for 1 day by default, but this can be
-customized with `options(gleif.cache_max_age = seconds)`.
+customized with `options(gleifr.cache_max_age = seconds)`.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
 # enable caching
-options(gleif.cache = TRUE)
+options(gleifr.cache = TRUE)
 
 # view cache location
-gleif_cache_dir()
+gleifr_cache_dir()
 
 # clear the cache
-gleif_cache_clear()
+gleifr_cache_clear()
 } # }
 ```

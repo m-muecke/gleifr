@@ -1,6 +1,6 @@
-# gleif
+# gleifr
 
-gleif is a minimal R client for the [gleif](https://www.gleif.org) API.
+gleifr is a minimal R client for the [GLEIF](https://www.gleif.org) API.
 A major challenge when dealing with financial data is the mapping of
 entities across different data sources. Especially when dealing with
 legal entities, the Legal Entity Identifier (LEI) can be used to
@@ -8,13 +8,13 @@ uniquely identify entities.
 
 ## Installation
 
-You can install the development version of gleif from
+You can install the development version of gleifr from
 [GitHub](https://github.com/) with:
 
 ``` r
 
 # install.packages("pak")
-pak::pak("m-muecke/gleif")
+pak::pak("m-muecke/gleifr")
 ```
 
 ## Usage
@@ -24,7 +24,7 @@ records by LEI is supported:
 
 ``` r
 
-library(gleif)
+library(gleifr)
 
 # fetch the latest LEI mapping data (single file with all mappings)
 mapping <- lei_mapping("isin")

@@ -8,15 +8,15 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/m-muecke/gleif/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/m-muecke/gleifr/blob/main/DESCRIPTION)
 
-Mücke M (2026). *gleif: GLEIF API Wrapper*. R package version 0.0.1,
-<https://m-muecke.github.io/gleif>.
+Mücke M (2026). *gleifr: GLEIF API Wrapper*. R package version 0.0.1,
+<https://m-muecke.github.io/gleifr>.
 
     @Manual{,
-      title = {gleif: GLEIF API Wrapper},
+      title = {gleifr: GLEIF API Wrapper},
       author = {Maximilian Mücke},
       year = {2026},
       note = {R package version 0.0.1},
-      url = {https://m-muecke.github.io/gleif},
+      url = {https://m-muecke.github.io/gleifr},
     }
