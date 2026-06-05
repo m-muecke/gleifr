@@ -1,11 +1,11 @@
 # Fetch LEI child records
 
-Fetches the direct child records of a given LEI.
+Fetches the direct or ultimate child records of a given LEI.
 
 ## Usage
 
 ``` r
-lei_children(id, simplify = TRUE)
+lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
 ```
 
 ## Arguments
@@ -14,6 +14,12 @@ lei_children(id, simplify = TRUE)
 
   (`character(1)`)  
   The Legal Entity Identifier (LEI) to fetch the children for.
+
+- type:
+
+  (`character(1)`)  
+  The type of children to fetch. One of `"direct"` or `"ultimate"`.
+  Default is `"direct"`.
 
 - simplify:
 
@@ -39,6 +45,10 @@ response.
 
 ``` r
 if (FALSE) { # \dontrun{
+# get direct children
 lei_children("529900W18LQJJN6SJ336")
+
+# get ultimate children
+lei_children("529900W18LQJJN6SJ336", type = "ultimate")
 } # }
 ```
