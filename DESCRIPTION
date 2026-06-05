@@ -9,10 +9,11 @@ Description: Download legal entity reference data from the 'Global Legal
     Identifier ('LEI') records, their direct and ultimate parent and child
     relationships, accredited issuers ('Local Operating Units'), and
     mappings from 'LEI' codes to other identifiers such as 'ISIN', 'BIC',
-    and 'MIC'. See <https://www.gleif.org/en/lei-data/gleif-api> for further
-    details.
+    and 'MIC'. See <https://www.gleif.org/en/lei-data/gleif-api> for
+    further details.
 License: MIT + file LICENSE
-URL: https://m-muecke.github.io/gleifr/, https://github.com/m-muecke/gleifr
+URL: https://m-muecke.github.io/gleifr/,
+    https://github.com/m-muecke/gleifr
 BugReports: https://github.com/m-muecke/gleifr/issues
 Depends:
     R (>= 4.1.0)
