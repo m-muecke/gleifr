@@ -90,7 +90,6 @@
 <span><span class="co">#&gt;  $ lei  : chr  "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJ"..</span></span>
 <span><span class="co">#&gt;  $ name : chr  "entity_legal_name_name" "entity_legal_name_language" "entity_"..</span></span>
 <span><span class="co">#&gt;  $ value: chr  "Fidelity Advisor Leveraged Company Stock Fund" "en" "FIDELITY"..</span></span></code></pre></div>
-<p>Set <code>simplify = FALSE</code> to get the raw API response as a nested list instead.</p>
 </div>
 <div class="section level3">
 <h3 id="searching-for-records">Searching for records<a class="anchor" aria-label="anchor" href="#searching-for-records"></a>
@@ -133,20 +132,12 @@
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/lei_isins.html">lei_isins</a></span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="reference-data">Reference data<a class="anchor" aria-label="anchor" href="#reference-data"></a>
-</h3>
-<p><code><a href="reference/lei_regions.html">lei_regions()</a></code> and <code><a href="reference/lei_issuers.html">lei_issuers()</a></code> return supporting reference data, the latter listing the accredited Local Operating Units (LOUs) that issue LEIs:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="reference/lei_regions.html">lei_regions</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/lei_issuers.html">lei_issuers</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-</div>
 </div>
 <div class="section level2">
 <h2 id="caching">Caching<a class="anchor" aria-label="anchor" href="#caching"></a>
 </h2>
 <p>API responses can be cached locally to avoid repeated downloads. Caching is opt-in and controlled through options:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># enable caching (responses are kept for 1 day by default)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>gleifr.cache <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span></span>
@@ -156,14 +147,6 @@
 <span><span class="co"># inspect or clear the cache</span></span>
 <span><span class="fu"><a href="reference/cache.html">gleifr_cache_dir</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/cache.html">gleifr_cache_clear</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="related-work">Related work<a class="anchor" aria-label="anchor" href="#related-work"></a>
-</h2>
-<ul>
-<li>
-<a href="https://github.com/Financial-Times/gleifr" class="external-link">gleifr</a> - R package to support analysis of GLEIF data</li>
-</ul>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
