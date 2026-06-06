@@ -3,7 +3,7 @@
 gleifr is a minimal R client for the [GLEIF](https://www.gleif.org) API.
 A major challenge when dealing with financial data is mapping entities
 across different data sources. The [Legal Entity Identifier
-(LEI)](https://www.gleif.org/en/about-lei/introducing-the-legal-entity-identifier-lei)
+(LEI)](https://www.gleif.org/en/organizational-identity/lei-vlei/the-legal-entity-identifier-lei)
 is a 20-character, alphanumeric code that uniquely identifies legally
 distinct entities that engage in financial transactions. The Global
 Legal Entity Identifier Foundation (GLEIF) maintains the global LEI
