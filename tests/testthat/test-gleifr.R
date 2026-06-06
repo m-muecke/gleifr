@@ -82,6 +82,42 @@ test_that("lei_regions returns expected format", {
   expect_gt(nrow(res), 0L)
 })
 
+test_that("lei_countries returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_countries()
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("code", "name"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_jurisdictions returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_jurisdictions()
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("code", "name"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_legal_forms returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_legal_forms()
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("code", "country", "country_code", "status", "name", "language"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_registration_authorities returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_registration_authorities()
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("code", "international_name", "local_name", "website"))
+  expect_gt(nrow(res), 0L)
+})
+
 test_that("lei_records works with filters", {
   skip_on_cran()
   skip_if_offline()
@@ -141,7 +177,8 @@ test_that("lei_modifications returns expected format", {
 test_that("lei_fuzzy returns expected format", {
   skip_on_cran()
   skip_if_offline()
-  res <- lei_fuzzy("Deutsche Bank", field = "entity.legalName")
+  res <- lei_fuzzy("Deutsch Bank", field = "entity.legalName")
+  skip_if(is.null(res), "fuzzycompletions endpoint returned no results")
   expect_s3_class(res, "data.frame")
   expect_named(res, c("value", "lei"))
   expect_gt(nrow(res), 0L)
@@ -151,6 +188,7 @@ test_that("lei_autocomplete returns expected format", {
   skip_on_cran()
   skip_if_offline()
   res <- lei_autocomplete("Deutsche Bank")
+  skip_if(is.null(res), "autocompletions endpoint returned no results")
   expect_s3_class(res, "data.frame")
   expect_named(res, c("value", "lei"))
   expect_gt(nrow(res), 0L)

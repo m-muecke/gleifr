@@ -186,13 +186,132 @@ lei_issuers <- function() {
   resp <- fetch_lei("lei-issuers", list(`page[size]` = 100L))
   data <- resp$data
   rows <- lapply(data, function(x) {
-    a <- x$attributes
+    attrs <- x$attributes
     data.frame(
-      lei = a$lei,
-      name = a$name,
-      marketing_name = a$marketingName %||% NA_character_,
-      website = a$website %||% NA_character_,
-      accreditation_date = a$accreditationDate %||% NA_character_,
+      lei = attrs$lei,
+      name = attrs$name,
+      marketing_name = attrs$marketingName %||% NA_character_,
+      website = attrs$website %||% NA_character_,
+      accreditation_date = attrs$accreditationDate %||% NA_character_,
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, rows)
+}
+
+#' Fetch the list of countries
+#'
+#' Fetches the list of countries (ISO 3166-1) recognized by the GLEIF API.
+#'
+#' @returns A `data.frame()` with columns:
+#' - **code**: The country code
+#' - **name**: The country name
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_countries()
+#' }
+lei_countries <- function() {
+  fetch_code_list("countries")
+}
+
+#' Fetch the list of jurisdictions
+#'
+#' Fetches the list of jurisdictions (countries and their subdivisions) recognized by the GLEIF API.
+#'
+#' @returns A `data.frame()` with columns:
+#' - **code**: The jurisdiction code
+#' - **name**: The jurisdiction name
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_jurisdictions()
+#' }
+lei_jurisdictions <- function() {
+  fetch_code_list("jurisdictions")
+}
+
+#' Fetch the list of entity legal forms
+#'
+#' Fetches the list of entity legal forms (ELF codes) recognized by the GLEIF API. These resolve the
+#' legal form codes that appear in [lei_records()] output to human-readable names.
+#'
+#' @returns A `data.frame()` with columns:
+#' - **code**: The entity legal form (ELF) code
+#' - **country**: The country the legal form applies to
+#' - **country_code**: The country code
+#' - **status**: The status of the legal form, e.g. `"ACTV"`
+#' - **name**: The local name of the legal form
+#' - **language**: The language of the name
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_legal_forms()
+#' }
+lei_legal_forms <- function() {
+  data <- fetch_lei_iter("entity-legal-forms", list(`page[size]` = 200L))
+  rows <- lapply(data, function(x) {
+    attrs <- x$attributes
+    nms <- attrs$names
+    data.frame(
+      code = attrs$code,
+      country = attrs$country %||% NA_character_,
+      country_code = attrs$countryCode %||% NA_character_,
+      status = attrs$status,
+      name = if (length(nms) > 0L) {
+        vapply(nms, \(y) y$localName %||% NA_character_, "")
+      } else {
+        NA_character_
+      },
+      language = if (length(nms) > 0L) {
+        vapply(nms, \(y) y$language %||% NA_character_, "")
+      } else {
+        NA_character_
+      },
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, rows)
+}
+
+#' Fetch the list of registration authorities
+#'
+#' Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These
+#' resolve the registration authority codes that appear in [lei_records()] output to the issuing
+#' business registries.
+#'
+#' @returns A `data.frame()` with columns:
+#' - **code**: The registration authority (RA) code
+#' - **international_name**: The international name of the authority
+#' - **local_name**: The local name of the authority, or `NA` if none
+#' - **website**: The authority website, or `NA` if none
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_registration_authorities()
+#' }
+lei_registration_authorities <- function() {
+  data <- fetch_lei_iter("registration-authorities", list(`page[size]` = 200L))
+  rows <- lapply(data, function(x) {
+    attrs <- x$attributes
+    data.frame(
+      code = attrs$code,
+      international_name = attrs$internationalName %||% NA_character_,
+      local_name = attrs$localName %||% NA_character_,
+      website = attrs$website %||% NA_character_,
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, rows)
+}
+
+fetch_code_list <- function(endpoint) {
+  data <- fetch_lei_iter(endpoint, list(`page[size]` = 200L))
+  rows <- lapply(data, function(x) {
+    attrs <- x$attributes
+    data.frame(
+      code = attrs$code %||% NA_character_,
+      name = attrs$name %||% NA_character_,
       check.names = FALSE
     )
   })
@@ -325,15 +444,15 @@ lei_modifications <- function(id) {
   path <- paste("lei-records", id, "field-modifications", sep = "/")
   data <- fetch_lei_iter(path, list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
-    a <- x$attributes
+    attrs <- x$attributes
     data.frame(
-      lei = a$lei,
-      record_type = a$recordType,
-      modification_type = a$modificationType,
-      field = a$field,
-      date = a$date,
-      value_old = a$valueOld %||% NA_character_,
-      value_new = a$valueNew %||% NA_character_,
+      lei = attrs$lei,
+      record_type = attrs$recordType,
+      modification_type = attrs$modificationType,
+      field = attrs$field,
+      date = attrs$date,
+      value_old = attrs$valueOld %||% NA_character_,
+      value_new = attrs$valueNew %||% NA_character_,
       check.names = FALSE
     )
   })
@@ -434,6 +553,7 @@ fetch_lei_iter <- function(path, params = list()) {
     req_url_query(!!!params) |>
     req_headers(Accept = "application/json") |>
     req_error(body = lei_error_body) |>
+    req_retry(max_tries = 3L) |>
     req_gleifr_cache()
 
   resps <- req_perform_iterative(
@@ -441,7 +561,8 @@ fetch_lei_iter <- function(path, params = list()) {
     next_req = iterate_with_offset(
       "page[number]",
       resp_pages = \(resp) resp_body_json(resp)$meta$pagination$lastPage
-    )
+    ),
+    max_reqs = Inf
   )
 
   resps_data(resps, \(resp) resp_body_json(resp)$data)
@@ -454,6 +575,7 @@ fetch_lei <- function(path, params = list()) {
     req_url_query(!!!params) |>
     req_headers(Accept = "application/json") |>
     req_error(body = lei_error_body) |>
+    req_retry(max_tries = 3L) |>
     req_gleifr_cache() |>
     req_perform() |>
     resp_body_json()

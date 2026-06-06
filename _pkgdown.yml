@@ -9,14 +9,18 @@ reference:
     contents:
       - lei_autocomplete
       - lei_children
+      - lei_countries
       - lei_fuzzy
       - lei_isins
       - lei_issuers
+      - lei_jurisdictions
+      - lei_legal_forms
       - lei_mapping
       - lei_modifications
       - lei_parents
       - lei_records
       - lei_regions
+      - lei_registration_authorities
   - title: Cache
     contents:
       - cache
