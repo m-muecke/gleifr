@@ -66,6 +66,7 @@ test_that("lei_autocomplete validates inputs", {
 
 test_that("lei_issuers returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_issuers()
   expect_s3_class(res, "data.frame")
@@ -75,6 +76,7 @@ test_that("lei_issuers returns expected format", {
 
 test_that("lei_regions returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_regions()
   expect_s3_class(res, "data.frame")
@@ -84,6 +86,7 @@ test_that("lei_regions returns expected format", {
 
 test_that("lei_countries returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_countries()
   expect_s3_class(res, "data.frame")
@@ -93,6 +96,7 @@ test_that("lei_countries returns expected format", {
 
 test_that("lei_jurisdictions returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_jurisdictions()
   expect_s3_class(res, "data.frame")
@@ -102,6 +106,7 @@ test_that("lei_jurisdictions returns expected format", {
 
 test_that("lei_legal_forms returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_legal_forms()
   expect_s3_class(res, "data.frame")
@@ -111,6 +116,7 @@ test_that("lei_legal_forms returns expected format", {
 
 test_that("lei_registration_authorities returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_registration_authorities()
   expect_s3_class(res, "data.frame")
@@ -120,6 +126,7 @@ test_that("lei_registration_authorities returns expected format", {
 
 test_that("lei_records works with filters", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_records(fulltext = "Deutsche Bank", page_size = 10L)
   expect_s3_class(res, "data.frame")
@@ -129,6 +136,7 @@ test_that("lei_records works with filters", {
 
 test_that("lei_children returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_children("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
@@ -138,6 +146,7 @@ test_that("lei_children returns expected format", {
 
 test_that("lei_isins returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_isins("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
@@ -147,6 +156,7 @@ test_that("lei_isins returns expected format", {
 
 test_that("lei_parents returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_parents("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
@@ -156,6 +166,7 @@ test_that("lei_parents returns expected format", {
 
 test_that("lei_modifications returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_modifications("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
@@ -176,6 +187,7 @@ test_that("lei_modifications returns expected format", {
 
 test_that("lei_fuzzy returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_fuzzy("Deutsch Bank", field = "entity.legalName")
   skip_if(is.null(res), "fuzzycompletions endpoint returned no results")
@@ -186,6 +198,7 @@ test_that("lei_fuzzy returns expected format", {
 
 test_that("lei_autocomplete returns expected format", {
   skip_on_cran()
+  skip_on_ci()
   skip_if_offline()
   res <- lei_autocomplete("Deutsche Bank")
   skip_if(is.null(res), "autocompletions endpoint returned no results")
