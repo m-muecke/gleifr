@@ -15,7 +15,7 @@
 #' }
 lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
   url <- latest_url(type)
-  gleifr_download(url)
+  lei_download(url)
 }
 
 #' Fetch LEI records
@@ -564,7 +564,7 @@ latest_url <- function(type = c("isin", "bic", "mic", "oc")) {
   files[[1L]]
 }
 
-gleifr_download <- function(url) {
+lei_download <- function(url) {
   td <- tempfile()
   dir.create(td)
   on.exit(unlink(td, recursive = TRUE), add = TRUE)

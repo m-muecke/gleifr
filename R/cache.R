@@ -37,7 +37,7 @@ lei_cache_clear <- function() {
   }
 }
 
-req_gleifr_cache <- function(req) {
+req_lei_cache <- function(req) {
   if (isTRUE(getOption("gleifr.cache", FALSE))) {
     req <- req_cache(
       req,

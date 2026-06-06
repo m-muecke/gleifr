@@ -1,30 +1,30 @@
-gleifr_user_agent <- function() {
+lei_user_agent <- function() {
   sprintf("gleifr/%s", utils::packageVersion("gleifr"))
 }
 
-req_gleifr_retry <- function(req) {
+req_lei_retry <- function(req) {
   req_retry(req, max_tries = 3L, is_transient = \(resp) resp_status(resp) %in% c(429L, 500L, 503L))
 }
 
-gleifr_request <- function(path, params = list()) {
+lei_request <- function(path, params = list()) {
   request("https://api.gleif.org/api/v1") |>
-    req_user_agent(gleifr_user_agent()) |>
+    req_user_agent(lei_user_agent()) |>
     req_url_path_append(path) |>
     req_url_query(!!!params) |>
     req_headers(Accept = "application/json") |>
     req_error(body = lei_error_body) |>
-    req_gleifr_retry() |>
-    req_gleifr_cache()
+    req_lei_retry() |>
+    req_lei_cache()
 }
 
 fetch_lei <- function(path, params = list()) {
-  gleifr_request(path, params) |>
+  lei_request(path, params) |>
     req_perform() |>
     resp_body_json()
 }
 
 fetch_lei_iter <- function(path, params = list()) {
-  resps <- gleifr_request(path, params) |>
+  resps <- lei_request(path, params) |>
     req_perform_iterative(
       next_req = iterate_with_offset(
         "page[number]",
