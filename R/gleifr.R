@@ -542,51 +542,8 @@ simplify_records <- function(x) {
 clean_names <- function(tab) {
   tab$name <- sub("\\.X$", "", tab$name)
   tab$name <- gsub(".", "_", tab$name, fixed = TRUE)
-  tab$name <- convert_camel_case(tab$name)
+  tab$name <- to_snake_case(tab$name)
   tab
-}
-
-fetch_lei_iter <- function(path, params = list()) {
-  req <- request("https://api.gleif.org/api/v1") |>
-    req_user_agent(gleifr_user_agent()) |>
-    req_url_path_append(path) |>
-    req_url_query(!!!params) |>
-    req_headers(Accept = "application/json") |>
-    req_error(body = lei_error_body) |>
-    req_retry(max_tries = 3L) |>
-    req_gleifr_cache()
-
-  resps <- req_perform_iterative(
-    req,
-    next_req = iterate_with_offset(
-      "page[number]",
-      resp_pages = \(resp) resp_body_json(resp)$meta$pagination$lastPage
-    ),
-    max_reqs = Inf
-  )
-
-  resps_data(resps, \(resp) resp_body_json(resp)$data)
-}
-
-fetch_lei <- function(path, params = list()) {
-  request("https://api.gleif.org/api/v1") |>
-    req_user_agent(gleifr_user_agent()) |>
-    req_url_path_append(path) |>
-    req_url_query(!!!params) |>
-    req_headers(Accept = "application/json") |>
-    req_error(body = lei_error_body) |>
-    req_retry(max_tries = 3L) |>
-    req_gleifr_cache() |>
-    req_perform() |>
-    resp_body_json()
-}
-
-lei_error_body <- function(resp) {
-  content_type <- resp_content_type(resp)
-  if (content_type %in% c("application/json", "application/vnd.api+json")) {
-    json <- resp_body_json(resp)
-    vapply(json$errors, \(x) x$title, "")
-  }
 }
 
 latest_url <- function(type = c("isin", "bic", "mic", "oc")) {
@@ -616,8 +573,4 @@ gleifr_download <- function(url) {
   file <- utils::unzip(tf, exdir = td)
   mapping <- utils::read.csv(file)
   setNames(mapping, tolower(names(mapping)))
-}
-
-gleifr_user_agent <- function() {
-  sprintf("gleifr/%s", utils::packageVersion("gleifr"))
 }

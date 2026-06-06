@@ -1,8 +1,8 @@
-test_that("convert_camel_case works", {
-  expect_identical(convert_camel_case("legalName"), "legal_name")
-  expect_identical(convert_camel_case("entityID"), "entity_id")
-  expect_identical(convert_camel_case("already_snake"), "already_snake")
-  expect_identical(convert_camel_case("XMLParser"), "xml_parser")
+test_that("to_snake_case works", {
+  expect_identical(to_snake_case("legalName"), "legal_name")
+  expect_identical(to_snake_case("entityID"), "entity_id")
+  expect_identical(to_snake_case("already_snake"), "already_snake")
+  expect_identical(to_snake_case("XMLParser"), "xml_parser")
 })
 
 test_that("clean_names cleans attribute names", {
