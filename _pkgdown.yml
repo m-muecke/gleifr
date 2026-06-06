@@ -13,6 +13,7 @@ reference:
       - lei_isins
       - lei_issuers
       - lei_mapping
+      - lei_modifications
       - lei_parents
       - lei_records
       - lei_regions

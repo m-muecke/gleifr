@@ -45,6 +45,10 @@ test_that("lei_isins validates inputs", {
   expect_error(lei_isins(id = 123))
 })
 
+test_that("lei_modifications validates inputs", {
+  expect_error(lei_modifications(id = 123))
+})
+
 test_that("lei_parents validates inputs", {
   expect_error(lei_parents(id = 123))
   expect_error(lei_parents(id = "foo", simplify = "yes"))
@@ -111,6 +115,26 @@ test_that("lei_parents returns expected format", {
   res <- lei_parents("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "value"))
+  expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_modifications returns expected format", {
+  skip_on_cran()
+  skip_if_offline()
+  res <- lei_modifications("529900W18LQJJN6SJ336")
+  expect_s3_class(res, "data.frame")
+  expect_named(
+    res,
+    c(
+      "lei",
+      "record_type",
+      "modification_type",
+      "field",
+      "date",
+      "value_old",
+      "value_new"
+    )
+  )
   expect_gt(nrow(res), 0L)
 })
 

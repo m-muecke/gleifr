@@ -299,6 +299,47 @@ lei_isins <- function(id) {
   do.call(rbind, rows)
 }
 
+#' Fetch the change history of a LEI record
+#'
+#' Fetches the field-level modification history of a given LEI, i.e. an audit log of every recorded
+#' change to the entity (`recordType` `"LEI"`) and its relationships (`recordType` `"RR"`).
+#'
+#' @param id (`character(1)`)\cr
+#'   The Legal Entity Identifier (LEI) to fetch the change history for.
+#' @returns A `data.frame()` with columns:
+#' - **lei**: The Legal Entity Identifier
+#' - **record_type**: The record the change applies to, `"LEI"` or `"RR"`
+#' - **modification_type**: The type of change, e.g. `"UPDATE"`
+#' - **field**: The path of the changed field
+#' - **date**: The date of the change
+#' - **value_old**: The previous value, or `NA` if none
+#' - **value_new**: The new value, or `NA` if none
+#' @source <https://www.gleif.org/en/lei-data/gleif-api>
+#' @export
+#' @examples
+#' \dontrun{
+#' lei_modifications("529900W18LQJJN6SJ336")
+#' }
+lei_modifications <- function(id) {
+  stopifnot(is_string(id))
+  path <- paste("lei-records", id, "field-modifications", sep = "/")
+  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
+  rows <- lapply(data, function(x) {
+    a <- x$attributes
+    data.frame(
+      lei = a$lei,
+      record_type = a$recordType,
+      modification_type = a$modificationType,
+      field = a$field,
+      date = a$date,
+      value_old = a$valueOld %||% NA_character_,
+      value_new = a$valueNew %||% NA_character_,
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, rows)
+}
+
 #' Fuzzy search for LEI records
 #'
 #' Performs a typo-tolerant, approximate search against the GLEIF API. Unlike the filters in
