@@ -33,6 +33,6 @@
 
 ## Cache
 
-- [`gleifr_cache_dir()`](https://m-muecke.github.io/gleifr/reference/cache.md)
-  [`gleifr_cache_clear()`](https://m-muecke.github.io/gleifr/reference/cache.md)
+- [`lei_cache_dir()`](https://m-muecke.github.io/gleifr/reference/cache.md)
+  [`lei_cache_clear()`](https://m-muecke.github.io/gleifr/reference/cache.md)
   : Get or manage the gleifr API cache

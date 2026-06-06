@@ -1,14 +1,14 @@
 # Get or manage the gleifr API cache
 
-`gleifr_cache_dir()` returns the path where cached API responses are
-stored. `gleifr_cache_clear()` clears all cached responses.
+`lei_cache_dir()` returns the path where cached API responses are
+stored. `lei_cache_clear()` clears all cached responses.
 
 ## Usage
 
 ``` r
-gleifr_cache_dir()
+lei_cache_dir()
 
-gleifr_cache_clear()
+lei_cache_clear()
 ```
 
 ## Details
@@ -25,9 +25,9 @@ if (FALSE) { # \dontrun{
 options(gleifr.cache = TRUE)
 
 # view cache location
-gleifr_cache_dir()
+lei_cache_dir()
 
 # clear the cache
-gleifr_cache_clear()
+lei_cache_clear()
 } # }
 ```

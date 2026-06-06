@@ -132,6 +132,6 @@ options(gleifr.cache = TRUE)
 options(gleifr.cache_max_age = 3600)
 
 # inspect or clear the cache
-gleifr_cache_dir()
-gleifr_cache_clear()
+lei_cache_dir()
+lei_cache_clear()
 ```

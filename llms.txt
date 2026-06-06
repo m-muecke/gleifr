@@ -132,8 +132,8 @@ options(gleifr.cache = TRUE)
 options(gleifr.cache_max_age = 3600)
 
 # inspect or clear the cache
-gleifr_cache_dir()
-gleifr_cache_clear()
+lei_cache_dir()
+lei_cache_clear()
 ```
 
 # Package index
@@ -171,7 +171,7 @@ gleifr_cache_clear()
 
 ## Cache
 
-- [`gleifr_cache_dir()`](https://m-muecke.github.io/gleifr/reference/cache.md)
-  [`gleifr_cache_clear()`](https://m-muecke.github.io/gleifr/reference/cache.md)
+- [`lei_cache_dir()`](https://m-muecke.github.io/gleifr/reference/cache.md)
+  [`lei_cache_clear()`](https://m-muecke.github.io/gleifr/reference/cache.md)
   : Get or manage the gleifr API cache
 
