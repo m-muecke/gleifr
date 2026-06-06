@@ -18,6 +18,7 @@ BugReports: https://github.com/m-muecke/gleifr/issues
 Depends:
     R (>= 4.1.0)
 Imports:
+    curl,
     httr2,
     rvest,
     stats,

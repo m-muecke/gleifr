@@ -569,7 +569,7 @@ gleifr_download <- function(url) {
   dir.create(td)
   on.exit(unlink(td, recursive = TRUE), add = TRUE)
   tf <- file.path(td, "tempfile.zip")
-  utils::download.file(url, destfile = tf, quiet = TRUE, mode = "wb")
+  curl::curl_download(url, tf)
   file <- utils::unzip(tf, exdir = td)
   mapping <- utils::read.csv(file)
   setNames(mapping, tolower(names(mapping)))
