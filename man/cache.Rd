@@ -2,17 +2,17 @@
 % Please edit documentation in R/cache.R
 \name{cache}
 \alias{cache}
-\alias{gleifr_cache_dir}
-\alias{gleifr_cache_clear}
+\alias{lei_cache_dir}
+\alias{lei_cache_clear}
 \title{Get or manage the gleifr API cache}
 \usage{
-gleifr_cache_dir()
+lei_cache_dir()
 
-gleifr_cache_clear()
+lei_cache_clear()
 }
 \description{
-\code{gleifr_cache_dir()} returns the path where cached API responses are stored.
-\code{gleifr_cache_clear()} clears all cached responses.
+\code{lei_cache_dir()} returns the path where cached API responses are stored.
+\code{lei_cache_clear()} clears all cached responses.
 }
 \details{
 The cache is only used when enabled with \code{options(gleifr.cache = TRUE)}.
@@ -25,9 +25,9 @@ Cached responses are stored for 1 day by default, but this can be customized wit
 options(gleifr.cache = TRUE)
 
 # view cache location
-gleifr_cache_dir()
+lei_cache_dir()
 
 # clear the cache
-gleifr_cache_clear()
+lei_cache_clear()
 }
 }
