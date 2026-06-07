@@ -40,14 +40,14 @@ library(gleifr)
 ### Looking up a record by LEI
 
 Pass a LEI to
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
 to retrieve its full reference data. By default the result is returned
 as a tidy long-format data frame with one attribute per row:
 
 ``` r
 
-records <- lei_records("001GPB6A9XPE8XJICC14")
-str(records)
+record <- lei_record_by_id("001GPB6A9XPE8XJICC14")
+str(record)
 #> 'data.frame':    37 obs. of  3 variables:
 #>  $ lei  : chr  "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJ"..
 #>  $ name : chr  "entity_legal_name_name" "entity_legal_name_language" "entity_"..
@@ -56,9 +56,9 @@ str(records)
 
 ### Searching for records
 
-When called without an `id`,
+Use
 [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
-searches the LEI database. You can filter by legal name, jurisdiction,
+to query the LEI database. You can filter by legal name, jurisdiction,
 status, or run a full-text query:
 
 ``` r
@@ -78,14 +78,14 @@ e.g. `"filter[entity.legalAddress.country]" = "DE"`.
 ### Corporate relationships
 
 Traverse ownership hierarchies with
-[`lei_parents()`](https://m-muecke.github.io/gleifr/reference/lei_parents.md)
+[`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
 and
 [`lei_children()`](https://m-muecke.github.io/gleifr/reference/lei_children.md):
 
 ``` r
 
 # direct parent (use type = "ultimate" for the ultimate parent)
-lei_parents("529900W18LQJJN6SJ336")
+lei_parent("529900W18LQJJN6SJ336")
 
 # direct children
 lei_children("529900W18LQJJN6SJ336")
@@ -160,8 +160,10 @@ lei_cache_clear()
   : Download the latest LEI mapping data
 - [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md)
   : Fetch the change history of a LEI record
-- [`lei_parents()`](https://m-muecke.github.io/gleifr/reference/lei_parents.md)
-  : Fetch LEI parent records
+- [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
+  : Fetch a LEI parent record
+- [`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
+  : Fetch a LEI record
 - [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
   : Fetch LEI records
 - [`lei_regions()`](https://m-muecke.github.io/gleifr/reference/lei_regions.md)

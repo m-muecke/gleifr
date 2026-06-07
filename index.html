@@ -83,10 +83,10 @@
 <div class="section level3">
 <h3 id="looking-up-a-record-by-lei">Looking up a record by LEI<a class="anchor" aria-label="anchor" href="#looking-up-a-record-by-lei"></a>
 </h3>
-<p>Pass a LEI to <code><a href="reference/lei_records.html">lei_records()</a></code> to retrieve its full reference data. By default the result is returned as a tidy long-format data frame with one attribute per row:</p>
+<p>Pass a LEI to <code><a href="reference/lei_record_by_id.html">lei_record_by_id()</a></code> to retrieve its full reference data. By default the result is returned as a tidy long-format data frame with one attribute per row:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">records</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/lei_records.html">lei_records</a></span><span class="op">(</span><span class="st">"001GPB6A9XPE8XJICC14"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">records</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">record</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/lei_record_by_id.html">lei_record_by_id</a></span><span class="op">(</span><span class="st">"001GPB6A9XPE8XJICC14"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="va">record</span><span class="op">)</span></span>
 <span><span class="co">#&gt; 'data.frame':    37 obs. of  3 variables:</span></span>
 <span><span class="co">#&gt;  $ lei  : chr  "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJ"..</span></span>
 <span><span class="co">#&gt;  $ name : chr  "entity_legal_name_name" "entity_legal_name_language" "entity_"..</span></span>
@@ -95,7 +95,7 @@
 <div class="section level3">
 <h3 id="searching-for-records">Searching for records<a class="anchor" aria-label="anchor" href="#searching-for-records"></a>
 </h3>
-<p>When called without an <code>id</code>, <code><a href="reference/lei_records.html">lei_records()</a></code> searches the LEI database. You can filter by legal name, jurisdiction, status, or run a full-text query:</p>
+<p>Use <code><a href="reference/lei_records.html">lei_records()</a></code> to query the LEI database. You can filter by legal name, jurisdiction, status, or run a full-text query:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># search by legal name</span></span>
 <span><span class="fu"><a href="reference/lei_records.html">lei_records</a></span><span class="op">(</span>legal_name <span class="op">=</span> <span class="st">"Deutsche Bank"</span><span class="op">)</span></span>
@@ -107,10 +107,10 @@
 <div class="section level3">
 <h3 id="corporate-relationships">Corporate relationships<a class="anchor" aria-label="anchor" href="#corporate-relationships"></a>
 </h3>
-<p>Traverse ownership hierarchies with <code><a href="reference/lei_parents.html">lei_parents()</a></code> and <code><a href="reference/lei_children.html">lei_children()</a></code>:</p>
+<p>Traverse ownership hierarchies with <code><a href="reference/lei_parent.html">lei_parent()</a></code> and <code><a href="reference/lei_children.html">lei_children()</a></code>:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># direct parent (use type = "ultimate" for the ultimate parent)</span></span>
-<span><span class="fu"><a href="reference/lei_parents.html">lei_parents</a></span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/lei_parent.html">lei_parent</a></span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># direct children</span></span>
 <span><span class="fu"><a href="reference/lei_children.html">lei_children</a></span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span></code></pre></div>

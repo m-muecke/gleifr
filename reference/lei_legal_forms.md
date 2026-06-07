@@ -2,7 +2,7 @@
 
 Fetches the list of entity legal forms (ELF codes) recognized by the
 GLEIF API. These resolve the legal form codes that appear in
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
 output to human-readable names.
 
 ## Usage

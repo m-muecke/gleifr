@@ -41,7 +41,7 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 [`lei_fuzzy()`](https://m-muecke.github.io/gleifr/reference/lei_fuzzy.md)
 for typo-tolerant matching,
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
 for full records.
 
 ## Examples

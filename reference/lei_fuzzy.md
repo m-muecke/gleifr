@@ -6,7 +6,7 @@ Unlike the filters in
 which match literal substrings, this matches on edit distance and
 returns candidate values together with their LEI. Useful for resolving
 messy or misspelled entity names to a LEI, which can then be passed to
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md).
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md).
 
 ## Usage
 
@@ -44,7 +44,7 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 [`lei_autocomplete()`](https://m-muecke.github.io/gleifr/reference/lei_autocomplete.md)
 for prefix-based completion,
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
 for full records.
 
 ## Examples

@@ -1,12 +1,15 @@
 # Fetch LEI records
 
-Fetch LEI records
+Fetch LEI records from the GLEIF database, optionally filtered by
+attribute. The filters are combined with logical AND, so each one you
+supply narrows the results further. To fetch a single record by its LEI,
+see
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md).
 
 ## Usage
 
 ``` r
 lei_records(
-  id = NULL,
   legal_name = NULL,
   jurisdiction = NULL,
   status = NULL,
@@ -20,30 +23,25 @@ lei_records(
 
 ## Arguments
 
-- id:
-
-  (`NULL` \| `character(1)`)  
-  The Legal Entity Identifier (LEI) to fetch.
-
 - legal_name:
 
   (`NULL` \| `character(1)`)  
-  Filter by legal name. Only relevant when `id` is `NULL`.
+  Filter by legal name.
 
 - jurisdiction:
 
   (`NULL` \| `character(1)`)  
-  Filter by jurisdiction. Only relevant when `id` is `NULL`.
+  Filter by jurisdiction.
 
 - status:
 
   (`NULL` \| `character(1)`)  
-  Filter by entity status. Only relevant when `id` is `NULL`.
+  Filter by entity status.
 
 - fulltext:
 
   (`NULL` \| `character(1)`)  
-  Full-text search query. Only relevant when `id` is `NULL`.
+  Full-text search query.
 
 - ...:
 
@@ -54,14 +52,13 @@ lei_records(
 - page_size:
 
   (`NULL` \| `integer(1)`)  
-  The number of records per page. Only relevant when `id` is `NULL`.
-  Default `200L`.
+  The number of records per page. Default `200L`.
 
 - page_number:
 
   (`NULL` \| `integer(1)`)  
-  The page number to fetch. Only relevant when `id` is `NULL`. When
-  `NULL` (the default), all pages are fetched automatically.
+  The page number to fetch. When `NULL` (the default), all pages are
+  fetched automatically.
 
 - simplify:
 
@@ -83,17 +80,19 @@ When `simplify = FALSE`, a named
 [`list()`](https://rdrr.io/r/base/list.html) containing the raw API
 response.
 
+## See also
+
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
+to fetch a single record by its LEI.
+
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# get simplified long-format data.frame
-lei_records("529900W18LQJJN6SJ336")
-
-# get raw API response as named list
-lei_records("529900W18LQJJN6SJ336", simplify = FALSE)
-
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
+
+# filter by jurisdiction and status
+lei_records(jurisdiction = "DE", status = "ACTIVE")
 } # }
 ```

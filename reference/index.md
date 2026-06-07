@@ -22,8 +22,10 @@
   : Download the latest LEI mapping data
 - [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md)
   : Fetch the change history of a LEI record
-- [`lei_parents()`](https://m-muecke.github.io/gleifr/reference/lei_parents.md)
-  : Fetch LEI parent records
+- [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
+  : Fetch a LEI parent record
+- [`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
+  : Fetch a LEI record
 - [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
   : Fetch LEI records
 - [`lei_regions()`](https://m-muecke.github.io/gleifr/reference/lei_regions.md)

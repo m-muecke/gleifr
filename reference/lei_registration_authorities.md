@@ -3,7 +3,7 @@
 Fetches the list of registration authorities (RA codes) recognized by
 the GLEIF API. These resolve the registration authority codes that
 appear in
-[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+[`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
 output to the issuing business registries.
 
 ## Usage

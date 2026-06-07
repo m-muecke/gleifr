@@ -1,11 +1,11 @@
-# Fetch LEI child records
+# Fetch a LEI parent record
 
-Fetches the direct or ultimate child records of a given LEI.
+Fetches the direct or ultimate parent record of a given LEI.
 
 ## Usage
 
 ``` r
-lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
+lei_parent(id, type = c("direct", "ultimate"), simplify = TRUE)
 ```
 
 ## Arguments
@@ -13,12 +13,12 @@ lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
 - id:
 
   (`character(1)`)  
-  The Legal Entity Identifier (LEI) to fetch the children for.
+  The Legal Entity Identifier (LEI) to fetch the parent for.
 
 - type:
 
   (`character(1)`)  
-  The type of children to fetch. One of `"direct"` or `"ultimate"`.
+  The type of parent to fetch. One of `"direct"` or `"ultimate"`.
   Default is `"direct"`.
 
 - simplify:
@@ -43,17 +43,17 @@ response.
 
 ## See also
 
-[`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
-to fetch the parent record of a LEI.
+[`lei_children()`](https://m-muecke.github.io/gleifr/reference/lei_children.md)
+to fetch the child records of a LEI.
 
 ## Examples
 
 ``` r
 if (FALSE) { # \dontrun{
-# get direct children
-lei_children("529900W18LQJJN6SJ336")
+# get direct parent
+lei_parent("529900W18LQJJN6SJ336")
 
-# get ultimate children
-lei_children("529900W18LQJJN6SJ336", type = "ultimate")
+# get ultimate parent
+lei_parent("529900W18LQJJN6SJ336", type = "ultimate")
 } # }
 ```
