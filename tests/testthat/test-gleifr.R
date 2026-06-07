@@ -15,24 +15,15 @@ test_that("clean_names cleans attribute names", {
   expect_identical(res$name, c("entity_legal_name", "entity_status"))
 })
 
-test_that("lei_records validates inputs", {
-  expect_error(lei_records(id = 123))
-  expect_error(lei_records(simplify = "yes"))
-  expect_error(lei_records(page_size = -1))
+test_that("lei_record_by_id validates inputs", {
+  expect_error(lei_record_by_id(id = 123))
+  expect_error(lei_record_by_id("foo", simplify = "yes"))
 })
 
-test_that("lei_records rejects id with filters", {
-  expect_error(
-    lei_records(id = "529900W18LQJJN6SJ336", legal_name = "foo"),
-    "Cannot combine"
-  )
-  expect_error(
-    lei_records(
-      id = "529900W18LQJJN6SJ336",
-      `filter[entity.legalAddress.country]` = "DE"
-    ),
-    "Cannot combine"
-  )
+test_that("lei_records validates inputs", {
+  expect_error(lei_records(legal_name = 123))
+  expect_error(lei_records(simplify = "yes"))
+  expect_error(lei_records(page_size = -1))
 })
 
 test_that("lei_children validates inputs", {
@@ -49,9 +40,9 @@ test_that("lei_modifications validates inputs", {
   expect_error(lei_modifications(id = 123))
 })
 
-test_that("lei_parents validates inputs", {
-  expect_error(lei_parents(id = 123))
-  expect_error(lei_parents(id = "foo", simplify = "yes"))
+test_that("lei_parent validates inputs", {
+  expect_error(lei_parent(id = 123))
+  expect_error(lei_parent(id = "foo", simplify = "yes"))
 })
 
 test_that("lei_fuzzy validates inputs", {
@@ -163,12 +154,12 @@ test_that("lei_isins returns expected format", {
   expect_gt(nrow(res), 0L)
 })
 
-test_that("lei_parents returns expected format", {
+test_that("lei_parent returns expected format", {
   skip_on_cran()
   skip_on_ci()
   skip_if_offline()
 
-  res <- lei_parents("529900W18LQJJN6SJ336")
+  res <- lei_parent("529900W18LQJJN6SJ336")
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "value"))
   expect_gt(nrow(res), 0L)

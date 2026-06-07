@@ -47,13 +47,13 @@ library(gleifr)
 
 ### Looking up a record by LEI
 
-Pass a LEI to `lei_records()` to retrieve its full reference data. By
+Pass a LEI to `lei_record_by_id()` to retrieve its full reference data. By
 default the result is returned as a tidy long-format data frame with one
 attribute per row:
 
 ``` r
-records <- lei_records("001GPB6A9XPE8XJICC14")
-str(records)
+record <- lei_record_by_id("001GPB6A9XPE8XJICC14")
+str(record)
 #> 'data.frame':    37 obs. of  3 variables:
 #>  $ lei  : chr  "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJICC14" "001GPB6A9XPE8XJ"..
 #>  $ name : chr  "entity_legal_name_name" "entity_legal_name_language" "entity_"..
@@ -62,9 +62,8 @@ str(records)
 
 ### Searching for records
 
-When called without an `id`, `lei_records()` searches the LEI database.
-You can filter by legal name, jurisdiction, status, or run a full-text
-query:
+Use `lei_records()` to query the LEI database. You can filter by legal
+name, jurisdiction, status, or run a full-text query:
 
 ``` r
 # search by legal name
@@ -81,12 +80,12 @@ e.g. `"filter[entity.legalAddress.country]" = "DE"`.
 
 ### Corporate relationships
 
-Traverse ownership hierarchies with `lei_parents()` and
+Traverse ownership hierarchies with `lei_parent()` and
 `lei_children()`:
 
 ``` r
 # direct parent (use type = "ultimate" for the ultimate parent)
-lei_parents("529900W18LQJJN6SJ336")
+lei_parent("529900W18LQJJN6SJ336")
 
 # direct children
 lei_children("529900W18LQJJN6SJ336")

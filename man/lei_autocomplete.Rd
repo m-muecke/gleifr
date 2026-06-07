@@ -33,5 +33,5 @@ lei_autocomplete("Appl")
 }
 }
 \seealso{
-\code{\link[=lei_fuzzy]{lei_fuzzy()}} for typo-tolerant matching, \code{\link[=lei_records]{lei_records()}} for full records.
+\code{\link[=lei_fuzzy]{lei_fuzzy()}} for typo-tolerant matching, \code{\link[=lei_record_by_id]{lei_record_by_id()}} for full records.
 }

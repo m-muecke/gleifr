@@ -17,7 +17,8 @@ reference:
       - lei_legal_forms
       - lei_mapping
       - lei_modifications
-      - lei_parents
+      - lei_parent
+      - lei_record_by_id
       - lei_records
       - lei_regions
       - lei_registration_authorities

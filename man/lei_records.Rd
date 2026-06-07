@@ -5,7 +5,6 @@
 \title{Fetch LEI records}
 \usage{
 lei_records(
-  id = NULL,
   legal_name = NULL,
   jurisdiction = NULL,
   status = NULL,
@@ -17,31 +16,27 @@ lei_records(
 )
 }
 \arguments{
-\item{id}{(\code{NULL} | \code{character(1)})\cr
-The Legal Entity Identifier (LEI) to fetch.}
-
 \item{legal_name}{(\code{NULL} | \code{character(1)})\cr
-Filter by legal name. Only relevant when \code{id} is \code{NULL}.}
+Filter by legal name.}
 
 \item{jurisdiction}{(\code{NULL} | \code{character(1)})\cr
-Filter by jurisdiction. Only relevant when \code{id} is \code{NULL}.}
+Filter by jurisdiction.}
 
 \item{status}{(\code{NULL} | \code{character(1)})\cr
-Filter by entity status. Only relevant when \code{id} is \code{NULL}.}
+Filter by entity status.}
 
 \item{fulltext}{(\code{NULL} | \code{character(1)})\cr
-Full-text search query. Only relevant when \code{id} is \code{NULL}.}
+Full-text search query.}
 
 \item{...}{Additional filter parameters passed to the GLEIF API.
 These are appended as query parameters, e.g.
 \code{"filter[entity.legalAddress.country]" = "DE"}.}
 
 \item{page_size}{(\code{NULL} | \code{integer(1)})\cr
-The number of records per page. Only relevant when \code{id} is \code{NULL}. Default \code{200L}.}
+The number of records per page. Default \code{200L}.}
 
 \item{page_number}{(\code{NULL} | \code{integer(1)})\cr
-The page number to fetch. Only relevant when \code{id} is \code{NULL}. When \code{NULL} (the default), all
-pages are fetched automatically.}
+The page number to fetch. When \code{NULL} (the default), all pages are fetched automatically.}
 
 \item{simplify}{(\code{logical(1)})\cr
 Should the output be simplified? Default \code{TRUE}.}
@@ -57,17 +52,19 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 When \code{simplify = FALSE}, a named \code{list()} containing the raw API response.
 }
 \description{
-Fetch LEI records
+Fetch LEI records from the GLEIF database, optionally filtered by attribute. The filters are
+combined with logical AND, so each one you supply narrows the results further. To fetch a single
+record by its LEI, see \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 }
 \examples{
 \dontrun{
-# get simplified long-format data.frame
-lei_records("529900W18LQJJN6SJ336")
-
-# get raw API response as named list
-lei_records("529900W18LQJJN6SJ336", simplify = FALSE)
-
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
+
+# filter by jurisdiction and status
+lei_records(jurisdiction = "DE", status = "ACTIVE")
 }
+}
+\seealso{
+\code{\link[=lei_record_by_id]{lei_record_by_id()}} to fetch a single record by its LEI.
 }

@@ -18,26 +18,13 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
   lei_download(url)
 }
 
-#' Fetch LEI records
+#' Fetch a LEI record
 #'
-#' @param id (`NULL` | `character(1)`)\cr
+#' Fetch a single LEI record by its Legal Entity Identifier. To fetch records by attribute filters,
+#' see [lei_records()].
+#'
+#' @param id (`character(1)`)\cr
 #'   The Legal Entity Identifier (LEI) to fetch.
-#' @param legal_name (`NULL` | `character(1)`)\cr
-#'   Filter by legal name. Only relevant when `id` is `NULL`.
-#' @param jurisdiction (`NULL` | `character(1)`)\cr
-#'   Filter by jurisdiction. Only relevant when `id` is `NULL`.
-#' @param status (`NULL` | `character(1)`)\cr
-#'   Filter by entity status. Only relevant when `id` is `NULL`.
-#' @param fulltext (`NULL` | `character(1)`)\cr
-#'   Full-text search query. Only relevant when `id` is `NULL`.
-#' @param ... Additional filter parameters passed to the GLEIF API.
-#'   These are appended as query parameters, e.g.
-#'   `"filter[entity.legalAddress.country]" = "DE"`.
-#' @param page_size (`NULL` | `integer(1)`)\cr
-#'   The number of records per page. Only relevant when `id` is `NULL`. Default `200L`.
-#' @param page_number (`NULL` | `integer(1)`)\cr
-#'   The page number to fetch. Only relevant when `id` is `NULL`. When `NULL` (the default), all
-#'   pages are fetched automatically.
 #' @param simplify (`logical(1)`)\cr
 #'   Should the output be simplified? Default `TRUE`.
 #' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
@@ -46,20 +33,67 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 #' - **value**: The attribute value
 #'
 #' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' @seealso [lei_records()] to fetch records by attribute filters.
 #' @export
 #' @examples
 #' \dontrun{
 #' # get simplified long-format data.frame
-#' lei_records("529900W18LQJJN6SJ336")
+#' lei_record_by_id("529900W18LQJJN6SJ336")
 #'
 #' # get raw API response as named list
-#' lei_records("529900W18LQJJN6SJ336", simplify = FALSE)
+#' lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE)
+#' }
+lei_record_by_id <- function(id, simplify = TRUE) {
+  stopifnot(is_string(id), is_flag(simplify))
+  path <- paste("lei-records", id, sep = "/")
+  res <- lei_fetch(path)
+  if (!simplify) {
+    return(res)
+  }
+  tab <- simplify_records(res$data$attributes)
+  clean_names(tab)
+}
+
+#' Fetch LEI records
 #'
+#' Fetch LEI records from the GLEIF database, optionally filtered by attribute. The filters are
+#' combined with logical AND, so each one you supply narrows the results further. To fetch a single
+#' record by its LEI, see [lei_record_by_id()].
+#'
+#' @param legal_name (`NULL` | `character(1)`)\cr
+#'   Filter by legal name.
+#' @param jurisdiction (`NULL` | `character(1)`)\cr
+#'   Filter by jurisdiction.
+#' @param status (`NULL` | `character(1)`)\cr
+#'   Filter by entity status.
+#' @param fulltext (`NULL` | `character(1)`)\cr
+#'   Full-text search query.
+#' @param ... Additional filter parameters passed to the GLEIF API.
+#'   These are appended as query parameters, e.g.
+#'   `"filter[entity.legalAddress.country]" = "DE"`.
+#' @param page_size (`NULL` | `integer(1)`)\cr
+#'   The number of records per page. Default `200L`.
+#' @param page_number (`NULL` | `integer(1)`)\cr
+#'   The page number to fetch. When `NULL` (the default), all pages are fetched automatically.
+#' @param simplify (`logical(1)`)\cr
+#'   Should the output be simplified? Default `TRUE`.
+#' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
+#' - **lei**: The Legal Entity Identifier
+#' - **name**: The attribute name
+#' - **value**: The attribute value
+#'
+#' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' @seealso [lei_record_by_id()] to fetch a single record by its LEI.
+#' @export
+#' @examples
+#' \dontrun{
 #' # search by legal name
 #' lei_records(legal_name = "Deutsche Bank")
+#'
+#' # filter by jurisdiction and status
+#' lei_records(jurisdiction = "DE", status = "ACTIVE")
 #' }
 lei_records <- function(
-  id = NULL,
   legal_name = NULL,
   jurisdiction = NULL,
   status = NULL,
@@ -70,7 +104,6 @@ lei_records <- function(
   simplify = TRUE
 ) {
   stopifnot(
-    is_string(id, null_ok = TRUE),
     is_string(legal_name, null_ok = TRUE),
     is_string(jurisdiction, null_ok = TRUE),
     is_string(status, null_ok = TRUE),
@@ -80,20 +113,8 @@ lei_records <- function(
     is_flag(simplify)
   )
   dots <- list(...)
-  has_id <- !is.null(id)
-  has_filter <- !is.null(legal_name) ||
-    !is.null(jurisdiction) ||
-    !is.null(status) ||
-    !is.null(fulltext) ||
-    length(dots) > 0L
-  if (has_id && has_filter) {
-    stop("Cannot combine `id` with filter parameters.", call. = FALSE)
-  }
   path <- "lei-records"
-  if (has_id) {
-    path <- paste(path, id, sep = "/")
-    res <- lei_fetch(path)
-  } else if (is.null(page_number)) {
+  if (is.null(page_number)) {
     params <- c(
       list(
         `page[size]` = page_size,
@@ -111,30 +132,24 @@ lei_records <- function(
     val <- lapply(data, \(x) simplify_records(x$attributes))
     tab <- do.call(rbind, val)
     return(clean_names(tab))
-  } else {
-    params <- c(
-      list(
-        `page[size]` = page_size,
-        `page[number]` = page_number,
-        `filter[entity.legalName]` = legal_name,
-        `filter[entity.jurisdiction]` = jurisdiction,
-        `filter[entity.status]` = status,
-        `filter[fulltext]` = fulltext
-      ),
-      dots
-    )
-    res <- lei_fetch(path, params)
   }
+  params <- c(
+    list(
+      `page[size]` = page_size,
+      `page[number]` = page_number,
+      `filter[entity.legalName]` = legal_name,
+      `filter[entity.jurisdiction]` = jurisdiction,
+      `filter[entity.status]` = status,
+      `filter[fulltext]` = fulltext
+    ),
+    dots
+  )
+  res <- lei_fetch(path, params)
   if (!simplify) {
     return(res)
   }
-
-  if (has_id) {
-    tab <- simplify_records(res$data$attributes)
-  } else {
-    val <- lapply(res$data, \(x) simplify_records(x$attributes))
-    tab <- do.call(rbind, val)
-  }
+  val <- lapply(res$data, \(x) simplify_records(x$attributes))
+  tab <- do.call(rbind, val)
   clean_names(tab)
 }
 
@@ -234,7 +249,7 @@ lei_jurisdictions <- function() {
 #' Fetch the list of entity legal forms
 #'
 #' Fetches the list of entity legal forms (ELF codes) recognized by the GLEIF API. These resolve the
-#' legal form codes that appear in [lei_records()] output to human-readable names.
+#' legal form codes that appear in [lei_record_by_id()] output to human-readable names.
 #'
 #' @returns A `data.frame()` with columns:
 #' - **code**: The entity legal form (ELF) code
@@ -277,7 +292,7 @@ lei_legal_forms <- function() {
 #' Fetch the list of registration authorities
 #'
 #' Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These
-#' resolve the registration authority codes that appear in [lei_records()] output to the issuing
+#' resolve the registration authority codes that appear in [lei_record_by_id()] output to the issuing
 #' business registries.
 #'
 #' @returns A `data.frame()` with columns:
@@ -318,7 +333,7 @@ fetch_code_list <- function(endpoint) {
   do.call(rbind, rows)
 }
 
-#' Fetch LEI parent records
+#' Fetch a LEI parent record
 #'
 #' Fetches the direct or ultimate parent record of a given LEI.
 #'
@@ -334,16 +349,17 @@ fetch_code_list <- function(endpoint) {
 #' - **value**: The attribute value
 #'
 #' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' @seealso [lei_children()] to fetch the child records of a LEI.
 #' @export
 #' @examples
 #' \dontrun{
 #' # get direct parent
-#' lei_parents("529900W18LQJJN6SJ336")
+#' lei_parent("529900W18LQJJN6SJ336")
 #'
 #' # get ultimate parent
-#' lei_parents("529900W18LQJJN6SJ336", type = "ultimate")
+#' lei_parent("529900W18LQJJN6SJ336", type = "ultimate")
 #' }
-lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
+lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-parent"), sep = "/")
@@ -371,6 +387,7 @@ lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' - **value**: The attribute value
 #'
 #' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' @seealso [lei_parent()] to fetch the parent record of a LEI.
 #' @export
 #' @examples
 #' \dontrun{
@@ -464,7 +481,7 @@ lei_modifications <- function(id) {
 #' Performs a typo-tolerant, approximate search against the GLEIF API. Unlike the filters in
 #' [lei_records()], which match literal substrings, this matches on edit distance and returns
 #' candidate values together with their LEI. Useful for resolving messy or misspelled entity names
-#' to a LEI, which can then be passed to [lei_records()].
+#' to a LEI, which can then be passed to [lei_record_by_id()].
 #'
 #' @param q (`character(1)`)\cr
 #'   The search query.
@@ -475,7 +492,7 @@ lei_modifications <- function(id) {
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
-#' @seealso [lei_autocomplete()] for prefix-based completion, [lei_records()] for full records.
+#' @seealso [lei_autocomplete()] for prefix-based completion, [lei_record_by_id()] for full records.
 #' @export
 #' @examples
 #' \dontrun{
@@ -503,7 +520,7 @@ lei_fuzzy <- function(
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
-#' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_records()] for full records.
+#' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_record_by_id()] for full records.
 #' @export
 #' @examples
 #' \dontrun{

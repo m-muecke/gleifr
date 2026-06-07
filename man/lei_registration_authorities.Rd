@@ -17,7 +17,7 @@ A \code{data.frame()} with columns:
 }
 \description{
 Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These
-resolve the registration authority codes that appear in \code{\link[=lei_records]{lei_records()}} output to the issuing
+resolve the registration authority codes that appear in \code{\link[=lei_record_by_id]{lei_record_by_id()}} output to the issuing
 business registries.
 }
 \examples{

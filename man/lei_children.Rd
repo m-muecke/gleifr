@@ -38,3 +38,6 @@ lei_children("529900W18LQJJN6SJ336")
 lei_children("529900W18LQJJN6SJ336", type = "ultimate")
 }
 }
+\seealso{
+\code{\link[=lei_parent]{lei_parent()}} to fetch the parent record of a LEI.
+}

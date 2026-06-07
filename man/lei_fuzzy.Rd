@@ -28,7 +28,7 @@ A \code{data.frame()} with columns:
 Performs a typo-tolerant, approximate search against the GLEIF API. Unlike the filters in
 \code{\link[=lei_records]{lei_records()}}, which match literal substrings, this matches on edit distance and returns
 candidate values together with their LEI. Useful for resolving messy or misspelled entity names
-to a LEI, which can then be passed to \code{\link[=lei_records]{lei_records()}}.
+to a LEI, which can then be passed to \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 }
 \examples{
 \dontrun{
@@ -36,5 +36,5 @@ lei_fuzzy("Deutsch Bank", field = "entity.legalName")
 }
 }
 \seealso{
-\code{\link[=lei_autocomplete]{lei_autocomplete()}} for prefix-based completion, \code{\link[=lei_records]{lei_records()}} for full records.
+\code{\link[=lei_autocomplete]{lei_autocomplete()}} for prefix-based completion, \code{\link[=lei_record_by_id]{lei_record_by_id()}} for full records.
 }
