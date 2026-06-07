@@ -149,16 +149,16 @@ lei_records <- function(
     if (!simplify) {
       return(data)
     }
-    val <- lapply(data, \(x) simplify_records(x$attributes))
-    tab <- do.call(rbind, val)
+    rows <- lapply(data, \(x) simplify_records(x$attributes))
+    tab <- do.call(rbind, rows)
     return(clean_names(tab))
   }
   res <- lei_fetch(path, params)
   if (!simplify) {
     return(res)
   }
-  val <- lapply(res$data, \(x) simplify_records(x$attributes))
-  tab <- do.call(rbind, val)
+  rows <- lapply(res$data, \(x) simplify_records(x$attributes))
+  tab <- do.call(rbind, rows)
   clean_names(tab)
 }
 
@@ -176,13 +176,13 @@ lei_records <- function(
 #' lei_regions()
 #' }
 lei_regions <- function() {
-  resp <- lei_fetch("regions", list(`page[size]` = 100L))
-  data <- resp$data
+  res <- lei_fetch("regions", list(`page[size]` = 100L))
+  data <- res$data
   rows <- lapply(data, function(x) {
-    code <- x$attributes$code
-    nms <- x$attributes$names
+    attrs <- x$attributes
+    nms <- attrs$names
     data.frame(
-      code = code,
+      code = attrs$code,
       language = vapply(nms, \(y) y$language, ""),
       name = vapply(nms, \(y) y$name, ""),
       check.names = FALSE
@@ -207,8 +207,8 @@ lei_regions <- function() {
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
-  resp <- lei_fetch("lei-issuers", list(`page[size]` = 100L))
-  data <- resp$data
+  res <- lei_fetch("lei-issuers", list(`page[size]` = 100L))
+  data <- res$data
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -414,8 +414,8 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   if (!simplify) {
     return(data)
   }
-  val <- lapply(data, \(x) simplify_records(x$attributes))
-  tab <- do.call(rbind, val)
+  rows <- lapply(data, \(x) simplify_records(x$attributes))
+  tab <- do.call(rbind, rows)
   clean_names(tab)
 }
 
