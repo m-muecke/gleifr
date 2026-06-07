@@ -79,10 +79,9 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' @param ... Additional filter parameters passed to the GLEIF API.
 #'   These are appended as query parameters, e.g.
 #'   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
-#' @param page_size (`NULL` | `integer(1)`)\cr
-#'   The number of records per page. Default `200L`.
-#' @param page_number (`NULL` | `integer(1)`)\cr
-#'   The page number to fetch. When `NULL` (the default), all pages are fetched automatically.
+#' @param limit (`NULL` | `integer(1)`)\cr
+#'   Maximum number of records to return. When `NULL` (the default), all matching records are
+#'   fetched, paginating automatically.
 #' @param simplify (`logical(1)`)\cr
 #'   Should the output be simplified? Default `TRUE`.
 #' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
@@ -90,7 +89,7 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' - **name**: The attribute name
 #' - **value**: The attribute value
 #'
-#' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' When `simplify = FALSE`, a `list()` of the raw record objects from the API.
 #' @seealso [lei_record_by_id()] to fetch a single record by its LEI.
 #' @export
 #' @examples
@@ -111,8 +110,7 @@ lei_records <- function(
   category = NULL,
   isin = NULL,
   ...,
-  page_size = 200L,
-  page_number = NULL,
+  limit = NULL,
   simplify = TRUE
 ) {
   stopifnot(
@@ -124,14 +122,12 @@ lei_records <- function(
     is_string(entity_status, null_ok = TRUE),
     is_string(category, null_ok = TRUE),
     is_string(isin, null_ok = TRUE),
-    is_count(page_size),
-    is_count(page_number, null_ok = TRUE),
+    is_count(limit, null_ok = TRUE),
     is_flag(simplify)
   )
   params <- c(
     list(
-      `page[size]` = page_size,
-      `page[number]` = page_number,
+      `page[size]` = 200L,
       `filter[entity.legalName]` = legal_name,
       `filter[fulltext]` = fulltext,
       `filter[entity.legalAddress.country]` = country,
@@ -143,21 +139,11 @@ lei_records <- function(
     ),
     list(...)
   )
-  path <- "lei-records"
-  if (is.null(page_number)) {
-    data <- lei_fetch_iter(path, params)
-    if (!simplify) {
-      return(data)
-    }
-    out <- lapply(data, \(x) simplify_records(x$attributes))
-    tab <- do.call(rbind, out)
-    return(clean_names(tab))
-  }
-  json <- lei_fetch(path, params)
+  data <- lei_fetch_iter("lei-records", params, limit = limit)
   if (!simplify) {
-    return(json)
+    return(data)
   }
-  out <- lapply(json$data, \(x) simplify_records(x$attributes))
+  out <- lapply(data, \(x) simplify_records(x$attributes))
   tab <- do.call(rbind, out)
   clean_names(tab)
 }

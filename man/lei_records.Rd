@@ -14,8 +14,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
-  page_size = 200L,
-  page_number = NULL,
+  limit = NULL,
   simplify = TRUE
 )
 }
@@ -48,11 +47,9 @@ Filter by ISIN.}
 These are appended as query parameters, e.g.
 \code{"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"}.}
 
-\item{page_size}{(\code{NULL} | \code{integer(1)})\cr
-The number of records per page. Default \code{200L}.}
-
-\item{page_number}{(\code{NULL} | \code{integer(1)})\cr
-The page number to fetch. When \code{NULL} (the default), all pages are fetched automatically.}
+\item{limit}{(\code{NULL} | \code{integer(1)})\cr
+Maximum number of records to return. When \code{NULL} (the default), all matching records are
+fetched, paginating automatically.}
 
 \item{simplify}{(\code{logical(1)})\cr
 Should the output be simplified? Default \code{TRUE}.}
@@ -65,7 +62,7 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 \item \strong{value}: The attribute value
 }
 
-When \code{simplify = FALSE}, a named \code{list()} containing the raw API response.
+When \code{simplify = FALSE}, a \code{list()} of the raw record objects from the API.
 }
 \description{
 Fetch LEI records from the GLEIF database, optionally filtered by attribute. The filters are

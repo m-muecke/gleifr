@@ -28,7 +28,7 @@ test_that("lei_records validates inputs", {
   expect_error(lei_records(category = 1))
   expect_error(lei_records(isin = 1))
   expect_error(lei_records(simplify = "yes"))
-  expect_error(lei_records(page_size = -1))
+  expect_error(lei_records(limit = -1))
 })
 
 test_that("lei_children validates inputs", {
@@ -131,7 +131,7 @@ test_that("lei_records works with filters", {
   skip_on_ci()
   skip_if_offline()
 
-  res <- lei_records(fulltext = "Deutsche Bank", page_size = 10L)
+  res <- lei_records(fulltext = "Deutsche Bank", limit = 10L)
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "value"))
   expect_gt(nrow(res), 0L)
