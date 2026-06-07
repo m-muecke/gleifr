@@ -7,7 +7,7 @@ and its relationships (`recordType` `"RR"`).
 ## Usage
 
 ``` r
-lei_modifications(id)
+lei_modifications(id, limit = 200L)
 ```
 
 ## Source
@@ -20,6 +20,12 @@ lei_modifications(id)
 
   (`character(1)`)  
   The Legal Entity Identifier (LEI) to fetch the change history for.
+
+- limit:
+
+  (`NULL` \| `integer(1)`)  
+  Maximum number of records to return. Default `200L`. Use `NULL` to
+  fetch all.
 
 ## Value
 

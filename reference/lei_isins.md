@@ -5,7 +5,7 @@ Fetches the ISINs associated with a given LEI.
 ## Usage
 
 ``` r
-lei_isins(id)
+lei_isins(id, limit = 200L)
 ```
 
 ## Arguments
@@ -14,6 +14,12 @@ lei_isins(id)
 
   (`character(1)`)  
   The Legal Entity Identifier (LEI) to fetch ISINs for.
+
+- limit:
+
+  (`NULL` \| `integer(1)`)  
+  Maximum number of records to return. Default `200L`. Use `NULL` to
+  fetch all.
 
 ## Value
 

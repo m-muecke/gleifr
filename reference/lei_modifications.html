@@ -48,7 +48,7 @@ change to the entity (<code>recordType</code> <code>"LEI"</code>) and its relati
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lei_modifications</span><span class="op">(</span><span class="va">id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lei_modifications</span><span class="op">(</span><span class="va">id</span>, limit <span class="op">=</span> <span class="fl">200L</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,6 +62,11 @@ change to the entity (<code>recordType</code> <code>"LEI"</code>) and its relati
 <dl><dt id="arg-id">id<a class="anchor" aria-label="anchor" href="#arg-id"></a></dt>
 <dd><p>(<code>character(1)</code>)<br>
 The Legal Entity Identifier (LEI) to fetch the change history for.</p></dd>
+
+
+<dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
+<dd><p>(<code>NULL</code> | <code>integer(1)</code>)<br>
+Maximum number of records to return. Default <code>200L</code>. Use <code>NULL</code> to fetch all.</p></dd>
 
 </dl></div>
     <div class="section level2">

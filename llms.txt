@@ -70,9 +70,11 @@ lei_records(legal_name = "Deutsche Bank")
 lei_records(country = "DE", registration_status = "ISSUED")
 ```
 
-By default all matching records are fetched, paginating automatically.
-Pass `limit` to cap the number of records returned, and `...` to pass
-any additional GLEIF filter, e.g. `"filter[entity.category]" = "FUND"`.
+By default
+[`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+returns up to 200 records. Raise `limit` for more (or set `limit = NULL`
+to fetch all), and use `...` to pass any additional GLEIF filter,
+e.g. `"filter[entity.category]" = "FUND"`.
 
 ### Corporate relationships
 

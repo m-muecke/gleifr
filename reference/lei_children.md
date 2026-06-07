@@ -5,7 +5,7 @@ Fetches the direct or ultimate child records of a given LEI.
 ## Usage
 
 ``` r
-lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
+lei_children(id, type = c("direct", "ultimate"), limit = 200L, simplify = TRUE)
 ```
 
 ## Arguments
@@ -20,6 +20,12 @@ lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
   (`character(1)`)  
   The type of children to fetch. One of `"direct"` or `"ultimate"`.
   Default is `"direct"`.
+
+- limit:
+
+  (`NULL` \| `integer(1)`)  
+  Maximum number of records to return. Default `200L`. Use `NULL` to
+  fetch all.
 
 - simplify:
 

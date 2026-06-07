@@ -19,7 +19,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
-  limit = NULL,
+  limit = 200L,
   simplify = TRUE
 )
 ```
@@ -76,8 +76,8 @@ lei_records(
 - limit:
 
   (`NULL` \| `integer(1)`)  
-  Maximum number of records to return. When `NULL` (the default), all
-  matching records are fetched, paginating automatically.
+  Maximum number of records to return. Default `200L`. Use `NULL` to
+  fetch all matching records.
 
 - simplify:
 

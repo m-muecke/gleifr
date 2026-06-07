@@ -61,7 +61,7 @@ record by its LEI, see <code><a href="lei_record_by_id.html">lei_record_by_id()<
 <span>  category <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  isin <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span>,</span>
-<span>  limit <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fl">200L</span>,</span>
 <span>  simplify <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -118,8 +118,7 @@ These are appended as query parameters, e.g.
 
 <dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
 <dd><p>(<code>NULL</code> | <code>integer(1)</code>)<br>
-Maximum number of records to return. When <code>NULL</code> (the default), all matching records are
-fetched, paginating automatically.</p></dd>
+Maximum number of records to return. Default <code>200L</code>. Use <code>NULL</code> to fetch all matching records.</p></dd>
 
 
 <dt id="arg-simplify">simplify<a class="anchor" aria-label="anchor" href="#arg-simplify"></a></dt>
