@@ -70,8 +70,8 @@ lei_records(legal_name = "Deutsche Bank")
 lei_records(country = "DE", registration_status = "ISSUED")
 ```
 
-By default all matching pages are fetched automatically. Use `page_size`
-and `page_number` to page through results manually, and `...` to pass
+By default all matching records are fetched, paginating automatically.
+Pass `limit` to cap the number of records returned, and `...` to pass
 any additional GLEIF filter, e.g. `"filter[entity.category]" = "FUND"`.
 
 ### Corporate relationships

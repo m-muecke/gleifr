@@ -61,8 +61,7 @@ record by its LEI, see <code><a href="lei_record_by_id.html">lei_record_by_id()<
 <span>  category <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  isin <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  <span class="va">...</span>,</span>
-<span>  page_size <span class="op">=</span> <span class="fl">200L</span>,</span>
-<span>  page_number <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  limit <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  simplify <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -117,14 +116,10 @@ These are appended as query parameters, e.g.
 <code>"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"</code>.</p></dd>
 
 
-<dt id="arg-page-size">page_size<a class="anchor" aria-label="anchor" href="#arg-page-size"></a></dt>
+<dt id="arg-limit">limit<a class="anchor" aria-label="anchor" href="#arg-limit"></a></dt>
 <dd><p>(<code>NULL</code> | <code>integer(1)</code>)<br>
-The number of records per page. Default <code>200L</code>.</p></dd>
-
-
-<dt id="arg-page-number">page_number<a class="anchor" aria-label="anchor" href="#arg-page-number"></a></dt>
-<dd><p>(<code>NULL</code> | <code>integer(1)</code>)<br>
-The page number to fetch. When <code>NULL</code> (the default), all pages are fetched automatically.</p></dd>
+Maximum number of records to return. When <code>NULL</code> (the default), all matching records are
+fetched, paginating automatically.</p></dd>
 
 
 <dt id="arg-simplify">simplify<a class="anchor" aria-label="anchor" href="#arg-simplify"></a></dt>
@@ -137,7 +132,7 @@ Should the output be simplified? Default <code>TRUE</code>.</p></dd>
     <p>When <code>simplify = TRUE</code>, a long-format <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> with columns:</p><ul><li><p><strong>lei</strong>: The Legal Entity Identifier</p></li>
 <li><p><strong>name</strong>: The attribute name</p></li>
 <li><p><strong>value</strong>: The attribute value</p></li>
-</ul><p>When <code>simplify = FALSE</code>, a named <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> containing the raw API response.</p>
+</ul><p>When <code>simplify = FALSE</code>, a <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> of the raw record objects from the API.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>

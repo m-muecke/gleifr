@@ -19,8 +19,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
-  page_size = 200L,
-  page_number = NULL,
+  limit = NULL,
   simplify = TRUE
 )
 ```
@@ -74,16 +73,11 @@ lei_records(
   appended as query parameters, e.g.
   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
 
-- page_size:
+- limit:
 
   (`NULL` \| `integer(1)`)  
-  The number of records per page. Default `200L`.
-
-- page_number:
-
-  (`NULL` \| `integer(1)`)  
-  The page number to fetch. When `NULL` (the default), all pages are
-  fetched automatically.
+  Maximum number of records to return. When `NULL` (the default), all
+  matching records are fetched, paginating automatically.
 
 - simplify:
 
@@ -101,9 +95,8 @@ When `simplify = TRUE`, a long-format
 
 - **value**: The attribute value
 
-When `simplify = FALSE`, a named
-[`list()`](https://rdrr.io/r/base/list.html) containing the raw API
-response.
+When `simplify = FALSE`, a [`list()`](https://rdrr.io/r/base/list.html)
+of the raw record objects from the API.
 
 ## See also
 
