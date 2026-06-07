@@ -35,14 +35,17 @@ test_that("lei_children validates inputs", {
   expect_error(lei_children(id = 123))
   expect_error(lei_children(id = "foo", simplify = "yes"))
   expect_error(lei_children(id = "foo", type = "sideways"))
+  expect_error(lei_children(id = "foo", limit = -1))
 })
 
 test_that("lei_isins validates inputs", {
   expect_error(lei_isins(id = 123))
+  expect_error(lei_isins("foo", limit = -1))
 })
 
 test_that("lei_modifications validates inputs", {
   expect_error(lei_modifications(id = 123))
+  expect_error(lei_modifications("foo", limit = -1))
 })
 
 test_that("lei_parent validates inputs", {

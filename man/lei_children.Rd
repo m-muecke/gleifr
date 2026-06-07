@@ -4,7 +4,7 @@
 \alias{lei_children}
 \title{Fetch LEI child records}
 \usage{
-lei_children(id, type = c("direct", "ultimate"), simplify = TRUE)
+lei_children(id, type = c("direct", "ultimate"), limit = 200L, simplify = TRUE)
 }
 \arguments{
 \item{id}{(\code{character(1)})\cr
@@ -12,6 +12,9 @@ The Legal Entity Identifier (LEI) to fetch the children for.}
 
 \item{type}{(\code{character(1)})\cr
 The type of children to fetch. One of \code{"direct"} or \code{"ultimate"}. Default is \code{"direct"}.}
+
+\item{limit}{(\code{NULL} | \code{integer(1)})\cr
+Maximum number of records to return. Default \code{200L}. Use \code{NULL} to fetch all.}
 
 \item{simplify}{(\code{logical(1)})\cr
 Should the output be simplified? Default \code{TRUE}.}

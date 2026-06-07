@@ -370,6 +370,8 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #'   The Legal Entity Identifier (LEI) to fetch the children for.
 #' @param type (`character(1)`)\cr
 #'   The type of children to fetch. One of `"direct"` or `"ultimate"`. Default is `"direct"`.
+#' @param limit (`NULL` | `integer(1)`)\cr
+#'   Maximum number of records to return. Default `200L`. Use `NULL` to fetch all.
 #' @param simplify (`logical(1)`)\cr
 #'   Should the output be simplified? Default `TRUE`.
 #' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
@@ -388,11 +390,11 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' # get ultimate children
 #' lei_children("529900W18LQJJN6SJ336", type = "ultimate")
 #' }
-lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
+lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simplify = TRUE) {
   type <- match.arg(type)
-  stopifnot(is_string(id), is_flag(simplify))
+  stopifnot(is_string(id), is_count(limit, null_ok = TRUE), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-children"), sep = "/")
-  data <- lei_fetch_iter(path)
+  data <- lei_fetch_iter(path, limit = limit)
   if (!simplify) {
     return(data)
   }
@@ -407,6 +409,8 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #'
 #' @param id (`character(1)`)\cr
 #'   The Legal Entity Identifier (LEI) to fetch ISINs for.
+#' @param limit (`NULL` | `integer(1)`)\cr
+#'   Maximum number of records to return. Default `200L`. Use `NULL` to fetch all.
 #' @returns A `data.frame()` with columns:
 #' - **lei**: The Legal Entity Identifier
 #' - **isin**: The ISIN
@@ -415,10 +419,10 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' \dontrun{
 #' lei_isins("529900W18LQJJN6SJ336")
 #' }
-lei_isins <- function(id) {
-  stopifnot(is_string(id))
+lei_isins <- function(id, limit = 200L) {
+  stopifnot(is_string(id), is_count(limit, null_ok = TRUE))
   path <- paste("lei-records", id, "isins", sep = "/")
-  data <- lei_fetch_iter(path)
+  data <- lei_fetch_iter(path, limit = limit)
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
@@ -433,6 +437,8 @@ lei_isins <- function(id) {
 #'
 #' @param id (`character(1)`)\cr
 #'   The Legal Entity Identifier (LEI) to fetch the change history for.
+#' @param limit (`NULL` | `integer(1)`)\cr
+#'   Maximum number of records to return. Default `200L`. Use `NULL` to fetch all.
 #' @returns A `data.frame()` with columns:
 #' - **lei**: The Legal Entity Identifier
 #' - **record_type**: The record the change applies to, `"LEI"` or `"RR"`
@@ -447,10 +453,10 @@ lei_isins <- function(id) {
 #' \dontrun{
 #' lei_modifications("529900W18LQJJN6SJ336")
 #' }
-lei_modifications <- function(id) {
-  stopifnot(is_string(id))
+lei_modifications <- function(id, limit = 200L) {
+  stopifnot(is_string(id), is_count(limit, null_ok = TRUE))
   path <- paste("lei-records", id, "field-modifications", sep = "/")
-  data <- lei_fetch_iter(path)
+  data <- lei_fetch_iter(path, limit = limit)
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(

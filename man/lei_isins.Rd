@@ -4,11 +4,14 @@
 \alias{lei_isins}
 \title{Fetch ISINs for a LEI}
 \usage{
-lei_isins(id)
+lei_isins(id, limit = 200L)
 }
 \arguments{
 \item{id}{(\code{character(1)})\cr
 The Legal Entity Identifier (LEI) to fetch ISINs for.}
+
+\item{limit}{(\code{NULL} | \code{integer(1)})\cr
+Maximum number of records to return. Default \code{200L}. Use \code{NULL} to fetch all.}
 }
 \value{
 A \code{data.frame()} with columns:
