@@ -46,11 +46,11 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 lei_record_by_id <- function(id, simplify = TRUE) {
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, sep = "/")
-  res <- lei_fetch(path)
+  json <- lei_fetch(path)
   if (!simplify) {
-    return(res)
+    return(json)
   }
-  tab <- simplify_records(res$data$attributes)
+  tab <- simplify_records(json$data$attributes)
   clean_names(tab)
 }
 
@@ -149,16 +149,16 @@ lei_records <- function(
     if (!simplify) {
       return(data)
     }
-    rows <- lapply(data, \(x) simplify_records(x$attributes))
-    tab <- do.call(rbind, rows)
+    out <- lapply(data, \(x) simplify_records(x$attributes))
+    tab <- do.call(rbind, out)
     return(clean_names(tab))
   }
-  res <- lei_fetch(path, params)
+  json <- lei_fetch(path, params)
   if (!simplify) {
-    return(res)
+    return(json)
   }
-  rows <- lapply(res$data, \(x) simplify_records(x$attributes))
-  tab <- do.call(rbind, rows)
+  out <- lapply(json$data, \(x) simplify_records(x$attributes))
+  tab <- do.call(rbind, out)
   clean_names(tab)
 }
 
@@ -176,9 +176,8 @@ lei_records <- function(
 #' lei_regions()
 #' }
 lei_regions <- function() {
-  res <- lei_fetch("regions", list(`page[size]` = 100L))
-  data <- res$data
-  rows <- lapply(data, function(x) {
+  data <- lei_fetch("regions", list(`page[size]` = 100L))$data
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     nms <- attrs$names
     data.frame(
@@ -188,7 +187,7 @@ lei_regions <- function() {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fetch LEI issuers
@@ -207,9 +206,8 @@ lei_regions <- function() {
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
-  res <- lei_fetch("lei-issuers", list(`page[size]` = 100L))
-  data <- res$data
-  rows <- lapply(data, function(x) {
+  data <- lei_fetch("lei-issuers", list(`page[size]` = 100L))$data
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
       lei = attrs$lei,
@@ -220,7 +218,7 @@ lei_issuers <- function() {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fetch the list of countries
@@ -274,7 +272,7 @@ lei_jurisdictions <- function() {
 #' }
 lei_legal_forms <- function() {
   data <- lei_fetch_iter("entity-legal-forms", list(`page[size]` = 200L))
-  rows <- lapply(data, function(x) {
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     nms <- attrs$names
     data.frame(
@@ -295,7 +293,7 @@ lei_legal_forms <- function() {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fetch the list of registration authorities
@@ -316,7 +314,7 @@ lei_legal_forms <- function() {
 #' }
 lei_registration_authorities <- function() {
   data <- lei_fetch_iter("registration-authorities", list(`page[size]` = 200L))
-  rows <- lapply(data, function(x) {
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
       code = attrs$code,
@@ -326,12 +324,12 @@ lei_registration_authorities <- function() {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 fetch_code_list <- function(endpoint) {
   data <- lei_fetch_iter(endpoint, list(`page[size]` = 200L))
-  rows <- lapply(data, function(x) {
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
       code = attrs$code %||% NA_character_,
@@ -339,7 +337,7 @@ fetch_code_list <- function(endpoint) {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fetch a LEI parent record
@@ -372,11 +370,11 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-parent"), sep = "/")
-  res <- lei_fetch(path)
+  json <- lei_fetch(path)
   if (!simplify) {
-    return(res)
+    return(json)
   }
-  tab <- simplify_records(res$data$attributes)
+  tab <- simplify_records(json$data$attributes)
   clean_names(tab)
 }
 
@@ -414,8 +412,8 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   if (!simplify) {
     return(data)
   }
-  rows <- lapply(data, \(x) simplify_records(x$attributes))
-  tab <- do.call(rbind, rows)
+  out <- lapply(data, \(x) simplify_records(x$attributes))
+  tab <- do.call(rbind, out)
   clean_names(tab)
 }
 
@@ -437,11 +435,11 @@ lei_isins <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "isins", sep = "/")
   data <- lei_fetch_iter(path, list(`page[size]` = 200L))
-  rows <- lapply(data, function(x) {
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fetch the change history of a LEI record
@@ -469,7 +467,7 @@ lei_modifications <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "field-modifications", sep = "/")
   data <- lei_fetch_iter(path, list(`page[size]` = 200L))
-  rows <- lapply(data, function(x) {
+  out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
       lei = attrs$lei,
@@ -482,7 +480,7 @@ lei_modifications <- function(id) {
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 #' Fuzzy search for LEI records
@@ -507,10 +505,7 @@ lei_modifications <- function(id) {
 #' \dontrun{
 #' lei_fuzzy("Deutsch Bank", field = "entity.legalName")
 #' }
-lei_fuzzy <- function(
-  q,
-  field = c("fulltext", "entity.legalName", "owns", "ownedBy")
-) {
+lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "ownedBy")) {
   field <- match.arg(field)
   stopifnot(is_string(q))
   fetch_completions("fuzzycompletions", field, q)
@@ -542,15 +537,15 @@ lei_autocomplete <- function(q, field = c("fulltext", "owns")) {
 }
 
 fetch_completions <- function(path, field, q) {
-  res <- lei_fetch(path, list(field = field, q = q))
-  rows <- lapply(res$data, function(x) {
+  data <- lei_fetch(path, list(field = field, q = q))$data
+  out <- lapply(data, function(x) {
     data.frame(
       value = x$attributes$value,
       lei = x$relationships$`lei-records`$data$id %||% NA_character_,
       check.names = FALSE
     )
   })
-  do.call(rbind, rows)
+  do.call(rbind, out)
 }
 
 simplify_records <- function(x) {
