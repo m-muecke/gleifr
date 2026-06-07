@@ -572,5 +572,5 @@ lei_download <- function(url) {
   curl::curl_download(url, tf)
   file <- utils::unzip(tf, exdir = td)
   mapping <- utils::read.csv(file)
-  setNames(mapping, tolower(names(mapping)))
+  stats::setNames(mapping, tolower(names(mapping)))
 }

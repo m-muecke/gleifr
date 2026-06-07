@@ -14,5 +14,4 @@
 #' @importFrom httr2 resp_content_type
 #' @importFrom httr2 resp_status
 #' @importFrom httr2 resps_data
-#' @importFrom stats setNames
 "_PACKAGE"
