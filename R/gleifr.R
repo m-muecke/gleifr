@@ -92,7 +92,7 @@ lei_records <- function(
   path <- "lei-records"
   if (has_id) {
     path <- paste(path, id, sep = "/")
-    res <- fetch_lei(path)
+    res <- lei_fetch(path)
   } else if (is.null(page_number)) {
     params <- c(
       list(
@@ -104,7 +104,7 @@ lei_records <- function(
       ),
       dots
     )
-    data <- fetch_lei_iter(path, params)
+    data <- lei_fetch_iter(path, params)
     if (!simplify) {
       return(data)
     }
@@ -123,7 +123,7 @@ lei_records <- function(
       ),
       dots
     )
-    res <- fetch_lei(path, params)
+    res <- lei_fetch(path, params)
   }
   if (!simplify) {
     return(res)
@@ -152,7 +152,7 @@ lei_records <- function(
 #' lei_regions()
 #' }
 lei_regions <- function() {
-  resp <- fetch_lei("regions", list(`page[size]` = 100L))
+  resp <- lei_fetch("regions", list(`page[size]` = 100L))
   data <- resp$data
   rows <- lapply(data, function(x) {
     code <- x$attributes$code
@@ -183,7 +183,7 @@ lei_regions <- function() {
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
-  resp <- fetch_lei("lei-issuers", list(`page[size]` = 100L))
+  resp <- lei_fetch("lei-issuers", list(`page[size]` = 100L))
   data <- resp$data
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
@@ -249,7 +249,7 @@ lei_jurisdictions <- function() {
 #' lei_legal_forms()
 #' }
 lei_legal_forms <- function() {
-  data <- fetch_lei_iter("entity-legal-forms", list(`page[size]` = 200L))
+  data <- lei_fetch_iter("entity-legal-forms", list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     nms <- attrs$names
@@ -291,7 +291,7 @@ lei_legal_forms <- function() {
 #' lei_registration_authorities()
 #' }
 lei_registration_authorities <- function() {
-  data <- fetch_lei_iter("registration-authorities", list(`page[size]` = 200L))
+  data <- lei_fetch_iter("registration-authorities", list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -306,7 +306,7 @@ lei_registration_authorities <- function() {
 }
 
 fetch_code_list <- function(endpoint) {
-  data <- fetch_lei_iter(endpoint, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(endpoint, list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -347,7 +347,7 @@ lei_parents <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-parent"), sep = "/")
-  res <- fetch_lei(path)
+  res <- lei_fetch(path)
   if (!simplify) {
     return(res)
   }
@@ -384,7 +384,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-children"), sep = "/")
-  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
   if (!simplify) {
     return(data)
   }
@@ -410,7 +410,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 lei_isins <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "isins", sep = "/")
-  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
@@ -442,7 +442,7 @@ lei_isins <- function(id) {
 lei_modifications <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "field-modifications", sep = "/")
-  data <- fetch_lei_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
   rows <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -516,7 +516,7 @@ lei_autocomplete <- function(q, field = c("fulltext", "owns")) {
 }
 
 fetch_completions <- function(path, field, q) {
-  res <- fetch_lei(path, list(field = field, q = q))
+  res <- lei_fetch(path, list(field = field, q = q))
   rows <- lapply(res$data, function(x) {
     data.frame(
       value = x$attributes$value,

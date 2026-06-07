@@ -17,13 +17,13 @@ lei_request <- function(path, params = list()) {
     req_lei_cache()
 }
 
-fetch_lei <- function(path, params = list()) {
+lei_fetch <- function(path, params = list()) {
   lei_request(path, params) |>
     req_perform() |>
     resp_body_json()
 }
 
-fetch_lei_iter <- function(path, params = list()) {
+lei_fetch_iter <- function(path, params = list()) {
   resps <- lei_request(path, params) |>
     req_perform_iterative(
       next_req = iterate_with_offset(
