@@ -11,9 +11,13 @@ see
 ``` r
 lei_records(
   legal_name = NULL,
-  jurisdiction = NULL,
-  status = NULL,
   fulltext = NULL,
+  country = NULL,
+  jurisdiction = NULL,
+  registration_status = NULL,
+  entity_status = NULL,
+  category = NULL,
+  isin = NULL,
   ...,
   page_size = 200L,
   page_number = NULL,
@@ -28,26 +32,47 @@ lei_records(
   (`NULL` \| `character(1)`)  
   Filter by legal name.
 
-- jurisdiction:
-
-  (`NULL` \| `character(1)`)  
-  Filter by jurisdiction.
-
-- status:
-
-  (`NULL` \| `character(1)`)  
-  Filter by entity status.
-
 - fulltext:
 
   (`NULL` \| `character(1)`)  
   Full-text search query.
 
+- country:
+
+  (`NULL` \| `character(1)`)  
+  Filter by legal address country (ISO 3166-1 alpha-2 code), e.g.
+  `"DE"`.
+
+- jurisdiction:
+
+  (`NULL` \| `character(1)`)  
+  Filter by jurisdiction (ISO 3166-1 alpha-2 code), e.g. `"DE"`.
+
+- registration_status:
+
+  (`NULL` \| `character(1)`)  
+  Filter by LEI registration status, e.g. `"ISSUED"` or `"LAPSED"`.
+
+- entity_status:
+
+  (`NULL` \| `character(1)`)  
+  Filter by entity status, one of `"ACTIVE"` or `"INACTIVE"`.
+
+- category:
+
+  (`NULL` \| `character(1)`)  
+  Filter by entity category, e.g. `"FUND"`, `"BRANCH"`, or `"GENERAL"`.
+
+- isin:
+
+  (`NULL` \| `character(1)`)  
+  Filter by ISIN.
+
 - ...:
 
   Additional filter parameters passed to the GLEIF API. These are
   appended as query parameters, e.g.
-  `"filter[entity.legalAddress.country]" = "DE"`.
+  `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
 
 - page_size:
 
@@ -92,7 +117,7 @@ if (FALSE) { # \dontrun{
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
 
-# filter by jurisdiction and status
-lei_records(jurisdiction = "DE", status = "ACTIVE")
+# filter by country and registration status
+lei_records(country = "DE", registration_status = "ISSUED")
 } # }
 ```

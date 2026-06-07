@@ -58,8 +58,8 @@ str(record)
 
 Use
 [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
-to query the LEI database. You can filter by legal name, jurisdiction,
-status, or run a full-text query:
+to query the LEI database. You can filter by legal name, country,
+jurisdiction, status, category, or ISIN, or run a full-text query:
 
 ``` r
 
@@ -67,13 +67,12 @@ status, or run a full-text query:
 lei_records(legal_name = "Deutsche Bank")
 
 # combine filters
-lei_records(jurisdiction = "DE", status = "ACTIVE")
+lei_records(country = "DE", registration_status = "ISSUED")
 ```
 
 By default all matching pages are fetched automatically. Use `page_size`
 and `page_number` to page through results manually, and `...` to pass
-any additional GLEIF filter,
-e.g. `"filter[entity.legalAddress.country]" = "DE"`.
+any additional GLEIF filter, e.g. `"filter[entity.category]" = "FUND"`.
 
 ### Corporate relationships
 

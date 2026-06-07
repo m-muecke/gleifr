@@ -95,14 +95,14 @@
 <div class="section level3">
 <h3 id="searching-for-records">Searching for records<a class="anchor" aria-label="anchor" href="#searching-for-records"></a>
 </h3>
-<p>Use <code><a href="reference/lei_records.html">lei_records()</a></code> to query the LEI database. You can filter by legal name, jurisdiction, status, or run a full-text query:</p>
+<p>Use <code><a href="reference/lei_records.html">lei_records()</a></code> to query the LEI database. You can filter by legal name, country, jurisdiction, status, category, or ISIN, or run a full-text query:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># search by legal name</span></span>
 <span><span class="fu"><a href="reference/lei_records.html">lei_records</a></span><span class="op">(</span>legal_name <span class="op">=</span> <span class="st">"Deutsche Bank"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># combine filters</span></span>
-<span><span class="fu"><a href="reference/lei_records.html">lei_records</a></span><span class="op">(</span>jurisdiction <span class="op">=</span> <span class="st">"DE"</span>, status <span class="op">=</span> <span class="st">"ACTIVE"</span><span class="op">)</span></span></code></pre></div>
-<p>By default all matching pages are fetched automatically. Use <code>page_size</code> and <code>page_number</code> to page through results manually, and <code>...</code> to pass any additional GLEIF filter, e.g. <code>"filter[entity.legalAddress.country]" = "DE"</code>.</p>
+<span><span class="fu"><a href="reference/lei_records.html">lei_records</a></span><span class="op">(</span>country <span class="op">=</span> <span class="st">"DE"</span>, registration_status <span class="op">=</span> <span class="st">"ISSUED"</span><span class="op">)</span></span></code></pre></div>
+<p>By default all matching pages are fetched automatically. Use <code>page_size</code> and <code>page_number</code> to page through results manually, and <code>...</code> to pass any additional GLEIF filter, e.g. <code>"filter[entity.category]" = "FUND"</code>.</p>
 </div>
 <div class="section level3">
 <h3 id="corporate-relationships">Corporate relationships<a class="anchor" aria-label="anchor" href="#corporate-relationships"></a>
