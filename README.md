@@ -47,9 +47,9 @@ library(gleifr)
 
 ### Looking up a record by LEI
 
-Pass a LEI to `lei_record_by_id()` to retrieve its full reference data. By
-default the result is returned as a tidy long-format data frame with one
-attribute per row:
+Pass a LEI to `lei_record_by_id()` to retrieve its full reference data.
+By default the result is returned as a tidy long-format data frame with
+one attribute per row:
 
 ``` r
 record <- lei_record_by_id("001GPB6A9XPE8XJICC14")
@@ -76,13 +76,11 @@ lei_records(country = "DE", registration_status = "ISSUED")
 
 By default `lei_records()` returns up to 200 records. Raise `limit` for
 more (or set `limit = NULL` to fetch all), and use `...` to pass any
-additional GLEIF filter,
-e.g. `"filter[entity.category]" = "FUND"`.
+additional GLEIF filter, e.g. `"filter[entity.category]" = "FUND"`.
 
 ### Corporate relationships
 
-Traverse ownership hierarchies with `lei_parent()` and
-`lei_children()`:
+Traverse ownership hierarchies with `lei_parent()` and `lei_children()`:
 
 ``` r
 # direct parent (use type = "ultimate" for the ultimate parent)
