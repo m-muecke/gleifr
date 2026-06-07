@@ -23,8 +23,9 @@ lei_fetch <- function(path, params = list()) {
     resp_body_json()
 }
 
-lei_fetch_iter <- function(path, params = list(), limit = NULL) {
-  max_reqs <- if (is.null(limit)) Inf else ceiling(limit / (params[["page[size]"]] %||% 200L))
+lei_fetch_iter <- function(path, params = list(), limit = NULL, page_size = 200L) {
+  params[["page[size]"]] <- page_size
+  max_reqs <- if (is.null(limit)) Inf else ceiling(limit / page_size)
   resps <- lei_request(path, params) |>
     req_perform_iterative(
       next_req = iterate_with_offset(

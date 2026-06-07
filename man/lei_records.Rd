@@ -14,7 +14,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
-  limit = NULL,
+  limit = 200L,
   simplify = TRUE
 )
 }
@@ -48,8 +48,7 @@ These are appended as query parameters, e.g.
 \code{"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"}.}
 
 \item{limit}{(\code{NULL} | \code{integer(1)})\cr
-Maximum number of records to return. When \code{NULL} (the default), all matching records are
-fetched, paginating automatically.}
+Maximum number of records to return. Default \code{200L}. Use \code{NULL} to fetch all matching records.}
 
 \item{simplify}{(\code{logical(1)})\cr
 Should the output be simplified? Default \code{TRUE}.}

@@ -80,8 +80,7 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #'   These are appended as query parameters, e.g.
 #'   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
 #' @param limit (`NULL` | `integer(1)`)\cr
-#'   Maximum number of records to return. When `NULL` (the default), all matching records are
-#'   fetched, paginating automatically.
+#'   Maximum number of records to return. Default `200L`. Use `NULL` to fetch all matching records.
 #' @param simplify (`logical(1)`)\cr
 #'   Should the output be simplified? Default `TRUE`.
 #' @returns When `simplify = TRUE`, a long-format `data.frame()` with columns:
@@ -110,7 +109,7 @@ lei_records <- function(
   category = NULL,
   isin = NULL,
   ...,
-  limit = NULL,
+  limit = 200L,
   simplify = TRUE
 ) {
   stopifnot(
@@ -127,7 +126,6 @@ lei_records <- function(
   )
   params <- c(
     list(
-      `page[size]` = 200L,
       `filter[entity.legalName]` = legal_name,
       `filter[fulltext]` = fulltext,
       `filter[entity.legalAddress.country]` = country,
@@ -162,14 +160,14 @@ lei_records <- function(
 #' lei_regions()
 #' }
 lei_regions <- function() {
-  data <- lei_fetch("regions", list(`page[size]` = 100L))$data
+  data <- lei_fetch_iter("regions")
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     nms <- attrs$names
     data.frame(
       code = attrs$code,
-      language = vapply(nms, \(y) y$language, ""),
-      name = vapply(nms, \(y) y$name, ""),
+      language = vapply(nms, \(x) x$language %||% NA_character_, ""),
+      name = vapply(nms, \(x) x$name %||% NA_character_, ""),
       check.names = FALSE
     )
   })
@@ -192,7 +190,7 @@ lei_regions <- function() {
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
-  data <- lei_fetch("lei-issuers", list(`page[size]` = 100L))$data
+  data <- lei_fetch_iter("lei-issuers")
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -257,7 +255,7 @@ lei_jurisdictions <- function() {
 #' lei_legal_forms()
 #' }
 lei_legal_forms <- function() {
-  data <- lei_fetch_iter("entity-legal-forms", list(`page[size]` = 200L))
+  data <- lei_fetch_iter("entity-legal-forms")
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     nms <- attrs$names
@@ -267,12 +265,12 @@ lei_legal_forms <- function() {
       country_code = attrs$countryCode %||% NA_character_,
       status = attrs$status,
       name = if (length(nms) > 0L) {
-        vapply(nms, \(y) y$localName %||% NA_character_, "")
+        vapply(nms, \(x) x$localName %||% NA_character_, "")
       } else {
         NA_character_
       },
       language = if (length(nms) > 0L) {
-        vapply(nms, \(y) y$language %||% NA_character_, "")
+        vapply(nms, \(x) x$language %||% NA_character_, "")
       } else {
         NA_character_
       },
@@ -299,7 +297,7 @@ lei_legal_forms <- function() {
 #' lei_registration_authorities()
 #' }
 lei_registration_authorities <- function() {
-  data <- lei_fetch_iter("registration-authorities", list(`page[size]` = 200L))
+  data <- lei_fetch_iter("registration-authorities")
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -314,7 +312,7 @@ lei_registration_authorities <- function() {
 }
 
 fetch_code_list <- function(endpoint) {
-  data <- lei_fetch_iter(endpoint, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(endpoint)
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
@@ -394,7 +392,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
   stopifnot(is_string(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-children"), sep = "/")
-  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path)
   if (!simplify) {
     return(data)
   }
@@ -420,7 +418,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 lei_isins <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "isins", sep = "/")
-  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path)
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(lei = attrs$lei, isin = attrs$isin, check.names = FALSE)
@@ -452,7 +450,7 @@ lei_isins <- function(id) {
 lei_modifications <- function(id) {
   stopifnot(is_string(id))
   path <- paste("lei-records", id, "field-modifications", sep = "/")
-  data <- lei_fetch_iter(path, list(`page[size]` = 200L))
+  data <- lei_fetch_iter(path)
   out <- lapply(data, function(x) {
     attrs <- x$attributes
     data.frame(
