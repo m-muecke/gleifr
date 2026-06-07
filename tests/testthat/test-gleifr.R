@@ -22,6 +22,11 @@ test_that("lei_record_by_id validates inputs", {
 
 test_that("lei_records validates inputs", {
   expect_error(lei_records(legal_name = 123))
+  expect_error(lei_records(country = 123))
+  expect_error(lei_records(entity_status = 1))
+  expect_error(lei_records(registration_status = 1))
+  expect_error(lei_records(category = 1))
+  expect_error(lei_records(isin = 1))
   expect_error(lei_records(simplify = "yes"))
   expect_error(lei_records(page_size = -1))
 })

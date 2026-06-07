@@ -62,15 +62,23 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #'
 #' @param legal_name (`NULL` | `character(1)`)\cr
 #'   Filter by legal name.
-#' @param jurisdiction (`NULL` | `character(1)`)\cr
-#'   Filter by jurisdiction.
-#' @param status (`NULL` | `character(1)`)\cr
-#'   Filter by entity status.
 #' @param fulltext (`NULL` | `character(1)`)\cr
 #'   Full-text search query.
+#' @param country (`NULL` | `character(1)`)\cr
+#'   Filter by legal address country (ISO 3166-1 alpha-2 code), e.g. `"DE"`.
+#' @param jurisdiction (`NULL` | `character(1)`)\cr
+#'   Filter by jurisdiction (ISO 3166-1 alpha-2 code), e.g. `"DE"`.
+#' @param registration_status (`NULL` | `character(1)`)\cr
+#'   Filter by LEI registration status, e.g. `"ISSUED"` or `"LAPSED"`.
+#' @param entity_status (`NULL` | `character(1)`)\cr
+#'   Filter by entity status, one of `"ACTIVE"` or `"INACTIVE"`.
+#' @param category (`NULL` | `character(1)`)\cr
+#'   Filter by entity category, e.g. `"FUND"`, `"BRANCH"`, or `"GENERAL"`.
+#' @param isin (`NULL` | `character(1)`)\cr
+#'   Filter by ISIN.
 #' @param ... Additional filter parameters passed to the GLEIF API.
 #'   These are appended as query parameters, e.g.
-#'   `"filter[entity.legalAddress.country]" = "DE"`.
+#'   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
 #' @param page_size (`NULL` | `integer(1)`)\cr
 #'   The number of records per page. Default `200L`.
 #' @param page_number (`NULL` | `integer(1)`)\cr
@@ -90,14 +98,18 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' # search by legal name
 #' lei_records(legal_name = "Deutsche Bank")
 #'
-#' # filter by jurisdiction and status
-#' lei_records(jurisdiction = "DE", status = "ACTIVE")
+#' # filter by country and registration status
+#' lei_records(country = "DE", registration_status = "ISSUED")
 #' }
 lei_records <- function(
   legal_name = NULL,
-  jurisdiction = NULL,
-  status = NULL,
   fulltext = NULL,
+  country = NULL,
+  jurisdiction = NULL,
+  registration_status = NULL,
+  entity_status = NULL,
+  category = NULL,
+  isin = NULL,
   ...,
   page_size = 200L,
   page_number = NULL,
@@ -105,26 +117,34 @@ lei_records <- function(
 ) {
   stopifnot(
     is_string(legal_name, null_ok = TRUE),
-    is_string(jurisdiction, null_ok = TRUE),
-    is_string(status, null_ok = TRUE),
     is_string(fulltext, null_ok = TRUE),
+    is_string(country, null_ok = TRUE),
+    is_string(jurisdiction, null_ok = TRUE),
+    is_string(registration_status, null_ok = TRUE),
+    is_string(entity_status, null_ok = TRUE),
+    is_string(category, null_ok = TRUE),
+    is_string(isin, null_ok = TRUE),
     is_count(page_size),
     is_count(page_number, null_ok = TRUE),
     is_flag(simplify)
   )
-  dots <- list(...)
+  params <- c(
+    list(
+      `page[size]` = page_size,
+      `page[number]` = page_number,
+      `filter[entity.legalName]` = legal_name,
+      `filter[fulltext]` = fulltext,
+      `filter[entity.legalAddress.country]` = country,
+      `filter[entity.jurisdiction]` = jurisdiction,
+      `filter[registration.status]` = registration_status,
+      `filter[entity.status]` = entity_status,
+      `filter[entity.category]` = category,
+      `filter[isin]` = isin
+    ),
+    list(...)
+  )
   path <- "lei-records"
   if (is.null(page_number)) {
-    params <- c(
-      list(
-        `page[size]` = page_size,
-        `filter[entity.legalName]` = legal_name,
-        `filter[entity.jurisdiction]` = jurisdiction,
-        `filter[entity.status]` = status,
-        `filter[fulltext]` = fulltext
-      ),
-      dots
-    )
     data <- lei_fetch_iter(path, params)
     if (!simplify) {
       return(data)
@@ -133,17 +153,6 @@ lei_records <- function(
     tab <- do.call(rbind, val)
     return(clean_names(tab))
   }
-  params <- c(
-    list(
-      `page[size]` = page_size,
-      `page[number]` = page_number,
-      `filter[entity.legalName]` = legal_name,
-      `filter[entity.jurisdiction]` = jurisdiction,
-      `filter[entity.status]` = status,
-      `filter[fulltext]` = fulltext
-    ),
-    dots
-  )
   res <- lei_fetch(path, params)
   if (!simplify) {
     return(res)

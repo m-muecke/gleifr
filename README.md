@@ -63,20 +63,21 @@ str(record)
 ### Searching for records
 
 Use `lei_records()` to query the LEI database. You can filter by legal
-name, jurisdiction, status, or run a full-text query:
+name, country, jurisdiction, status, category, or ISIN, or run a
+full-text query:
 
 ``` r
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
 
 # combine filters
-lei_records(jurisdiction = "DE", status = "ACTIVE")
+lei_records(country = "DE", registration_status = "ISSUED")
 ```
 
 By default all matching pages are fetched automatically. Use `page_size`
 and `page_number` to page through results manually, and `...` to pass
 any additional GLEIF filter,
-e.g. `"filter[entity.legalAddress.country]" = "DE"`.
+e.g. `"filter[entity.category]" = "FUND"`.
 
 ### Corporate relationships
 

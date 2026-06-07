@@ -6,9 +6,13 @@
 \usage{
 lei_records(
   legal_name = NULL,
-  jurisdiction = NULL,
-  status = NULL,
   fulltext = NULL,
+  country = NULL,
+  jurisdiction = NULL,
+  registration_status = NULL,
+  entity_status = NULL,
+  category = NULL,
+  isin = NULL,
   ...,
   page_size = 200L,
   page_number = NULL,
@@ -19,18 +23,30 @@ lei_records(
 \item{legal_name}{(\code{NULL} | \code{character(1)})\cr
 Filter by legal name.}
 
-\item{jurisdiction}{(\code{NULL} | \code{character(1)})\cr
-Filter by jurisdiction.}
-
-\item{status}{(\code{NULL} | \code{character(1)})\cr
-Filter by entity status.}
-
 \item{fulltext}{(\code{NULL} | \code{character(1)})\cr
 Full-text search query.}
 
+\item{country}{(\code{NULL} | \code{character(1)})\cr
+Filter by legal address country (ISO 3166-1 alpha-2 code), e.g. \code{"DE"}.}
+
+\item{jurisdiction}{(\code{NULL} | \code{character(1)})\cr
+Filter by jurisdiction (ISO 3166-1 alpha-2 code), e.g. \code{"DE"}.}
+
+\item{registration_status}{(\code{NULL} | \code{character(1)})\cr
+Filter by LEI registration status, e.g. \code{"ISSUED"} or \code{"LAPSED"}.}
+
+\item{entity_status}{(\code{NULL} | \code{character(1)})\cr
+Filter by entity status, one of \code{"ACTIVE"} or \code{"INACTIVE"}.}
+
+\item{category}{(\code{NULL} | \code{character(1)})\cr
+Filter by entity category, e.g. \code{"FUND"}, \code{"BRANCH"}, or \code{"GENERAL"}.}
+
+\item{isin}{(\code{NULL} | \code{character(1)})\cr
+Filter by ISIN.}
+
 \item{...}{Additional filter parameters passed to the GLEIF API.
 These are appended as query parameters, e.g.
-\code{"filter[entity.legalAddress.country]" = "DE"}.}
+\code{"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"}.}
 
 \item{page_size}{(\code{NULL} | \code{integer(1)})\cr
 The number of records per page. Default \code{200L}.}
@@ -61,8 +77,8 @@ record by its LEI, see \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
 
-# filter by jurisdiction and status
-lei_records(jurisdiction = "DE", status = "ACTIVE")
+# filter by country and registration status
+lei_records(country = "DE", registration_status = "ISSUED")
 }
 }
 \seealso{
