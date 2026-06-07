@@ -1,5 +1,5 @@
 #' @keywords internal
-#' @importFrom httr2 iterate_with_offset
+#' @importFrom httr2 iterate_with_cursor
 #' @importFrom httr2 req_cache
 #' @importFrom httr2 req_error
 #' @importFrom httr2 req_headers
@@ -14,4 +14,5 @@
 #' @importFrom httr2 resp_content_type
 #' @importFrom httr2 resp_status
 #' @importFrom httr2 resps_data
+#' @importFrom httr2 url_parse
 "_PACKAGE"

@@ -25,17 +25,23 @@ lei_fetch <- function(path, params = list()) {
 
 lei_fetch_iter <- function(path, params = list(), limit = NULL, page_size = 200L) {
   params[["page[size]"]] <- page_size
+  params[["page[cursor]"]] <- "*"
   max_reqs <- if (is.null(limit)) Inf else ceiling(limit / page_size)
   resps <- lei_request(path, params) |>
     req_perform_iterative(
-      next_req = iterate_with_offset(
-        "page[number]",
-        resp_pages = \(resp) resp_body_json(resp)$meta$pagination$lastPage
-      ),
+      next_req = iterate_with_cursor("page[cursor]", lei_next_cursor),
       max_reqs = max_reqs
     )
   data <- resps_data(resps, \(resp) resp_body_json(resp)$data)
   if (is.null(limit)) data else utils::head(data, limit)
+}
+
+lei_next_cursor <- function(resp) {
+  next_url <- resp_body_json(resp)$links[["next"]]
+  if (is.null(next_url)) {
+    return()
+  }
+  url_parse(next_url)$query[["page[cursor]"]]
 }
 
 lei_error_body <- function(resp) {
