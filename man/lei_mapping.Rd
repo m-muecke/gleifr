@@ -23,6 +23,6 @@ Global Legal Entity Identifier Foundation (GLEIF).
 }
 \examples{
 \donttest{
-lei_mapping("isin")
+head(lei_mapping("isin"))
 }
 }

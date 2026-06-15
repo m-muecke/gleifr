@@ -30,10 +30,10 @@ see \code{\link[=lei_records]{lei_records()}}.
 \examples{
 \donttest{
 # get simplified long-format data.frame
-lei_record_by_id("529900W18LQJJN6SJ336")
+head(lei_record_by_id("529900W18LQJJN6SJ336"))
 
 # get raw API response as named list
-lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE)
+str(lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE), max.level = 2)
 }
 }
 \seealso{

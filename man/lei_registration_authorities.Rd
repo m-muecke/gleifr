@@ -22,6 +22,6 @@ business registries.
 }
 \examples{
 \donttest{
-lei_registration_authorities()
+head(lei_registration_authorities())
 }
 }

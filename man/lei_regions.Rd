@@ -19,6 +19,6 @@ Fetches the list of regions from the GLEIF API.
 }
 \examples{
 \donttest{
-lei_regions()
+head(lei_regions())
 }
 }

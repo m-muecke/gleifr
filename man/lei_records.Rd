@@ -71,10 +71,10 @@ record by its LEI, see \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 \examples{
 \donttest{
 # search by legal name
-lei_records(legal_name = "Deutsche Bank")
+head(lei_records(legal_name = "Deutsche Bank", limit = 5))
 
 # filter by country and registration status
-lei_records(country = "DE", registration_status = "ISSUED")
+head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 }
 }
 \seealso{

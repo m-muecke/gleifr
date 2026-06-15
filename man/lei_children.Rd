@@ -35,10 +35,10 @@ Fetches the direct or ultimate child records of a given LEI.
 \examples{
 \donttest{
 # get direct children
-lei_children("529900W18LQJJN6SJ336")
+head(lei_children("O2RNE8IBXP4R0TD8PU41", limit = 5))
 
 # get ultimate children
-lei_children("529900W18LQJJN6SJ336", type = "ultimate")
+head(lei_children("O2RNE8IBXP4R0TD8PU41", type = "ultimate", limit = 5))
 }
 }
 \seealso{

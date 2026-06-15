@@ -18,6 +18,6 @@ Fetches the list of countries (ISO 3166-1) recognized by the GLEIF API.
 }
 \examples{
 \donttest{
-lei_countries()
+head(lei_countries())
 }
 }

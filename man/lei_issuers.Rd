@@ -21,6 +21,6 @@ Fetches the list of LEI issuers (Local Operating Units) from the GLEIF API.
 }
 \examples{
 \donttest{
-lei_issuers()
+head(lei_issuers())
 }
 }

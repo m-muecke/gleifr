@@ -32,10 +32,10 @@ Fetches the direct or ultimate parent record of a given LEI.
 \examples{
 \donttest{
 # get direct parent
-lei_parent("529900W18LQJJN6SJ336")
+head(lei_parent("529900W18LQJJN6SJ336"))
 
 # get ultimate parent
-lei_parent("529900W18LQJJN6SJ336", type = "ultimate")
+head(lei_parent("529900W18LQJJN6SJ336", type = "ultimate"))
 }
 }
 \seealso{

@@ -25,6 +25,6 @@ Fetches the ISINs associated with a given LEI.
 }
 \examples{
 \donttest{
-lei_isins("529900W18LQJJN6SJ336")
+head(lei_isins("529900W18LQJJN6SJ336", limit = 10))
 }
 }

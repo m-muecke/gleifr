@@ -34,6 +34,6 @@ change to the entity (\code{recordType} \code{"LEI"}) and its relationships (\co
 }
 \examples{
 \donttest{
-lei_modifications("529900W18LQJJN6SJ336")
+head(lei_modifications("529900W18LQJJN6SJ336", limit = 10))
 }
 }

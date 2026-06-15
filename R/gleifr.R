@@ -11,7 +11,7 @@
 #' @export
 #' @examples
 #' \donttest{
-#' lei_mapping("isin")
+#' head(lei_mapping("isin"))
 #' }
 lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
   url <- latest_url(type)
@@ -38,10 +38,10 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 #' @examples
 #' \donttest{
 #' # get simplified long-format data.frame
-#' lei_record_by_id("529900W18LQJJN6SJ336")
+#' head(lei_record_by_id("529900W18LQJJN6SJ336"))
 #'
 #' # get raw API response as named list
-#' lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE)
+#' str(lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE), max.level = 2)
 #' }
 lei_record_by_id <- function(id, simplify = TRUE) {
   stopifnot(is_string(id), is_flag(simplify))
@@ -94,10 +94,10 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' @examples
 #' \donttest{
 #' # search by legal name
-#' lei_records(legal_name = "Deutsche Bank")
+#' head(lei_records(legal_name = "Deutsche Bank", limit = 5))
 #'
 #' # filter by country and registration status
-#' lei_records(country = "DE", registration_status = "ISSUED")
+#' head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 #' }
 lei_records <- function(
   legal_name = NULL,
@@ -157,7 +157,7 @@ lei_records <- function(
 #' @export
 #' @examples
 #' \donttest{
-#' lei_regions()
+#' head(lei_regions())
 #' }
 lei_regions <- function() {
   data <- lei_fetch_iter("regions")
@@ -187,7 +187,7 @@ lei_regions <- function() {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_issuers()
+#' head(lei_issuers())
 #' }
 lei_issuers <- function() {
   data <- lei_fetch_iter("lei-issuers")
@@ -215,7 +215,7 @@ lei_issuers <- function() {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_countries()
+#' head(lei_countries())
 #' }
 lei_countries <- function() {
   fetch_code_list("countries")
@@ -231,7 +231,7 @@ lei_countries <- function() {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_jurisdictions()
+#' head(lei_jurisdictions())
 #' }
 lei_jurisdictions <- function() {
   fetch_code_list("jurisdictions")
@@ -252,7 +252,7 @@ lei_jurisdictions <- function() {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_legal_forms()
+#' head(lei_legal_forms())
 #' }
 lei_legal_forms <- function() {
   data <- lei_fetch_iter("entity-legal-forms")
@@ -294,7 +294,7 @@ lei_legal_forms <- function() {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_registration_authorities()
+#' head(lei_registration_authorities())
 #' }
 lei_registration_authorities <- function() {
   data <- lei_fetch_iter("registration-authorities")
@@ -345,10 +345,10 @@ fetch_code_list <- function(endpoint) {
 #' @examples
 #' \donttest{
 #' # get direct parent
-#' lei_parent("529900W18LQJJN6SJ336")
+#' head(lei_parent("529900W18LQJJN6SJ336"))
 #'
 #' # get ultimate parent
-#' lei_parent("529900W18LQJJN6SJ336", type = "ultimate")
+#' head(lei_parent("529900W18LQJJN6SJ336", type = "ultimate"))
 #' }
 lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
@@ -385,10 +385,10 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' @examples
 #' \donttest{
 #' # get direct children
-#' lei_children("529900W18LQJJN6SJ336")
+#' head(lei_children("O2RNE8IBXP4R0TD8PU41", limit = 5))
 #'
 #' # get ultimate children
-#' lei_children("529900W18LQJJN6SJ336", type = "ultimate")
+#' head(lei_children("O2RNE8IBXP4R0TD8PU41", type = "ultimate", limit = 5))
 #' }
 lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simplify = TRUE) {
   type <- match.arg(type)
@@ -417,7 +417,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simpl
 #' @export
 #' @examples
 #' \donttest{
-#' lei_isins("529900W18LQJJN6SJ336")
+#' head(lei_isins("529900W18LQJJN6SJ336", limit = 10))
 #' }
 lei_isins <- function(id, limit = 200L) {
   stopifnot(is_string(id), is_count(limit, null_ok = TRUE))
@@ -451,7 +451,7 @@ lei_isins <- function(id, limit = 200L) {
 #' @export
 #' @examples
 #' \donttest{
-#' lei_modifications("529900W18LQJJN6SJ336")
+#' head(lei_modifications("529900W18LQJJN6SJ336", limit = 10))
 #' }
 lei_modifications <- function(id, limit = 200L) {
   stopifnot(is_string(id), is_count(limit, null_ok = TRUE))

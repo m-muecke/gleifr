@@ -18,6 +18,6 @@ Fetches the list of jurisdictions (countries and their subdivisions) recognized 
 }
 \examples{
 \donttest{
-lei_jurisdictions()
+head(lei_jurisdictions())
 }
 }

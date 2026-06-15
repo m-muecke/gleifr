@@ -23,6 +23,6 @@ legal form codes that appear in \code{\link[=lei_record_by_id]{lei_record_by_id(
 }
 \examples{
 \donttest{
-lei_legal_forms()
+head(lei_legal_forms())
 }
 }
