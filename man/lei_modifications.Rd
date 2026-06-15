@@ -33,7 +33,7 @@ Fetches the field-level modification history of a given LEI, i.e. an audit log o
 change to the entity (\code{recordType} \code{"LEI"}) and its relationships (\code{recordType} \code{"RR"}).
 }
 \examples{
-\dontrun{
+\donttest{
 lei_modifications("529900W18LQJJN6SJ336")
 }
 }

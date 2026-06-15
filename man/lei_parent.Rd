@@ -30,7 +30,7 @@ When \code{simplify = FALSE}, a named \code{list()} containing the raw API respo
 Fetches the direct or ultimate parent record of a given LEI.
 }
 \examples{
-\dontrun{
+\donttest{
 # get direct parent
 lei_parent("529900W18LQJJN6SJ336")
 

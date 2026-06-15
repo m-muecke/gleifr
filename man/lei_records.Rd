@@ -69,7 +69,7 @@ combined with logical AND, so each one you supply narrows the results further. T
 record by its LEI, see \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 # search by legal name
 lei_records(legal_name = "Deutsche Bank")
 

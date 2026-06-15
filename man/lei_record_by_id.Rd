@@ -28,7 +28,7 @@ Fetch a single LEI record by its Legal Entity Identifier. To fetch records by at
 see \code{\link[=lei_records]{lei_records()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 # get simplified long-format data.frame
 lei_record_by_id("529900W18LQJJN6SJ336")
 

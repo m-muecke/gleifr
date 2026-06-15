@@ -31,7 +31,7 @@ candidate values together with their LEI. Useful for resolving messy or misspell
 to a LEI, which can then be passed to \code{\link[=lei_record_by_id]{lei_record_by_id()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_fuzzy("Deutsch Bank", field = "entity.legalName")
 }
 }

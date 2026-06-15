@@ -17,7 +17,7 @@ A \code{data.frame()} with columns:
 Fetches the list of jurisdictions (countries and their subdivisions) recognized by the GLEIF API.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_jurisdictions()
 }
 }

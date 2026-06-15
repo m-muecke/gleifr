@@ -10,7 +10,7 @@
 #' @source <https://www.gleif.org/en/lei-data/lei-mapping>
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_mapping("isin")
 #' }
 lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
@@ -36,7 +36,7 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 #' @seealso [lei_records()] to fetch records by attribute filters.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # get simplified long-format data.frame
 #' lei_record_by_id("529900W18LQJJN6SJ336")
 #'
@@ -92,7 +92,7 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' @seealso [lei_record_by_id()] to fetch a single record by its LEI.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # search by legal name
 #' lei_records(legal_name = "Deutsche Bank")
 #'
@@ -156,7 +156,7 @@ lei_records <- function(
 #' - **name**: The region name
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_regions()
 #' }
 lei_regions <- function() {
@@ -186,7 +186,7 @@ lei_regions <- function() {
 #' - **accreditation_date**: The accreditation date
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_issuers()
 #' }
 lei_issuers <- function() {
@@ -214,7 +214,7 @@ lei_issuers <- function() {
 #' - **name**: The country name
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_countries()
 #' }
 lei_countries <- function() {
@@ -230,7 +230,7 @@ lei_countries <- function() {
 #' - **name**: The jurisdiction name
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_jurisdictions()
 #' }
 lei_jurisdictions <- function() {
@@ -251,7 +251,7 @@ lei_jurisdictions <- function() {
 #' - **language**: The language of the name
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_legal_forms()
 #' }
 lei_legal_forms <- function() {
@@ -293,7 +293,7 @@ lei_legal_forms <- function() {
 #' - **website**: The authority website, or `NA` if none
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_registration_authorities()
 #' }
 lei_registration_authorities <- function() {
@@ -343,7 +343,7 @@ fetch_code_list <- function(endpoint) {
 #' @seealso [lei_children()] to fetch the child records of a LEI.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # get direct parent
 #' lei_parent("529900W18LQJJN6SJ336")
 #'
@@ -383,7 +383,7 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' @seealso [lei_parent()] to fetch the parent record of a LEI.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' # get direct children
 #' lei_children("529900W18LQJJN6SJ336")
 #'
@@ -416,7 +416,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simpl
 #' - **isin**: The ISIN
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_isins("529900W18LQJJN6SJ336")
 #' }
 lei_isins <- function(id, limit = 200L) {
@@ -450,7 +450,7 @@ lei_isins <- function(id, limit = 200L) {
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_modifications("529900W18LQJJN6SJ336")
 #' }
 lei_modifications <- function(id, limit = 200L) {
@@ -492,7 +492,7 @@ lei_modifications <- function(id, limit = 200L) {
 #' @seealso [lei_autocomplete()] for prefix-based completion, [lei_record_by_id()] for full records.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_fuzzy("Deutsch Bank", field = "entity.legalName")
 #' }
 lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "ownedBy")) {
@@ -517,7 +517,7 @@ lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "owne
 #' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_record_by_id()] for full records.
 #' @export
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' lei_autocomplete("Appl")
 #' }
 lei_autocomplete <- function(q, field = c("fulltext", "owns")) {

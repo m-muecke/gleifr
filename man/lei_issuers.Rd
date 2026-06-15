@@ -20,7 +20,7 @@ A \code{data.frame()} with columns:
 Fetches the list of LEI issuers (Local Operating Units) from the GLEIF API.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_issuers()
 }
 }

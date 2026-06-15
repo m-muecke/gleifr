@@ -24,7 +24,7 @@ A \code{data.frame()} with columns:
 Fetches the ISINs associated with a given LEI.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_isins("529900W18LQJJN6SJ336")
 }
 }

@@ -28,7 +28,7 @@ Performs a prefix-based completion against the GLEIF API, returning candidate va
 with their LEI. Useful for typeahead-style lookups. For typo-tolerant matching, see \code{\link[=lei_fuzzy]{lei_fuzzy()}}.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_autocomplete("Appl")
 }
 }

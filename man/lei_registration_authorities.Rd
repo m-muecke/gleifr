@@ -21,7 +21,7 @@ resolve the registration authority codes that appear in \code{\link[=lei_record_
 business registries.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_registration_authorities()
 }
 }

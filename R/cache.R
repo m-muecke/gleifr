@@ -9,6 +9,11 @@
 #' `options(gleifr.cache_max_age = seconds)`.
 #'
 #' @name cache
+#' @returns
+#' `lei_cache_dir()` returns a single string giving the path to the cache directory.
+#'
+#' `lei_cache_clear()` is called for its side effect of deleting the cached responses and returns
+#' `NULL` invisibly.
 #' @examples
 #' \dontrun{
 #' # enable caching
@@ -35,6 +40,7 @@ lei_cache_clear <- function() {
   if (dir.exists(cache_dir)) {
     unlink(dir(cache_dir, full.names = TRUE))
   }
+  invisible()
 }
 
 req_lei_cache <- function(req) {

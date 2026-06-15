@@ -17,7 +17,7 @@ A \code{data.frame()} with columns:
 Fetches the list of countries (ISO 3166-1) recognized by the GLEIF API.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_countries()
 }
 }

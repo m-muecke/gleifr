@@ -22,7 +22,7 @@ Fetches the list of entity legal forms (ELF codes) recognized by the GLEIF API. 
 legal form codes that appear in \code{\link[=lei_record_by_id]{lei_record_by_id()}} output to human-readable names.
 }
 \examples{
-\dontrun{
+\donttest{
 lei_legal_forms()
 }
 }
