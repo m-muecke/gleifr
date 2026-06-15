@@ -47,7 +47,18 @@ for full records.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
 lei_autocomplete("Appl")
-} # }
+#>        value                  lei
+#> 1   AppLogic 724500S2JQ8M9Q67N911
+#> 2   AT APPLI 254900RKVKGKPHAN8C29
+#> 3   APPLE 12 969500RDBEVTUKOLE690
+#> 4   APPLISOL 969500QR5XNTB9QQIQ09
+#> 5   APPLITEC                 <NA>
+#> 6   APPLY AS 636700DQ0JLHIXYKLG19
+#> 7  Apple Ltd 529900RYTCJRAG2BSI79
+#> 8  APPLE INN 64886E905REV38LP9S76
+#> 9  APPLE-WAY 969500QV2N8IIVULLH93
+#> 10 APPLEXION 969500DMETT83AWS3W44
+# }
 ```

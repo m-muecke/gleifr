@@ -88,9 +88,20 @@ Default is <code>"fulltext"</code>.</p></dd>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">lei_fuzzy</span><span class="op">(</span><span class="st">"Deutsch Bank"</span>, field <span class="op">=</span> <span class="st">"entity.legalName"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                         value                  lei</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1            DEUTSCHE BANK SA 529900J2KCFIPEYJIE34</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2        DEUTSCHE BANK S.P.A. 529900SS7ZWCX82U3W60</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      Deutsche Bank Stiftung 391200PCHLV827FDCB76</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   Deutsche Bank (Chile) S.A 549300B4Z1JOQPQSVA53</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Deutsche Bank Europe GmbH 213800QILIUD4ROSUO03</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   Deutsche Bank (Perú) S.A. 529900N94W687OHXIV81</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   DEUTSCHE BANK SA ESPAÑOLA 529900SICIK5OVMVY186</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Deutsche Bank (Suisse) SA 529900BXKPMXQTRE1V05</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  Deutsche Bank (Chile) S.A. 529900S441FVQLZIRQ90</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 DEUTSCHE BANK MUTUI S.P.A. 8156006ACD5E92B0C985</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

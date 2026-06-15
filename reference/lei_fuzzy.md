@@ -50,7 +50,18 @@ for full records.
 ## Examples
 
 ``` r
-if (FALSE) { # \dontrun{
+# \donttest{
 lei_fuzzy("Deutsch Bank", field = "entity.legalName")
-} # }
+#>                         value                  lei
+#> 1            DEUTSCHE BANK SA 529900J2KCFIPEYJIE34
+#> 2        DEUTSCHE BANK S.P.A. 529900SS7ZWCX82U3W60
+#> 3      Deutsche Bank Stiftung 391200PCHLV827FDCB76
+#> 4   Deutsche Bank (Chile) S.A 549300B4Z1JOQPQSVA53
+#> 5   Deutsche Bank Europe GmbH 213800QILIUD4ROSUO03
+#> 6   Deutsche Bank (Perú) S.A. 529900N94W687OHXIV81
+#> 7   DEUTSCHE BANK SA ESPAÑOLA 529900SICIK5OVMVY186
+#> 8   Deutsche Bank (Suisse) SA 529900BXKPMXQTRE1V05
+#> 9  Deutsche Bank (Chile) S.A. 529900S441FVQLZIRQ90
+#> 10 DEUTSCHE BANK MUTUI S.P.A. 8156006ACD5E92B0C985
+# }
 ```

@@ -63,9 +63,941 @@ legal form codes that appear in <code><a href="lei_record_by_id.html">lei_record
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># \dontrun{</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="fu">lei_legal_forms</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span> <span class="co"># }</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     code                                              country country_code</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1   09K3                                        Faroe Islands           FO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2   0AWU                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3   0GY3                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4   0NYS                                            Singapore           SG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   0OCP                                             Viet Nam           VN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6   0SKB                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7   0WOU                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   106J                                              Belarus           BY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9   106J                                              Belarus           BY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10  10GE                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11  10ST                     Saint Vincent and the Grenadines           VC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12  10UR                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13  11GD                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14  12F9                                             Honduras           HN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15  12KO                                  Korea (Republic of)           KR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16  12MV                                        Liechtenstein           LI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17  12N6                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18  135L                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19  13AV                                              Germany           DE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  13T9                                            Lithuania           LT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21  13ZV                                               Poland           PL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  149O                                      North Macedonia           MK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23  14AT                                             Slovenia           SI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24  14NU                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25  14OD                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26  14U1                           Taiwan (Province of China)           TW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27  157O                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28  15A2                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29  15BP                                             Cambodia           KH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30  15BP                                             Cambodia           KH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31  15JS                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32  16GH                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33  16RL                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34  17FJ                                            Singapore           SG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35  17R0 United Kingdom of Great Britain and Northern Ireland           GB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36  17R7                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37  180P                                                India           IN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38  189Q                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39  194I                                          Puerto Rico           PR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40  194I                                          Puerto Rico           PR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41  1A0A                     Bonaire, Sint Eustatius and Saba           BQ</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42  1ADA                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43  1ADH                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44  1AFG                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45  1AFG                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46  1ASH                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47  1B88                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48  1BL5                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49  1BL5                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50  1BL5                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51  1BL5                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52  1CDX                                              Romania           RO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53  1CML                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54  1CSW                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55  1CSZ                                         Sint Maarten           SX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56  1CZS                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57  1DGT                                        Liechtenstein           LI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58  1E9M                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59  1EQC                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60  1G26                                          Isle of Man           IM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61  1G29                                                Spain           ES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62  1GLU                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63  1GNM                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64  1GR6                             Virgin Islands (British)           VG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65  1HEP                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66  1HGD                                             Portugal           PT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67  1HXP                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68  1IPK                                               Latvia           LV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69  1IWK                                                China           CN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70  1JGX                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71  1JK6                                              Czechia           CZ</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72  1JXS                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73  1K73                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74  1K9U                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75  1KU4                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76  1L24                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77  1MBR                                               Cyprus           CY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78  1MJ0                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79  1MQ6                                                 Peru           PE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80  1MWR                                              Denmark           DK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81  1NF1                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82  1NKP                                              Estonia           EE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83  1NOX                                              Austria           AT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84  1ONH                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85  1OR3                                             Slovenia           SI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86  1PAD                                             Colombia           CO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87  1PWF                     Saint Vincent and the Grenadines           VC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88  1Q16                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89  1Q2B                                             Guernsey           GG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90  1QMT                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91  1QNZ                                              Uruguay           UY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92  1QU8                                                Spain           ES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93  1RI9                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94  1RJ2                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95  1RKS                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96  1RKS                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97  1RKS                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98  1RKS                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99  1RPE                                                Samoa           WS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100 1S9L                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101 1SL4                                                Spain           ES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102 1SOY                                        Liechtenstein           LI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103 1SVL                                              Curaçao           CW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104 1T06                                              Curaçao           CW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105 1T9S                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106 1TG4                                          Puerto Rico           PR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107 1TG4                                          Puerto Rico           PR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108 1TN0                                               Sweden           SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109 1TON                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110 1TX8                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111 1TX8                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112 1TX8                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113 1U7Y                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114 1V0I                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115 1VTA                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116 1W62 United Kingdom of Great Britain and Northern Ireland           GB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117 1W6I                                              Bahamas           BS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118 1W8B                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119 1WZP                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120 1XME                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121 1XOG                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122 1Y0C                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123 1YA4                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124 1YIR                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125 1YIR                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126 1ZHJ                                                Spain           ES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127 211B                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128 21F4                                               Jersey           JE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129 21OE                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130 22EO                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131 22SC                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132 233U                                               Cyprus           CY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133 23Q4                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134 23V9                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135 23XJ                                               Mexico           MX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136 24EG                                              Croatia           HR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137 24TU                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138 254M                                            Hong Kong           HK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139 254M                                            Hong Kong           HK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140 274G                                              Croatia           HR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141 27AW                                               Sweden           SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142 27WJ                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143 28FE                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144 28FE                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145 28FE                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146 28RA                                              Croatia           HR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147 29FA                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148 29OB                                Saint Kitts and Nevis           KN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149 2A44                                              Hungary           HU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150 2AUN                                             Guernsey           GG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151 2B81                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152 2B81                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153 2B81                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154 2B81                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155 2CC3                                         Sint Maarten           SX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156 2CTG                                             Slovenia           SI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157 2DGO                                    Brunei Darussalam           BN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158 2DK3                                              Czechia           CZ</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159 2DVA                                                India           IN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160 2DY1                                              Türkiye           TR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161 2EEG                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162 2EPF                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163 2F0A                                Saint Kitts and Nevis           KN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164 2FED                                              Croatia           HR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165 2FHC                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166 2GEJ                                                Niger           NE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167 2GV9                                              Ireland           IE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168 2H36                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169 2HBR                                              Germany           DE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170 2HC6                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171 2I4P                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172 2IGL                                           Luxembourg           LU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173 2J66                                              Curaçao           CW</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174 2J7Z                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175 2JB4                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176 2JEI                                           Luxembourg           LU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177 2JZ4                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178 2JZ4                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179 2JZ4                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180 2JZ4                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181 2KMA                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182 2L5O                                                Niger           NE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183 2LB5                                              Hungary           HU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184 2LNV                                               Mexico           MX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185 2M6Y                                                China           CN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186 2MAO                                              Bahrain           BH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187 2N4L                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188 2N9X                                              Czechia           CZ</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189 2NAI                                               Mexico           MX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190 2NL6                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191 2NRQ                                                Japan           JP</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192 2ODA                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193 2OJP                                              Iceland           IS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194 2ONM                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195 2OTW                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196 2PHU                                            Singapore           SG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197 2PRK                                              Armenia           AM</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198 2QMJ                                            Hong Kong           HK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199 2QSA                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200 2QSA                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201 2QSA                                              Belgium           BE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202 2R1N                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203 2R46                                   Russian Federation           RU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204 2R82                                               Jordan           JO</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205 2RK5                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206 2RK5                                              Finland           FI</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207 2RVP                                               Mexico           MX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208 2S2U                                           Luxembourg           LU</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209 2SPI                                             Malaysia           MY</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210 2SZI                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211 2T7B                                             Barbados           BB</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212 2U3G                                               Canada           CA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213 2UAX                                               Sweden           SE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214 2UBX                                         Sint Maarten           SX</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215 2UZP                                                Chile           CL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216 2W1A                                                Spain           ES</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217 2WCH                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218 2WFG                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219 2WFG                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220 2WFG                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221 2WFG                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222 2WJZ                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223 2WMP                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224 2XIK                                               France           FR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225 2XJA                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226 2XJA                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227 2XJA                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228 2XJA                                          Switzerland           CH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229 2XNE                                             Slovakia           SK</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230 2XXG                             United States of America           US</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231 2XXH                                                Italy           IT</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232 2Y95                                                India           IN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     status</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9     ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98    INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99    ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221   INAC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232   ACTV</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                                                         name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                                                                                  Samstarvsfelag við ábyrgd</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                                                                                               credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                                                                                               credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                                                                                                                Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                                                                                công ty trách nhiệm hữu hạn</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                                                                                               credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                                                                                               credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                                                                            Закрытае акцыянернае таварыства</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                                                                              Закрытое акционерное общество</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10                                                                                                              credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                                                                                               association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                                                                                       Syndicat coopératif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                                                                                     Nonprofit Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                                                                            Sociedades de Capital Variable</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                                                                                               회사형 펀드</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                                                                               Kommanditaktiengesellschaft</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                                                                      Unincorporated Nonprofit Association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                                                         Società Costituita In Base A Leggi Di Altro Stato</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                                                                   Versicherungsverein auf Gegenseitigkeit</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                                                                                         Europos bendrovės</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21                                                                            samodzielny publiczny zakład opieki zdrowotnej</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                                                                               Командитно друштво со акции</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23                                                                                                            Javna agencija</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24                                                                                      Rozpočtové a príspevkové organizácie</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25                                                                                                              credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26                                                                                                                  兩合公司</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                                                 Régie d'une collectivité locale à caractère administratif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                                            Объединения (ассоциации и союзы) благотворительных организаций</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29                                                                                                   Private Limited Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30                                                                                                  ក្រុមហ៊ុនឯកជនទទួលខុសត្រូវមានកម្រិត</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31                                                                                                       Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32                                                       Personne morale sans but lucratif par Loi sur les cercles agricoles</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                    Personne morale sans but lucratif par Loi sur la mise en marché des produits agricoles</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34                                                                                                       Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35                                                                                                Community Interest Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                                                                  Общества с ограниченной ответственностью</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37                                                                                                Stand Alone Primary Dealer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38                                                                                   Špecializovaná organizačná jednotka ČSD</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39                                                                                                  Professional Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                                                         Corporación Especial para el Desarrollo Municipal</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                                                                                     Besloten vennootschap</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                                                                                      Family Trust Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                                              Extra-Territorial Corporation(for profit and not-for-profit)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                                                                                                 Muu yhtiö</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45                                                                                                               Annat bolag</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                                                                                    Religious corporations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                                                                                           SCP de médecins</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48                                  Swiss branch of an enterprise domiciled abroad not registered in the commercial register</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49                           Succursale suisse d'une entreprise domiciliée à l'étranger non inscrite au registre de commerce</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                                           Ausländische Niederlassung nicht im Handelsregister eingetragen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51                           Succursali svizzere di una impresa domiciliata all'estero non iscritta al registro di commercio</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                                                                                       Societate europeană</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                                                                                       Sole proprietorship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54                                                                                                             Obecný podnik</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                                                                                                vereniging</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                                                                                       General Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                                                                                           Treuunternehmen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                                                                                       Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                                                                            trade name/sole proprietorship</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60                                                     Public Limited by Guarantee and not having a Share Capital (1931 Act)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                                Sociedad Limitada Laboral (o Sociedad de Responsabilidad Limitada laboral)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                                                                     Jednotka železničného správneho úradu</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                                                                                      Syndicat de salariés</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                                                                                               Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65                                                                                                    Rozpočtová organizácia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                                                                                               Cooperativa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67                                                                                             Limited Liability Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68                                                                                                        Komandītsabiedrība</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69                                                                                                          外国常驻新闻机构</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70                                                                                                       Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                                                                            Svépomocné zemědělské družstvo</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                                                                                              Savings Bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73                                                                Zahraničná osoba, právnická osoba so sídlom mimo územia SR</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74                                                                                                    Non-Profit Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75                                                                                                              credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76                                                                                                      Autre société civile</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                                                                                         Άλλη νομική μορφή</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78                                                                                       Крестьянские (фермерские) хозяйства</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79                                                                                        Sociedad en Comandita por Acciones</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                                                                                                      Fond</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81                                                                                   SA nationale à conseil d'administration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82                                                                                                                Sihtasutus</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83                                                                                                    Sonstiger Rechtsträger</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                                                                               Public Benefit Corporations</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85                                                                                                           delniška družba</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86                                                                                                       Empresa Unipersonal</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87                                                                                                            public company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                                                           Société créée de fait entre personnes physiques</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89                                                                                              company limited by guarantee</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                                                                                      Business Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                                                                                                 Fundacion</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92                                                                                                      Sociedad Cooperativa</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                                                                Ente Ecclesiastico Civilmente Riconosciuto</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                                                                     Автономные некоммерческие организации</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                                                              Foreign public administration (e.g. embassy)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                                                         Administration publique étrangère (ex. Ambassade)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97                                                                                       Ausländische öffentliche Verwaltung</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98                                                                          Amministrazione pubblica estera (ex. ambasciata)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99                                                                                                          Charitable trust</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100                                                                            Professional Series Limited Liability Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101                                                                                                    Empresario Individual</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                                                                               Europäische Genossenschaft</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                                                                                      Stille vennootschap</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                                                                                                Stichting</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                                                                                          Commercial Bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                                                                                           Low Profit LLC</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107                                                                      Compañía de Responsabilidad Limitada con Fin Social</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                                                         Ideell förening (som bedriver näringsverksamhet)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109                                                                                                             Associazione</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110                                                           Commanditaire vennootschap op aandelen met een sociaal oogmerk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111                                                                     Société en commandite par actions à finalité sociale</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112                                                                Kommanditgesellschaft auf Aktien mit sozialer Zielsetzung</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113                                                                                             Благотворительные учреждения</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114                                                                                             Domestic Benefit Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115                                            Personne morale sans but lucratif par Loi sur les évêques catholiques romains</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116                                                                                                          Oversea Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117                                                                                            Limited Liability Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118                                                                                                         Zahraničná osoba</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119                                                                                                      Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120                                                                                          Housing Cooperative Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121                                                                                       Agricultural Marketing Association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122                                                                                                       SARL d'attribution</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123                                                                                                     Statutory Foundation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124                                                                                                      Metsänhoitoyhdistys</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125                                                                                                       Skogsvårdsförening</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126                                                Sociedad Colectiva Profesional (o Sociedad regular colectiva profesional)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127                                                                                             Société coopérative agricole</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128                                                                                            Separate Limited Partnerships</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129                                                                                            Limited Liability Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130                                                                                                             credit union</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131                                                                                             Savings and Loan Association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132                                                                                                            Συνεταιρισμός</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133                                                                                                Non-deposit Trust Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134                                                                                                      Limited partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135                                                 Sociedad anónima de capital variable, sociedad de información crediticia</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136                                                                                                           Kreditna unija</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137                                                                              Союзы (ассоциации) общественных объединений</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138                                                                                                         私人股份有限公司</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139                                                                                        Private company limited by shares</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140                                                                                                                   Udruga</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141                                                                                                          offentlig enhet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142                                                        Personne morale sans but lucratif par Loi sur les cités et villes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143                                                                                                Coöperatieve vennootschap</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144                                                                                                      Société coopérative</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145                                                                                                           Genossenschaft</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146                                                                                                                     Fond</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147                                                                                    Institution interrégionale ou entente</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148                                                                                                               foundation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149                                                                                                               Egyéni cég</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150                                                                                                        incorporated cell</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151                                                                                                       Simple partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152                                                                                                           Société simple</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153                                                                                                    Einfache Gesellschaft</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154                                                                                                         Sociéta semplice</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155                                                                                                    besloten vennootschap</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156                                                                                                                  zadruga</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157                                                                                                           Public Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158                                                                        Podnik nebo hospodářské zařízení politické strany</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159                                                                                                      Cooperative Society</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160                                                                                                      kamu tüzel kişiliği</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161                                                                                                       Akciová spoločnosť</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162                                                                                                             Savings Bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163                                                                                                limited liability company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164                                                                                          Gospodarsko interesno udruženje</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165                                                                                                             partnerships</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166                                                                                         Société à Responsabilité Limitée</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167                                                                                Irish Collective Asset-management Vehicle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168                                                                                          Союзы (ассоциации) кооперативов</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169                                                                                    Gesellschaft mit beschränkter Haftung</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170                                                                                                 pubblica amministrazione</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171                                                                                                       Profit Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172                                                                                                  Entreprise individuelle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173                                                                                              Stichting Particulier Fonds</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174                                                                                           Consorzio con attività Esterna</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175                                                                                                             Savings Bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176                                                                                            Association sans but lucratif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177                                                                                                               Foundation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178                                                                                                                Fondation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179                                                                                                                 Stiftung</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180                                                                                                               Fondazione</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181                                                                                              Štátny podnik v oddieli Pšn</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182                                                                                          Groupement d'intérêt économique</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183                                                                          Munkavállalói Résztulajdonosi Program szervezet</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184                                                             Sociedad anónima de capital variable, institución de seguros</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185                                                                                                                   基金会</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186                                                                                                   الشركة غير هادفة للربح</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187                                                                                        (Autre) Collectivité territoriale</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188                                                                                              Česká konsolidační agentura</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189                                                                                                                Comunidad</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190                                                                      État, collectivité ou établissement public étranger</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191                                                                                                             地方公共団体</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192                                        Personne morale sans but lucratif par Loi sur les sociétés agricoles et laitières</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193                                                                                                        Samlagshlutafélag</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194                                                                                            SA d'attribution à directoire</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195                                                                                      Муниципальные автономные учреждения</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196                                                                                                                 Business</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197                                                                                                 Լիակատար ընկերակցություն</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198                                                                                                                    Trust</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199                                         Coöperatieve vennootschap met beperkte aansprakelijkheid met een sociaal oogmerk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200                                                          Société coopérative à responsabilité limitée à finalité sociale</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201                                                         Genossenschaft mit beschränkter Haftung mit sozialer Zielsetzung</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202                                                                                             Savings and Loan Association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203                                                                                         Товарищества собственников жилья</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204                                                                                                   شركة رأس المال المغامر</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205                                                                                                                    Kunta</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206                                                                                                                   Kommun</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207 Sociedad anónima promotora de inversión de capital variable, sociedad financiera de objeto múltiple, entidad no regulada</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208                                                                                            Association d'épargne pension</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209                                                                                       Labuan Islamic Limited Partnership</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210                                                                                                             Ente Sociale</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211                                                                                        society with restricted liability</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212                                                                        Société en nom collectif à responsabilité limitée</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213                                                                             Trossamfund (som bedriver näringsverksamhet)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214                                                                                   commanditaire vennootschap op aandelen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215                                                                                                 Sociedad Colectiva Civil</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216                                                                                                           Sociedad Civil</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217                                                                                                             savings bank</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218                                                                                                   Foreign public company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219                                                                                            Entreprise publique étrangère</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220                                                                                   Ausländisches öffentliches Unternehmen</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221                                                                                                  Impresa pubblica estera</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222                                                                                                  Cooperative Association</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223                                                                             Autre personne morale de droit administratif</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224                                                                                                                 Mutuelle</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225                                                                                                   Federal administration</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226                                                                                       Administration de la Confédération</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227                                                                                                    Verwaltung des Bundes</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228                                                                                     Amministrazione della Confederazione</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229                                                                                                          Komoditná burza</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230                                                                                                    Nonprofit Corporation</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231                                                                                                         Società Semplice</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232                                                                                        Special Purpose Vehicle - Company</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      Faroese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5   Vietnamese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6      English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7      English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8   Belarusian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9      Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 11     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 12      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 13     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 14     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 15      Korean</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 16      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 17     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 18     Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 19      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 20  Lithuanian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 21      Polish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 22  Macedonian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 23     Slovene</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 24      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 25     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 26     Chinese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 27      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 28     Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 29     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 30       Khmer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 31     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 32      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 33      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 34     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 35     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 36     Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 37     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 38      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 39     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 40     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 41       Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 42     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 43     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 44     Finnish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 45     Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 46     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 47      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 48     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 49      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 50      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 51     Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 52    Romanian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 53     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 54      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 55       Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 56     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 57      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 58     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 59     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 60     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 61     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 62      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 63      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 64     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 65      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 66  Portuguese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 67     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 68     Latvian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 69     Chinese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 70     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 71       Czech</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 72     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 73      Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 74     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 75     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 76      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 77       Greek</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 78     Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 79     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 80      Danish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 81      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 82    Estonian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 83      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 84     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 85     Slovene</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 86     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 87     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 88      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 89     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 90     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 91     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 92     Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 93     Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 94     Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 95     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 96      French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 97      German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 98     Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 99     English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 100    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 101    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 102     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 103      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 104      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 105    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 106    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 107    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 108    Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 109    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 110      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 111     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 112     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 113    Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 114    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 115     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 116    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 117    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 118     Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 119    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 120    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 121    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 122     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 123    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 124    Finnish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 125    Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 126    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 127     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 128    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 129    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 130    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 131    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 132      Greek</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 133    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 134    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 135    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 136   Croatian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 137    Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 138    Chinese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 139    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 140   Croatian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 141    Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 142     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 143      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 144     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 145     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 146   Croatian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 147     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 148    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 149  Hungarian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 150    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 151    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 152     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 153     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 154    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 155      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 156    Slovene</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 157    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 158      Czech</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 159    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 160    Turkish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 161     Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 162    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 163    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 164   Croatian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 165    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 166     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 167    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 168    Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 169     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 170    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 171    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 172     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 173      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 174    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 175    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 176     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 177    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 178     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 179     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 180    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 181     Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 182     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 183  Hungarian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 184    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 185    Chinese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 186     Arabic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 187     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 188      Czech</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 189    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 190     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 191   Japanese</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 192     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 193  Icelandic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 194     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 195    Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 196    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 197   Armenian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 198    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 199      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 200     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 201     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 202    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 203    Russian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 204     Arabic</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 205    Finnish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 206    Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 207    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 208     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 209    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 210    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 211    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 212     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 213    Swedish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 214      Dutch</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 215    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 216    Spanish</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 217    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 218    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 219     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 220     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 221    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 222    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 223     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 224     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 225    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 226     French</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 227     German</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 228    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 229     Slovak</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 230    English</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 231    Italian</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 232    English</span>
+<span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>

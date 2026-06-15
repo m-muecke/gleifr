@@ -11,6 +11,14 @@ lei_cache_dir()
 lei_cache_clear()
 ```
 
+## Value
+
+`lei_cache_dir()` returns a single string giving the path to the cache
+directory.
+
+`lei_cache_clear()` is called for its side effect of deleting the cached
+responses and returns `NULL` invisibly.
+
 ## Details
 
 The cache is only used when enabled with `options(gleifr.cache = TRUE)`.
