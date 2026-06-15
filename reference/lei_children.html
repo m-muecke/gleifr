@@ -88,349 +88,38 @@ Should the output be simplified? Default <code>TRUE</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># get direct children</span></span></span>
-<span class="r-in"><span><span class="fu">lei_children</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      lei                                            name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1   529900U9BRBB7CPIJ490                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2   529900U9BRBB7CPIJ490                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3   529900U9BRBB7CPIJ490                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4   529900U9BRBB7CPIJ490              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5   529900U9BRBB7CPIJ490                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6   529900U9BRBB7CPIJ490                     entity_legal_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7   529900U9BRBB7CPIJ490                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8   529900U9BRBB7CPIJ490                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9   529900U9BRBB7CPIJ490            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10  529900U9BRBB7CPIJ490       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11  529900U9BRBB7CPIJ490                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12  529900U9BRBB7CPIJ490              entity_headquarters_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13  529900U9BRBB7CPIJ490             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14  529900U9BRBB7CPIJ490         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15  529900U9BRBB7CPIJ490                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16  529900U9BRBB7CPIJ490                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17  529900U9BRBB7CPIJ490                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18  529900U9BRBB7CPIJ490                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19  529900U9BRBB7CPIJ490                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20  529900U9BRBB7CPIJ490                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21  529900U9BRBB7CPIJ490                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22  529900U9BRBB7CPIJ490                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23  529900U9BRBB7CPIJ490 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24  529900U9BRBB7CPIJ490       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25  529900U9BRBB7CPIJ490        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26  529900U9BRBB7CPIJ490                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27  529900U9BRBB7CPIJ490               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28  529900U9BRBB7CPIJ490                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29  529900U9BRBB7CPIJ490 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30  529900U9BRBB7CPIJ490       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31  529900U9BRBB7CPIJ490        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32  529900U9BRBB7CPIJ490                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33  529900U9BRBB7CPIJ490               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34  529900U9BRBB7CPIJ490          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35  529900U9BRBB7CPIJ490                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36  529900U9BRBB7CPIJ490                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37  529900U9BRBB7CPIJ490                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38  529900U9BRBB7CPIJ490                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39  529900U9BRBB7CPIJ490                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40  529900U9BRBB7CPIJ490                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41  529900U9BRBB7CPIJ490                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42  529900U9BRBB7CPIJ490                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43  529900U9BRBB7CPIJ490                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44  529900U9BRBB7CPIJ490                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45  529900LZT3QKPD355Q25                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46  529900LZT3QKPD355Q25                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47  529900LZT3QKPD355Q25                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48  529900LZT3QKPD355Q25              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49  529900LZT3QKPD355Q25                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50  529900LZT3QKPD355Q25                     entity_legal_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51  529900LZT3QKPD355Q25                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52  529900LZT3QKPD355Q25                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53  529900LZT3QKPD355Q25            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54  529900LZT3QKPD355Q25       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55  529900LZT3QKPD355Q25                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56  529900LZT3QKPD355Q25              entity_headquarters_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57  529900LZT3QKPD355Q25             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58  529900LZT3QKPD355Q25         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59  529900LZT3QKPD355Q25                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60  529900LZT3QKPD355Q25                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61  529900LZT3QKPD355Q25                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62  529900LZT3QKPD355Q25                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63  529900LZT3QKPD355Q25                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64  529900LZT3QKPD355Q25                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65  529900LZT3QKPD355Q25                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66  529900LZT3QKPD355Q25                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67  529900LZT3QKPD355Q25 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68  529900LZT3QKPD355Q25       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69  529900LZT3QKPD355Q25        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70  529900LZT3QKPD355Q25                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71  529900LZT3QKPD355Q25               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72  529900LZT3QKPD355Q25                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73  529900LZT3QKPD355Q25 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74  529900LZT3QKPD355Q25       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75  529900LZT3QKPD355Q25        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76  529900LZT3QKPD355Q25                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77  529900LZT3QKPD355Q25               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78  529900LZT3QKPD355Q25          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79  529900LZT3QKPD355Q25                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80  529900LZT3QKPD355Q25                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81  529900LZT3QKPD355Q25                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82  529900LZT3QKPD355Q25                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83  529900LZT3QKPD355Q25                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84  529900LZT3QKPD355Q25                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85  529900LZT3QKPD355Q25                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86  529900LZT3QKPD355Q25                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87  529900LZT3QKPD355Q25                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88  529900LZT3QKPD355Q25                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89  5299006XJ67WBIFN6291                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90  5299006XJ67WBIFN6291                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91  5299006XJ67WBIFN6291                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92  5299006XJ67WBIFN6291              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93  5299006XJ67WBIFN6291                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94  5299006XJ67WBIFN6291                     entity_legal_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95  5299006XJ67WBIFN6291                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96  5299006XJ67WBIFN6291                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97  5299006XJ67WBIFN6291            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98  5299006XJ67WBIFN6291       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99  5299006XJ67WBIFN6291                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100 5299006XJ67WBIFN6291              entity_headquarters_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101 5299006XJ67WBIFN6291             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102 5299006XJ67WBIFN6291         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103 5299006XJ67WBIFN6291                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104 5299006XJ67WBIFN6291                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105 5299006XJ67WBIFN6291                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106 5299006XJ67WBIFN6291                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107 5299006XJ67WBIFN6291                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108 5299006XJ67WBIFN6291                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109 5299006XJ67WBIFN6291                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110 5299006XJ67WBIFN6291                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111 5299006XJ67WBIFN6291 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112 5299006XJ67WBIFN6291       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113 5299006XJ67WBIFN6291        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114 5299006XJ67WBIFN6291                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115 5299006XJ67WBIFN6291               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116 5299006XJ67WBIFN6291                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117 5299006XJ67WBIFN6291 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118 5299006XJ67WBIFN6291       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119 5299006XJ67WBIFN6291        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120 5299006XJ67WBIFN6291                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121 5299006XJ67WBIFN6291               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122 5299006XJ67WBIFN6291          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123 5299006XJ67WBIFN6291                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124 5299006XJ67WBIFN6291                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125 5299006XJ67WBIFN6291                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126 5299006XJ67WBIFN6291                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127 5299006XJ67WBIFN6291                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128 5299006XJ67WBIFN6291                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129 5299006XJ67WBIFN6291                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130 5299006XJ67WBIFN6291                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131 5299006XJ67WBIFN6291                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132 5299006XJ67WBIFN6291                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133 529900DRNK52DKCA6142                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134 529900DRNK52DKCA6142                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135 529900DRNK52DKCA6142          entity_transliterated_other_names_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136 529900DRNK52DKCA6142      entity_transliterated_other_names_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137 529900DRNK52DKCA6142          entity_transliterated_other_names_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138 529900DRNK52DKCA6142                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139 529900DRNK52DKCA6142              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140 529900DRNK52DKCA6142                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141 529900DRNK52DKCA6142                     entity_legal_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142 529900DRNK52DKCA6142                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143 529900DRNK52DKCA6142                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144 529900DRNK52DKCA6142            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145 529900DRNK52DKCA6142       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146 529900DRNK52DKCA6142                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147 529900DRNK52DKCA6142              entity_headquarters_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148 529900DRNK52DKCA6142             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149 529900DRNK52DKCA6142         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150 529900DRNK52DKCA6142                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151 529900DRNK52DKCA6142                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152 529900DRNK52DKCA6142                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153 529900DRNK52DKCA6142                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154 529900DRNK52DKCA6142                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155 529900DRNK52DKCA6142                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156 529900DRNK52DKCA6142                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157 529900DRNK52DKCA6142          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158 529900DRNK52DKCA6142                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159 529900DRNK52DKCA6142                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160 529900DRNK52DKCA6142                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161 529900DRNK52DKCA6142                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162 529900DRNK52DKCA6142                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163 529900DRNK52DKCA6142                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164 529900DRNK52DKCA6142                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165 529900DRNK52DKCA6142                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166 529900DRNK52DKCA6142                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167 529900DRNK52DKCA6142                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                                         value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1                BDK Leasing und Service GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                          de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                          de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4                     Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                                     Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                                       DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                                          DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                                       22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9                                          de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                    Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                                    Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                                      DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14                                      22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                                   RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                                  HRB 89228</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                                    GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19                                       2HBR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20                                     ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21                       1985-07-16T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22                                 STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23                       SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24                       2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25                       2023-01-16T10:57:30Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26                          CHANGE_HQ_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27                                  COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28                                 STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29                       SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30                       2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31                       2023-01-16T10:57:30Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32                       CHANGE_LEGAL_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33                                  COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                       2015-03-05T10:47:58Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35                       2026-01-16T11:52:10Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36                                     ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37                       2027-03-05T10:47:58Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38                       5299000J2N45DDNE4Y28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39                         FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40                                   RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                                  HRB 89228</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                                 QDE7JWY3H7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43                                  287444599</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44                                 CONFORMING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45   Bank Deutsches Kraftfahrzeuggewerbe GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 47                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 48                    Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 49                                    Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 50                                      DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 51                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 52                                      22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 53                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 54                    Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 55                                    Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 56                                      DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 57                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 58                                      22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 59                                   RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 60                                 HRB 125768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 61                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 62                                    GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 63                                       2HBR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 64                                     ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 65                       2012-12-27T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 66                                 STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 67                       SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 68                       2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 69                       2023-01-16T10:54:57Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 70                          CHANGE_HQ_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 71                                  COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 72                                 STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 73                       SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 74                       2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 75                       2023-01-16T10:54:57Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 76                       CHANGE_LEGAL_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 77                                  COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 78                       2015-03-05T10:47:50Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 79                       2026-01-16T11:47:57Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 80                                     ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 81                       2027-03-05T10:47:50Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 82                       5299000J2N45DDNE4Y28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 83                         FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 84                                   RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 85                                 HRB 125768</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 86                                 QDEJ9BXQQJ</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 87                                   46002747</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 88                                 CONFORMING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 89                      ALD Lease Finanz GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 90                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 91                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 92                    Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 93                                    Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 94                                      DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 95                                         DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 96                                      22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 97                                         de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 98                    Fuhlsbüttler Straße 437</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 99                                    Hamburg</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 100                                     DE-HH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 101                                        DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 102                                     22309</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 103                                  RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 104                                 HRB 92469</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 105                                        DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 106                                   GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 107                                      2HBR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 108                                    ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 109                      2004-12-29T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 110                                STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 111                      SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 112                      2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 113                      2023-01-16T11:00:46Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 114                         CHANGE_HQ_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 115                                 COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 116                                STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 117                      SUPPORTING_DOCUMENTS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 118                      2023-01-15T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 119                      2023-01-16T11:00:46Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 120                      CHANGE_LEGAL_ADDRESS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 121                                 COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 122                      2014-01-28T09:57:46Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 123                      2026-02-20T14:14:26Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 124                                    ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 125                      2027-04-14T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 126                      5299000J2N45DDNE4Y28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 127                        FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 128                                  RA000259</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 129                                 HRB 92469</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 130                                QDE2CFD9C8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 131                                  45729063</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 132                                CONFORMING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 133 Société Générale Securities Services GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 134                                        af</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 135 Societe Generale Securities Services GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 136                                        af</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 137      AUTO_ASCII_TRANSLITERATED_LEGAL_NAME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 138                                        de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 139                            Humboldtstr. 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 140                                  Aschheim</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 141                                     DE-BY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 142                                        DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 143                                     85609</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 144                                        de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 145                            Humboldtstr. 8</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 146                                  Aschheim</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 147                                     DE-BY</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 148                                        DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 149                                     85609</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 150                                  RA000304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 151                                HRB 169711</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 152                                        DE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 153                                   GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 154                                      2HBR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 155                                    ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 156                      2007-09-02T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 157                      2013-10-05T06:28:29Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 158                      2025-09-06T09:43:22Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 159                                    ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 160                      2026-10-22T09:18:24Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 161                      5299000J2N45DDNE4Y28</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 162                        FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 163                                  RA000304</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 164                                HRB 169711</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 165                                QDE9QBT03V</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 166                                 109375275</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 167                                CONFORMING</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_children</span><span class="op">(</span><span class="st">"O2RNE8IBXP4R0TD8PU41"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                          name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 984500EAE6D72CBA2C07        entity_legal_name_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 984500EAE6D72CBA2C07    entity_legal_name_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 984500EAE6D72CBA2C07       entity_other_names_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 984500EAE6D72CBA2C07   entity_other_names_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 984500EAE6D72CBA2C07       entity_other_names_type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 984500EAE6D72CBA2C07 entity_legal_address_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                             value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                   АЛД Аутомотив</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                              bg</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                  ALD Automotive</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4                              en</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 ALTERNATIVE_LANGUAGE_LEGAL_NAME</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                              bg</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get ultimate children</span></span></span>
-<span class="r-in"><span><span class="fu">lei_children</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span>, type <span class="op">=</span> <span class="st">"ultimate"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> $name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> character(0)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_children</span><span class="op">(</span><span class="st">"O2RNE8IBXP4R0TD8PU41"</span>, type <span class="op">=</span> <span class="st">"ultimate"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                               name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 391200JA6V2BZOH3JO02             entity_legal_name_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 391200JA6V2BZOH3JO02         entity_legal_name_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 391200JA6V2BZOH3JO02      entity_legal_address_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 391200JA6V2BZOH3JO02 entity_legal_address_address_lines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 391200JA6V2BZOH3JO02          entity_legal_address_city</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 391200JA6V2BZOH3JO02        entity_legal_address_region</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                            value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 SG Frankfurt Beteiligungs GmbH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                             de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      Neue Mainzer Straße 46-50</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                      Frankfurt</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                          DE-HE</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

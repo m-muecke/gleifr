@@ -83,198 +83,38 @@ Should the output be simplified? Default <code>TRUE</code>.</p></dd>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># \donttest{</span></span></span>
 <span class="r-in"><span><span class="co"># get direct parent</span></span></span>
-<span class="r-in"><span><span class="fu">lei_parent</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     lei                                            name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  O2RNE8IBXP4R0TD8PU41                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  O2RNE8IBXP4R0TD8PU41                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  O2RNE8IBXP4R0TD8PU41                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  O2RNE8IBXP4R0TD8PU41              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  O2RNE8IBXP4R0TD8PU41                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  O2RNE8IBXP4R0TD8PU41                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  O2RNE8IBXP4R0TD8PU41                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  O2RNE8IBXP4R0TD8PU41            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  O2RNE8IBXP4R0TD8PU41       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 O2RNE8IBXP4R0TD8PU41                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 O2RNE8IBXP4R0TD8PU41             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 O2RNE8IBXP4R0TD8PU41         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 O2RNE8IBXP4R0TD8PU41                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 O2RNE8IBXP4R0TD8PU41                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 O2RNE8IBXP4R0TD8PU41                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 O2RNE8IBXP4R0TD8PU41                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 O2RNE8IBXP4R0TD8PU41                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 O2RNE8IBXP4R0TD8PU41                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 O2RNE8IBXP4R0TD8PU41                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 O2RNE8IBXP4R0TD8PU41                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 O2RNE8IBXP4R0TD8PU41 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 O2RNE8IBXP4R0TD8PU41       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 O2RNE8IBXP4R0TD8PU41        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 O2RNE8IBXP4R0TD8PU41                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 O2RNE8IBXP4R0TD8PU41               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 O2RNE8IBXP4R0TD8PU41                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 O2RNE8IBXP4R0TD8PU41 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 O2RNE8IBXP4R0TD8PU41       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 O2RNE8IBXP4R0TD8PU41        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 O2RNE8IBXP4R0TD8PU41                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 O2RNE8IBXP4R0TD8PU41               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 O2RNE8IBXP4R0TD8PU41          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 O2RNE8IBXP4R0TD8PU41                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 O2RNE8IBXP4R0TD8PU41                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 O2RNE8IBXP4R0TD8PU41                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 O2RNE8IBXP4R0TD8PU41                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 O2RNE8IBXP4R0TD8PU41                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 O2RNE8IBXP4R0TD8PU41                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 O2RNE8IBXP4R0TD8PU41                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 O2RNE8IBXP4R0TD8PU41                                             bic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 O2RNE8IBXP4R0TD8PU41                                            mic1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 O2RNE8IBXP4R0TD8PU41                                            mic2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 O2RNE8IBXP4R0TD8PU41                                            ocid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 O2RNE8IBXP4R0TD8PU41                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 O2RNE8IBXP4R0TD8PU41                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 O2RNE8IBXP4R0TD8PU41                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        SOCIETE GENERALE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  29 BOULEVARD HAUSSMANN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   PARIS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                   75009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  29 BOULEVARD HAUSSMANN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                  PARIS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                     FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  75009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               RA000189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14              552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                     FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                   K65D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19   1899-12-31T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20             STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21      REGULATORY_FILING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   2022-12-31T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   2023-06-12T13:25:59Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             ABSORPTION</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25              COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26             STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27      REGULATORY_FILING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28   2019-04-18T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   2023-06-12T13:25:59Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             ABSORPTION</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31              COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32   2012-06-05T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33   2025-12-29T21:09:15Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                 ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35   2027-01-04T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36   969500Q2MA9VBQ8BG884</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37     FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38               RA000189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39              552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40            NEWGFRP1XXX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                   XSGA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                   XSGB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           fr/552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44             QFR5FX8YQ7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                  23005</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46             CONFORMING</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_parent</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                               name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 O2RNE8IBXP4R0TD8PU41             entity_legal_name_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 O2RNE8IBXP4R0TD8PU41         entity_legal_name_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 O2RNE8IBXP4R0TD8PU41      entity_legal_address_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 O2RNE8IBXP4R0TD8PU41 entity_legal_address_address_lines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 O2RNE8IBXP4R0TD8PU41          entity_legal_address_city</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 O2RNE8IBXP4R0TD8PU41       entity_legal_address_country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       SOCIETE GENERALE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     fr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     fr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 29 BOULEVARD HAUSSMANN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  PARIS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     FR</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># get ultimate parent</span></span></span>
-<span class="r-in"><span><span class="fu">lei_parent</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span>, type <span class="op">=</span> <span class="st">"ultimate"</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     lei                                            name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  O2RNE8IBXP4R0TD8PU41                          entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  O2RNE8IBXP4R0TD8PU41                      entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  O2RNE8IBXP4R0TD8PU41                   entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  O2RNE8IBXP4R0TD8PU41              entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  O2RNE8IBXP4R0TD8PU41                       entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  O2RNE8IBXP4R0TD8PU41                    entity_legal_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  O2RNE8IBXP4R0TD8PU41                entity_legal_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  O2RNE8IBXP4R0TD8PU41            entity_headquarters_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  O2RNE8IBXP4R0TD8PU41       entity_headquarters_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 O2RNE8IBXP4R0TD8PU41                entity_headquarters_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11 O2RNE8IBXP4R0TD8PU41             entity_headquarters_address_country</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12 O2RNE8IBXP4R0TD8PU41         entity_headquarters_address_postal_code</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13 O2RNE8IBXP4R0TD8PU41                         entity_registered_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14 O2RNE8IBXP4R0TD8PU41                            entity_registered_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15 O2RNE8IBXP4R0TD8PU41                             entity_jurisdiction</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16 O2RNE8IBXP4R0TD8PU41                                 entity_category</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17 O2RNE8IBXP4R0TD8PU41                            entity_legal_form_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18 O2RNE8IBXP4R0TD8PU41                                   entity_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19 O2RNE8IBXP4R0TD8PU41                            entity_creation_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20 O2RNE8IBXP4R0TD8PU41                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21 O2RNE8IBXP4R0TD8PU41 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22 O2RNE8IBXP4R0TD8PU41       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23 O2RNE8IBXP4R0TD8PU41        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24 O2RNE8IBXP4R0TD8PU41                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25 O2RNE8IBXP4R0TD8PU41               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26 O2RNE8IBXP4R0TD8PU41                  entity_event_groups_group_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27 O2RNE8IBXP4R0TD8PU41 entity_event_groups_events_validation_documents</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28 O2RNE8IBXP4R0TD8PU41       entity_event_groups_events_effective_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29 O2RNE8IBXP4R0TD8PU41        entity_event_groups_events_recorded_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30 O2RNE8IBXP4R0TD8PU41                 entity_event_groups_events_type</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31 O2RNE8IBXP4R0TD8PU41               entity_event_groups_events_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32 O2RNE8IBXP4R0TD8PU41          registration_initial_registration_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33 O2RNE8IBXP4R0TD8PU41                   registration_last_update_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34 O2RNE8IBXP4R0TD8PU41                             registration_status</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35 O2RNE8IBXP4R0TD8PU41                  registration_next_renewal_date</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36 O2RNE8IBXP4R0TD8PU41                       registration_managing_lou</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37 O2RNE8IBXP4R0TD8PU41                registration_corroboration_level</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38 O2RNE8IBXP4R0TD8PU41                    registration_validated_at_id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39 O2RNE8IBXP4R0TD8PU41                       registration_validated_as</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40 O2RNE8IBXP4R0TD8PU41                                             bic</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41 O2RNE8IBXP4R0TD8PU41                                            mic1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42 O2RNE8IBXP4R0TD8PU41                                            mic2</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43 O2RNE8IBXP4R0TD8PU41                                            ocid</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44 O2RNE8IBXP4R0TD8PU41                                             qcc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45 O2RNE8IBXP4R0TD8PU41                                        spglobal</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46 O2RNE8IBXP4R0TD8PU41                                 conformity_flag</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1        SOCIETE GENERALE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  29 BOULEVARD HAUSSMANN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5                   PARIS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                      FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7                   75009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8                      fr</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  29 BOULEVARD HAUSSMANN</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10                  PARIS</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 11                     FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 12                  75009</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 13               RA000189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 14              552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 15                     FR</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 16                GENERAL</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 17                   K65D</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 18                 ACTIVE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 19   1899-12-31T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 20             STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 21      REGULATORY_FILING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 22   2022-12-31T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 23   2023-06-12T13:25:59Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 24             ABSORPTION</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 25              COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 26             STANDALONE</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 27      REGULATORY_FILING</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 28   2019-04-18T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 29   2023-06-12T13:25:59Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 30             ABSORPTION</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 31              COMPLETED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 32   2012-06-05T22:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 33   2025-12-29T21:09:15Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 34                 ISSUED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 35   2027-01-04T23:00:00Z</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 36   969500Q2MA9VBQ8BG884</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 37     FULLY_CORROBORATED</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 38               RA000189</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 39              552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 40            NEWGFRP1XXX</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 41                   XSGA</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 42                   XSGB</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 43           fr/552120222</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 44             QFR5FX8YQ7</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 45                  23005</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 46             CONFORMING</span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_parent</span><span class="op">(</span><span class="st">"529900W18LQJJN6SJ336"</span>, type <span class="op">=</span> <span class="st">"ultimate"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                               name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 O2RNE8IBXP4R0TD8PU41             entity_legal_name_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 O2RNE8IBXP4R0TD8PU41         entity_legal_name_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 O2RNE8IBXP4R0TD8PU41      entity_legal_address_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 O2RNE8IBXP4R0TD8PU41 entity_legal_address_address_lines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 O2RNE8IBXP4R0TD8PU41          entity_legal_address_city</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 O2RNE8IBXP4R0TD8PU41       entity_legal_address_country</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1       SOCIETE GENERALE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                     fr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                     fr</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 29 BOULEVARD HAUSSMANN</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                  PARIS</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                     FR</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>
