@@ -568,10 +568,10 @@ latest_url <- function(type = c("isin", "bic", "mic", "oc")) {
     oc = "download-oc-to-lei-relationship-files"
   )
   url <- paste(url, endpoint, sep = "/")
-  files <- rvest::read_html(url) |>
-    rvest::html_element("table") |>
-    rvest::html_elements("a") |>
-    rvest::html_attr("href")
+  files <- xml2::read_html(url) |>
+    xml2::xml_find_first(".//table") |>
+    xml2::xml_find_all(".//a") |>
+    xml2::xml_attr("href")
   files[[1L]]
 }
 
