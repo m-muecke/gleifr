@@ -8,6 +8,10 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/m-muecke/gleifr/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/gleifr)](https://CRAN.R-project.org/package=gleifr)
+[![R-universe
+version](https://m-muecke.r-universe.dev/gleifr/badges/version)](https://m-muecke.r-universe.dev/gleifr)
 <!-- badges: end -->
 
 gleifr is a minimal R client for the [GLEIF](https://www.gleif.org) API.
@@ -101,7 +105,7 @@ head(mapping)
 #> 3 029200038B4L4ZI1E579 NGSDCBANCO00
 #> 4 029200067A7K6CH0H586 NGSDCSCSPLC2
 #> 5 0292001178F3RHI5D836 NGNEIMETH001
-#> 6 0292001868F6N5VI5G15 NGGUARANTY06
+#> 6 0292001178F3RHI5D836 NGRR26NEIME9
 ```
 
 To fetch the ISINs for a single entity instead of the full file, use
