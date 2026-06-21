@@ -11,10 +11,10 @@ lei_cache_dir()
 lei_cache_clear()
 }
 \value{
-\code{lei_cache_dir()} returns a single string giving the path to the cache directory.
+\code{lei_cache_dir()} returns a string with the path to the cache directory.
 
-\code{lei_cache_clear()} is called for its side effect of deleting the cached responses and returns
-\code{NULL} invisibly.
+\code{lei_cache_clear()} is called for its side effect of clearing the cached
+responses and returns \code{NULL} invisibly.
 }
 \description{
 \code{lei_cache_dir()} returns the path where cached API responses are stored.

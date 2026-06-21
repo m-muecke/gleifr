@@ -10,10 +10,10 @@
 #'
 #' @name cache
 #' @returns
-#' `lei_cache_dir()` returns a single string giving the path to the cache directory.
+#' `lei_cache_dir()` returns a string with the path to the cache directory.
 #'
-#' `lei_cache_clear()` is called for its side effect of deleting the cached responses and returns
-#' `NULL` invisibly.
+#' `lei_cache_clear()` is called for its side effect of clearing the cached
+#' responses and returns `NULL` invisibly.
 #' @examples
 #' \dontrun{
 #' # enable caching
