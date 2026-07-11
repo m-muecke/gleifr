@@ -71,7 +71,7 @@ str(lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE), max.level = 2)
 #>  $ data:List of 5
 #>   ..$ type         : chr "lei-records"
 #>   ..$ id           : chr "529900W18LQJJN6SJ336"
-#>   ..$ attributes   :List of 9
+#>   ..$ attributes   :List of 10
 #>   ..$ relationships:List of 7
 #>   ..$ links        :List of 1
 # }
