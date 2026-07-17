@@ -98,6 +98,8 @@ When `simplify = TRUE`, a long-format
 When `simplify = FALSE`, a [`list()`](https://rdrr.io/r/base/list.html)
 of the raw record objects from the API.
 
+When `simplify = TRUE` and no records match, `NULL`.
+
 ## See also
 
 [`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)

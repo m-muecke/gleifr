@@ -47,6 +47,8 @@ When `simplify = FALSE`, a named
 [`list()`](https://rdrr.io/r/base/list.html) containing the raw API
 response.
 
+When `simplify = TRUE` and no records match, `NULL`.
+
 ## See also
 
 [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)

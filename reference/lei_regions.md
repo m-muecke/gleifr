@@ -23,6 +23,11 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_regions())
+#> iterating ■■■■                              12% | ETA:  8s
+#> iterating ■■■■■■                            15% | ETA:  7s
+#> iterating ■■■■■■■■■■■■■■■■■                 54% | ETA:  4s
+#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     92% | ETA:  1s
+#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>    code language                name
 #> 1 AD-02       ca             Canillo
 #> 2 AD-03       ca              Encamp

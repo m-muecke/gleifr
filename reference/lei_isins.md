@@ -29,6 +29,8 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 - **isin**: The ISIN
 
+When the LEI has no ISINs, `NULL`.
+
 ## Examples
 
 ``` r

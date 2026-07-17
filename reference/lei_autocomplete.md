@@ -37,6 +37,8 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 - **lei**: The Legal Entity Identifier of the matched record, or `NA` if
   none is linked
 
+When nothing matches, `NULL`.
+
 ## See also
 
 [`lei_fuzzy()`](https://m-muecke.github.io/gleifr/reference/lei_fuzzy.md)

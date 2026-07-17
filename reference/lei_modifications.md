@@ -45,6 +45,8 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 - **value_new**: The new value, or `NA` if none
 
+When the LEI has no modifications, `NULL`.
+
 ## Examples
 
 ``` r
