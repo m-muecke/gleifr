@@ -22,6 +22,8 @@ A \code{data.frame()} with columns:
 \item \strong{value}: The matched value
 \item \strong{lei}: The Legal Entity Identifier of the matched record, or \code{NA} if none is linked
 }
+
+When no matches are found, \code{NULL}.
 }
 \description{
 Performs a prefix-based completion against the GLEIF API, returning candidate values together

@@ -89,6 +89,8 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' - **value**: The attribute value
 #'
 #' When `simplify = FALSE`, a `list()` of the raw record objects from the API.
+#'
+#' When no records match, `NULL`.
 #' @seealso [lei_record_by_id()] to fetch a single record by its LEI.
 #' @export
 #' @examples
@@ -137,7 +139,7 @@ lei_records <- function(
     ),
     list(...)
   )
-  data <- lei_fetch_iter("lei-records", params, limit = limit)
+  data <- lei_fetch_iter("lei-records", params, limit = limit, paginate = "cursor")
   if (!simplify) {
     return(data)
   }
@@ -380,6 +382,8 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' - **value**: The attribute value
 #'
 #' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#'
+#' When no records match, `NULL`.
 #' @seealso [lei_parent()] to fetch the parent record of a LEI.
 #' @export
 #' @examples
@@ -414,6 +418,8 @@ lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simpl
 #' @returns A `data.frame()` with columns:
 #' - **lei**: The Legal Entity Identifier
 #' - **isin**: The ISIN
+#'
+#' When no ISINs are found, `NULL`.
 #' @export
 #' @examples
 #' \donttest{
@@ -447,6 +453,8 @@ lei_isins <- function(id, limit = 200L) {
 #' - **date**: The date of the change
 #' - **value_old**: The previous value, or `NA` if none
 #' - **value_new**: The new value, or `NA` if none
+#'
+#' When no modifications are found, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @export
 #' @examples
@@ -488,6 +496,8 @@ lei_modifications <- function(id, limit = 200L) {
 #' @returns A `data.frame()` with columns:
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
+#'
+#' When no matches are found, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @seealso [lei_autocomplete()] for prefix-based completion, [lei_record_by_id()] for full records.
 #' @export
@@ -513,6 +523,8 @@ lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "owne
 #' @returns A `data.frame()` with columns:
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
+#'
+#' When no matches are found, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_record_by_id()] for full records.
 #' @export
@@ -551,6 +563,9 @@ simplify_records <- function(x) {
 }
 
 clean_names <- function(tab) {
+  if (is.null(tab)) {
+    return(NULL)
+  }
   tab$name <- sub("\\.X$", "", tab$name)
   tab$name <- gsub(".", "_", tab$name, fixed = TRUE)
   tab$name <- to_snake_case(tab$name)
