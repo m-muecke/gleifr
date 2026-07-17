@@ -24,7 +24,7 @@ A \code{data.frame()} with columns:
 \item \strong{lei}: The Legal Entity Identifier of the matched record, or \code{NA} if none is linked
 }
 
-When no matches are found, \code{NULL}.
+When nothing matches, \code{NULL}.
 }
 \description{
 Performs a typo-tolerant, approximate search against the GLEIF API. Unlike the filters in

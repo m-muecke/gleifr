@@ -63,7 +63,7 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 
 When \code{simplify = FALSE}, a \code{list()} of the raw record objects from the API.
 
-When no records match, \code{NULL}.
+When \code{simplify = TRUE} and no records match, \code{NULL}.
 }
 \description{
 Fetch LEI records from the GLEIF database, optionally filtered by attribute. The filters are

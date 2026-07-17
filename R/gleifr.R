@@ -90,7 +90,7 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #'
 #' When `simplify = FALSE`, a `list()` of the raw record objects from the API.
 #'
-#' When no records match, `NULL`.
+#' When `simplify = TRUE` and no records match, `NULL`.
 #' @seealso [lei_record_by_id()] to fetch a single record by its LEI.
 #' @export
 #' @examples
@@ -383,7 +383,7 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #'
 #' When `simplify = FALSE`, a named `list()` containing the raw API response.
 #'
-#' When no records match, `NULL`.
+#' When `simplify = TRUE` and no records match, `NULL`.
 #' @seealso [lei_parent()] to fetch the parent record of a LEI.
 #' @export
 #' @examples
@@ -419,7 +419,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simpl
 #' - **lei**: The Legal Entity Identifier
 #' - **isin**: The ISIN
 #'
-#' When no ISINs are found, `NULL`.
+#' When the LEI has no ISINs, `NULL`.
 #' @export
 #' @examples
 #' \donttest{
@@ -454,7 +454,7 @@ lei_isins <- function(id, limit = 200L) {
 #' - **value_old**: The previous value, or `NA` if none
 #' - **value_new**: The new value, or `NA` if none
 #'
-#' When no modifications are found, `NULL`.
+#' When the LEI has no modifications, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @export
 #' @examples
@@ -497,7 +497,7 @@ lei_modifications <- function(id, limit = 200L) {
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
 #'
-#' When no matches are found, `NULL`.
+#' When nothing matches, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @seealso [lei_autocomplete()] for prefix-based completion, [lei_record_by_id()] for full records.
 #' @export
@@ -524,7 +524,7 @@ lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "owne
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
 #'
-#' When no matches are found, `NULL`.
+#' When nothing matches, `NULL`.
 #' @source <https://www.gleif.org/en/lei-data/gleif-api>
 #' @seealso [lei_fuzzy()] for typo-tolerant matching, [lei_record_by_id()] for full records.
 #' @export

@@ -20,7 +20,7 @@ A \code{data.frame()} with columns:
 \item \strong{isin}: The ISIN
 }
 
-When no ISINs are found, \code{NULL}.
+When the LEI has no ISINs, \code{NULL}.
 }
 \description{
 Fetches the ISINs associated with a given LEI.

@@ -29,7 +29,7 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 
 When \code{simplify = FALSE}, a named \code{list()} containing the raw API response.
 
-When no records match, \code{NULL}.
+When \code{simplify = TRUE} and no records match, \code{NULL}.
 }
 \description{
 Fetches the direct or ultimate child records of a given LEI.

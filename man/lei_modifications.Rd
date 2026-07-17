@@ -28,7 +28,7 @@ A \code{data.frame()} with columns:
 \item \strong{value_new}: The new value, or \code{NA} if none
 }
 
-When no modifications are found, \code{NULL}.
+When the LEI has no modifications, \code{NULL}.
 }
 \description{
 Fetches the field-level modification history of a given LEI, i.e. an audit log of every recorded
