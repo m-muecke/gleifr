@@ -519,7 +519,8 @@ lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "owne
 #' @param q (`character(1)`)\cr
 #'   The search query.
 #' @param field (`character(1)`)\cr
-#'   The field to search. One of `"fulltext"` or `"owns"`. Default is `"fulltext"`.
+#'   The field to search. One of `"fulltext"`, `"owns"`, or `"ownedBy"`.
+#'   Default is `"fulltext"`.
 #' @returns A `data.frame()` with columns:
 #' - **value**: The matched value
 #' - **lei**: The Legal Entity Identifier of the matched record, or `NA` if none is linked
@@ -532,7 +533,7 @@ lei_fuzzy <- function(q, field = c("fulltext", "entity.legalName", "owns", "owne
 #' \donttest{
 #' lei_autocomplete("Appl")
 #' }
-lei_autocomplete <- function(q, field = c("fulltext", "owns")) {
+lei_autocomplete <- function(q, field = c("fulltext", "owns", "ownedBy")) {
   field <- match.arg(field)
   stopifnot(is_string(q))
   fetch_completions("autocompletions", field, q)

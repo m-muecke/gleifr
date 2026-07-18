@@ -67,6 +67,15 @@ test_that("lei_autocomplete validates inputs", {
   expect_error(lei_autocomplete(q = "foo", field = "unsupported"))
 })
 
+test_that("lei_autocomplete supports ownedBy searches", {
+  local_mocked_bindings(
+    fetch_completions = function(path, field, q) field,
+    .package = "gleifr"
+  )
+
+  expect_identical(lei_autocomplete(q = "foo", field = "ownedBy"), "ownedBy")
+})
+
 test_that("lei_issuers returns expected format", {
   skip_on_cran()
   skip_on_ci()
