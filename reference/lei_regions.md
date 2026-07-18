@@ -23,11 +23,9 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_regions())
-#> iterating ■■■■                              12% | ETA: 11s
-#> iterating ■■■■■■                            15% | ETA: 10s
-#> iterating ■■■■■■■■■■■■■■■                   46% | ETA:  6s
-#> iterating ■■■■■■■■■■■■■■■■■■■■■■■           73% | ETA:  3s
-#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■    96% | ETA:  0s
+#> iterating ■■■■■■                            15% | ETA:  7s
+#> iterating ■■■■■■■■■■■■■■                    42% | ETA:  5s
+#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■         81% | ETA:  2s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>    code language                name
 #> 1 AD-02       ca             Canillo
