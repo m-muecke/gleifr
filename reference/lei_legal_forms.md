@@ -32,8 +32,9 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_legal_forms())
-#> iterating ■■■■■■                            17% | ETA:  6s
-#> iterating ■■■■■■■■■■■■■■■■■■■■■             67% | ETA:  2s
+#> iterating ■■■■                              11% | ETA:  9s
+#> iterating ■■■■■■■■■■■■■■                    44% | ETA:  5s
+#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■        83% | ETA:  1s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>   code                  country country_code status                        name
 #> 1 09K3            Faroe Islands           FO   ACTV   Samstarvsfelag við ábyrgd

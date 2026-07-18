@@ -1,6 +1,6 @@
 # Changelog
 
-## gleifr (development version)
+## gleifr 0.2.0
 
 - Fixed pagination truncating results at 200 records.
 - Empty results now consistently return `NULL` instead of a malformed

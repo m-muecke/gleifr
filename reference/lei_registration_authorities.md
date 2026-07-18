@@ -29,7 +29,7 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_registration_authorities())
-#> iterating ■■■■■■■■■■■■■■■■                  50% | ETA:  1s
+#> iterating ■■■■■■■■■■■                       33% | ETA:  2s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>       code
 #> 1 RA000001
