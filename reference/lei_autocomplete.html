@@ -48,7 +48,7 @@ with their LEI. Useful for typeahead-style lookups. For typo-tolerant matching, 
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lei_autocomplete</span><span class="op">(</span><span class="va">q</span>, field <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fulltext"</span>, <span class="st">"owns"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">lei_autocomplete</span><span class="op">(</span><span class="va">q</span>, field <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fulltext"</span>, <span class="st">"owns"</span>, <span class="st">"ownedBy"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -66,7 +66,8 @@ The search query.</p></dd>
 
 <dt id="arg-field">field<a class="anchor" aria-label="anchor" href="#arg-field"></a></dt>
 <dd><p>(<code>character(1)</code>)<br>
-The field to search. One of <code>"fulltext"</code> or <code>"owns"</code>. Default is <code>"fulltext"</code>.</p></dd>
+The field to search. One of <code>"fulltext"</code>, <code>"owns"</code>, or <code>"ownedBy"</code>.
+Default is <code>"fulltext"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

@@ -8,7 +8,7 @@ lookups. For typo-tolerant matching, see
 ## Usage
 
 ``` r
-lei_autocomplete(q, field = c("fulltext", "owns"))
+lei_autocomplete(q, field = c("fulltext", "owns", "ownedBy"))
 ```
 
 ## Source
@@ -25,8 +25,8 @@ lei_autocomplete(q, field = c("fulltext", "owns"))
 - field:
 
   (`character(1)`)  
-  The field to search. One of `"fulltext"` or `"owns"`. Default is
-  `"fulltext"`.
+  The field to search. One of `"fulltext"`, `"owns"`, or `"ownedBy"`.
+  Default is `"fulltext"`.
 
 ## Value
 
