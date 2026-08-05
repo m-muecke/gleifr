@@ -4,6 +4,8 @@
 
 ## gleifr 0.2.0
 
+CRAN release: 2026-07-18
+
 - Fixed pagination truncating results at 200 records.
 - Empty results now consistently return `NULL` instead of a malformed
   list.
