@@ -27,7 +27,7 @@ When \code{simplify = TRUE}, a long-format \code{data.frame()} with columns:
 \item \strong{value}: The attribute value
 }
 
-When \code{simplify = FALSE}, a named \code{list()} containing the raw API response.
+When \code{simplify = FALSE}, a \code{list()} of the raw record objects from the API.
 
 When \code{simplify = TRUE} and no records match, \code{NULL}.
 }

@@ -381,7 +381,7 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' - **name**: The attribute name
 #' - **value**: The attribute value
 #'
-#' When `simplify = FALSE`, a named `list()` containing the raw API response.
+#' When `simplify = FALSE`, a `list()` of the raw record objects from the API.
 #'
 #' When `simplify = TRUE` and no records match, `NULL`.
 #' @seealso [lei_parent()] to fetch the parent record of a LEI.
