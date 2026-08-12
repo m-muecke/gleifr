@@ -40,7 +40,9 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="gleifr-development-version">gleifr (development version)<a class="anchor" aria-label="anchor" href="#gleifr-development-version"></a></h2>
-</div>
+<ul><li>
+<code><a href="../reference/lei_children.html">lei_children()</a></code>, <code><a href="../reference/lei_isins.html">lei_isins()</a></code>, <code><a href="../reference/lei_modifications.html">lei_modifications()</a></code>, <code><a href="../reference/lei_parent.html">lei_parent()</a></code>, and <code><a href="../reference/lei_record_by_id.html">lei_record_by_id()</a></code> now validate that <code>id</code> is a 20 character LEI, instead of silently returning a malformed <code><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame()</a></code> for values such as <code>""</code>.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="0.2.0" id="gleifr-020">gleifr 0.2.0<a class="anchor" aria-label="anchor" href="#gleifr-020"></a></h2><p class="text-muted">CRAN release: 2026-07-18</p>
 <ul><li>Fixed pagination truncating results at 200 records.</li>

@@ -2,6 +2,17 @@
 
 ## gleifr (development version)
 
+- [`lei_children()`](https://m-muecke.github.io/gleifr/reference/lei_children.md),
+  [`lei_isins()`](https://m-muecke.github.io/gleifr/reference/lei_isins.md),
+  [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md),
+  [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md),
+  and
+  [`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
+  now validate that `id` is a 20 character LEI, instead of silently
+  returning a malformed
+  [`data.frame()`](https://rdrr.io/r/base/data.frame.html) for values
+  such as `""`.
+
 ## gleifr 0.2.0
 
 CRAN release: 2026-07-18

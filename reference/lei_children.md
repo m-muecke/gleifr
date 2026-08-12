@@ -43,9 +43,8 @@ When `simplify = TRUE`, a long-format
 
 - **value**: The attribute value
 
-When `simplify = FALSE`, a named
-[`list()`](https://rdrr.io/r/base/list.html) containing the raw API
-response.
+When `simplify = FALSE`, a [`list()`](https://rdrr.io/r/base/list.html)
+of the raw record objects from the API.
 
 When `simplify = TRUE` and no records match, `NULL`.
 
