@@ -43,7 +43,11 @@ lei_fetch_iter <- function(
     },
     page = {
       params[["page[number]"]] <- 1L
-      iterate_with_offset("page[number]", resp_pages = lei_last_page)
+      iterate_with_offset(
+        "page[number]",
+        resp_pages = lei_last_page,
+        resp_complete = \(resp) length(resp_body_json(resp)$data) == 0L
+      )
     }
   )
   max_reqs <- if (is.null(limit)) Inf else ceiling(limit / page_size)
