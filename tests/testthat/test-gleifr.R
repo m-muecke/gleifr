@@ -21,7 +21,11 @@ test_that("clean_names passes NULL through", {
 
 test_that("lei_record_by_id validates inputs", {
   expect_error(lei_record_by_id(id = 123))
-  expect_error(lei_record_by_id("foo", simplify = "yes"))
+  expect_error(lei_record_by_id(""))
+  expect_error(lei_record_by_id("foo"))
+  expect_error(lei_record_by_id("529900W18LQJJN6SJ33"))
+  expect_error(lei_record_by_id("529900W18LQJJN6SJ33!"))
+  expect_error(lei_record_by_id("529900W18LQJJN6SJ336", simplify = "yes"))
 })
 
 test_that("lei_records validates inputs", {
@@ -37,24 +41,28 @@ test_that("lei_records validates inputs", {
 
 test_that("lei_children validates inputs", {
   expect_error(lei_children(id = 123))
-  expect_error(lei_children(id = "foo", simplify = "yes"))
-  expect_error(lei_children(id = "foo", type = "sideways"))
-  expect_error(lei_children(id = "foo", limit = -1))
+  expect_error(lei_children(id = ""))
+  expect_error(lei_children(id = "529900W18LQJJN6SJ336", simplify = "yes"))
+  expect_error(lei_children(id = "529900W18LQJJN6SJ336", type = "sideways"))
+  expect_error(lei_children(id = "529900W18LQJJN6SJ336", limit = -1))
 })
 
 test_that("lei_isins validates inputs", {
   expect_error(lei_isins(id = 123))
-  expect_error(lei_isins("foo", limit = -1))
+  expect_error(lei_isins(id = ""))
+  expect_error(lei_isins("529900W18LQJJN6SJ336", limit = -1))
 })
 
 test_that("lei_modifications validates inputs", {
   expect_error(lei_modifications(id = 123))
-  expect_error(lei_modifications("foo", limit = -1))
+  expect_error(lei_modifications(id = ""))
+  expect_error(lei_modifications("529900W18LQJJN6SJ336", limit = -1))
 })
 
 test_that("lei_parent validates inputs", {
   expect_error(lei_parent(id = 123))
-  expect_error(lei_parent(id = "foo", simplify = "yes"))
+  expect_error(lei_parent(id = ""))
+  expect_error(lei_parent(id = "529900W18LQJJN6SJ336", simplify = "yes"))
 })
 
 test_that("lei_fuzzy validates inputs", {

@@ -44,7 +44,7 @@ lei_mapping <- function(type = c("isin", "bic", "mic", "oc")) {
 #' str(lei_record_by_id("529900W18LQJJN6SJ336", simplify = FALSE), max.level = 2)
 #' }
 lei_record_by_id <- function(id, simplify = TRUE) {
-  stopifnot(is_string(id), is_flag(simplify))
+  stopifnot(is_lei(id), is_flag(simplify))
   path <- paste("lei-records", id, sep = "/")
   json <- lei_fetch(path)
   if (!simplify) {
@@ -354,7 +354,7 @@ fetch_code_list <- function(endpoint) {
 #' }
 lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
   type <- match.arg(type)
-  stopifnot(is_string(id), is_flag(simplify))
+  stopifnot(is_lei(id), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-parent"), sep = "/")
   json <- lei_fetch(path)
   if (!simplify) {
@@ -396,7 +396,7 @@ lei_parent <- function(id, type = c("direct", "ultimate"), simplify = TRUE) {
 #' }
 lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simplify = TRUE) {
   type <- match.arg(type)
-  stopifnot(is_string(id), is_count(limit, null_ok = TRUE), is_flag(simplify))
+  stopifnot(is_lei(id), is_count(limit, null_ok = TRUE), is_flag(simplify))
   path <- paste("lei-records", id, paste0(type, "-children"), sep = "/")
   data <- lei_fetch_iter(path, limit = limit)
   if (!simplify) {
@@ -426,7 +426,7 @@ lei_children <- function(id, type = c("direct", "ultimate"), limit = 200L, simpl
 #' head(lei_isins("529900W18LQJJN6SJ336", limit = 10))
 #' }
 lei_isins <- function(id, limit = 200L) {
-  stopifnot(is_string(id), is_count(limit, null_ok = TRUE))
+  stopifnot(is_lei(id), is_count(limit, null_ok = TRUE))
   path <- paste("lei-records", id, "isins", sep = "/")
   data <- lei_fetch_iter(path, limit = limit)
   out <- lapply(data, function(x) {
@@ -462,7 +462,7 @@ lei_isins <- function(id, limit = 200L) {
 #' head(lei_modifications("529900W18LQJJN6SJ336", limit = 10))
 #' }
 lei_modifications <- function(id, limit = 200L) {
-  stopifnot(is_string(id), is_count(limit, null_ok = TRUE))
+  stopifnot(is_lei(id), is_count(limit, null_ok = TRUE))
   path <- paste("lei-records", id, "field-modifications", sep = "/")
   data <- lei_fetch_iter(path, limit = limit)
   out <- lapply(data, function(x) {
