@@ -18,9 +18,16 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 - **code**: The registration authority (RA) code
 
-- **international_name**: The international name of the authority
+- **international_name**: The international name of the registry, or
+  `NA` if none
 
-- **local_name**: The local name of the authority, or `NA` if none
+- **local_name**: The local name of the registry, or `NA` if none
+
+- **international_organization_name**: The international organization
+  name, or `NA` if none
+
+- **local_organization_name**: The local organization name, or `NA` if
+  none
 
 - **website**: The authority website, or `NA` if none
 
@@ -52,6 +59,20 @@ head(lei_registration_authorities())
 #> 4         Registre de Societats Mercantils
 #> 5 Ficheiro Central de Denominações Sociais
 #> 6                      Commercial Registry
+#>                                               international_organization_name
+#> 1 Afghanistan Central Business Registry (Ministry of Commerce and Industries)
+#> 2                                                National Registration Center
+#> 3                                       National Center of the Trade Register
+#> 4                                                                        <NA>
+#> 5                                                                        <NA>
+#> 6                                                Anguilla Commercial Registry
+#>                          local_organization_name
+#> 1                                           <NA>
+#> 2                Qendra Kombetare e Regjistrimit
+#> 3 Centre National du Registre du Commerce (CNRC)
+#> 4                                           <NA>
+#> 5                                           <NA>
+#> 6                   Anguilla Commercial Registry
 #>                                                     website
 #> 1                                   http://www.acbr.gov.af/
 #> 2                               http://www.qkr.gov.al/home/

@@ -31,12 +31,6 @@ and the corresponding mapping.
 ``` r
 # \donttest{
 head(lei_mapping("isin"))
-#>                    lei         isin
-#> 1 00EHHQ2ZHDCFXJCPCL46 US92204Q1031
-#> 2 00KLB2PFTM3060S2N216 US4138382027
-#> 3 029200038B4L4ZI1E579 NGSDCBANCO00
-#> 4 029200067A7K6CH0H586 NGSDCSCSPLC2
-#> 5 0292001178F3RHI5D836 NGNEIMETH001
-#> 6 0292001178F3RHI5D836 NGRR26NEIME9
+#> Error in open.connection(x, "rb"): cannot open the connection
 # }
 ```

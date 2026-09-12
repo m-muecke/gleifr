@@ -12,6 +12,9 @@
   returning a malformed
   [`data.frame()`](https://rdrr.io/r/base/data.frame.html) for values
   such as `""`.
+- [`lei_registration_authorities()`](https://m-muecke.github.io/gleifr/reference/lei_registration_authorities.md)
+  now returns the international and local organization names supplied by
+  GLEIF.
 
 ## gleifr 0.2.0
 
