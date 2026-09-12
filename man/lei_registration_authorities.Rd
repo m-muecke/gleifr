@@ -10,15 +10,17 @@ lei_registration_authorities()
 A \code{data.frame()} with columns:
 \itemize{
 \item \strong{code}: The registration authority (RA) code
-\item \strong{international_name}: The international name of the authority
-\item \strong{local_name}: The local name of the authority, or \code{NA} if none
+\item \strong{international_name}: The international name of the registry, or \code{NA} if none
+\item \strong{local_name}: The local name of the registry, or \code{NA} if none
+\item \strong{international_organization_name}: The international organization name, or \code{NA} if none
+\item \strong{local_organization_name}: The local organization name, or \code{NA} if none
 \item \strong{website}: The authority website, or \code{NA} if none
 }
 }
 \description{
 Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These
-resolve the registration authority codes that appear in \code{\link[=lei_record_by_id]{lei_record_by_id()}} output to the issuing
-business registries.
+resolve the registration authority codes that appear in \code{\link[=lei_record_by_id]{lei_record_by_id()}} output to the
+issuing business registries.
 }
 \examples{
 \donttest{

@@ -285,13 +285,15 @@ lei_legal_forms <- function() {
 #' Fetch the list of registration authorities
 #'
 #' Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These
-#' resolve the registration authority codes that appear in [lei_record_by_id()] output to the issuing
-#' business registries.
+#' resolve the registration authority codes that appear in [lei_record_by_id()] output to the
+#' issuing business registries.
 #'
 #' @returns A `data.frame()` with columns:
 #' - **code**: The registration authority (RA) code
-#' - **international_name**: The international name of the authority
-#' - **local_name**: The local name of the authority, or `NA` if none
+#' - **international_name**: The international name of the registry, or `NA` if none
+#' - **local_name**: The local name of the registry, or `NA` if none
+#' - **international_organization_name**: The international organization name, or `NA` if none
+#' - **local_organization_name**: The local organization name, or `NA` if none
 #' - **website**: The authority website, or `NA` if none
 #' @export
 #' @examples
@@ -306,6 +308,8 @@ lei_registration_authorities <- function() {
       code = attrs$code,
       international_name = attrs$internationalName %||% NA_character_,
       local_name = attrs$localName %||% NA_character_,
+      international_organization_name = attrs$internationalOrganizationName %||% NA_character_,
+      local_organization_name = attrs$localOrganizationName %||% NA_character_,
       website = attrs$website %||% NA_character_,
       check.names = FALSE
     )

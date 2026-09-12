@@ -166,8 +166,42 @@ test_that("lei_registration_authorities returns expected format", {
 
   res <- lei_registration_authorities()
   expect_s3_class(res, "data.frame")
-  expect_named(res, c("code", "international_name", "local_name", "website"))
+  expect_named(
+    res,
+    c(
+      "code",
+      "international_name",
+      "local_name",
+      "international_organization_name",
+      "local_organization_name",
+      "website"
+    )
+  )
   expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_registration_authorities preserves organization names", {
+  local_mocked_bindings(
+    lei_fetch_iter = \(path) {
+      list(list(
+        attributes = list(
+          code = "RA000002",
+          internationalName = NULL,
+          localName = NULL,
+          internationalOrganizationName = "National Registration Center",
+          localOrganizationName = "Qendra Kombetare e Regjistrimit",
+          website = "https://example.com"
+        )
+      ))
+    }
+  )
+
+  res <- lei_registration_authorities()
+
+  expect_identical(res$international_name, NA_character_)
+  expect_identical(res$local_name, NA_character_)
+  expect_identical(res$international_organization_name, "National Registration Center")
+  expect_identical(res$local_organization_name, "Qendra Kombetare e Regjistrimit")
 })
 
 test_that("lei_records works with filters", {
