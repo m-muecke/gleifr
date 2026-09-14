@@ -12,6 +12,10 @@
   returning a malformed
   [`data.frame()`](https://rdrr.io/r/base/data.frame.html) for values
   such as `""`.
+- [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
+  gains a `sort` argument to order results by an API field,
+  e.g. `sort = "-registration.lastUpdateDate"` for the most recently
+  updated records first.
 - [`lei_registration_authorities()`](https://m-muecke.github.io/gleifr/reference/lei_registration_authorities.md)
   now returns the international and local organization names supplied by
   GLEIF.

@@ -19,6 +19,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
+  sort = NULL,
   limit = 200L,
   simplify = TRUE
 )
@@ -72,6 +73,13 @@ lei_records(
   Additional filter parameters passed to the GLEIF API. These are
   appended as query parameters, e.g.
   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
+
+- sort:
+
+  (`NULL` \| `character(1)`)  
+  Field to sort the results by, e.g. `"entity.legalName"`. Prefix with
+  `"-"` for descending order, e.g. `"-registration.lastUpdateDate"`.
+  Default `NULL` uses the API's default order.
 
 - limit:
 
@@ -142,5 +150,22 @@ head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 #> 4            Kulturstr. 105
 #> 5                  Freising
 #> 6                     DE-BY
+
+# most recently updated records first
+head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
+#>                    lei                               name
+#> 1 984500BF2CB08AEF7887             entity_legal_name_name
+#> 2 984500BF2CB08AEF7887         entity_legal_name_language
+#> 3 984500BF2CB08AEF7887      entity_legal_address_language
+#> 4 984500BF2CB08AEF7887 entity_legal_address_address_lines
+#> 5 984500BF2CB08AEF7887          entity_legal_address_city
+#> 6 984500BF2CB08AEF7887        entity_legal_address_region
+#>                                                 value
+#> 1 everGee Beteiligungs- und Vermögensverwaltungs GmbH
+#> 2                                                  de
+#> 3                                                  de
+#> 4                              Anna-Schneider-Steig 7
+#> 5                                                Köln
+#> 6                                               DE-NW
 # }
 ```
