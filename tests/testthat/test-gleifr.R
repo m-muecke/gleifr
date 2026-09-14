@@ -37,6 +37,7 @@ test_that("lei_records validates inputs", {
   expect_error(lei_records(isin = 1))
   expect_error(lei_records(simplify = "yes"))
   expect_error(lei_records(limit = -1))
+  expect_error(lei_records(sort = 1L))
 })
 
 test_that("lei_children validates inputs", {
@@ -213,6 +214,22 @@ test_that("lei_records works with filters", {
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "value"))
   expect_gt(nrow(res), 0L)
+})
+
+test_that("lei_records sorts results", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_if_offline()
+
+  res <- lei_records(
+    country = "DE",
+    sort = "-registration.lastUpdateDate",
+    limit = 5L,
+    simplify = FALSE
+  )
+  dates <- vapply(res, \(x) x$attributes$registration$lastUpdateDate, "")
+  expect_identical(dates, sort(dates, decreasing = TRUE))
+  expect_error(lei_records(country = "DE", sort = "nonsense", limit = 1L), class = "httr2_http_400")
 })
 
 test_that("lei_children returns expected format", {

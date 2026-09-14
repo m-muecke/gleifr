@@ -79,6 +79,9 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #' @param ... Additional filter parameters passed to the GLEIF API.
 #'   These are appended as query parameters, e.g.
 #'   `"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"`.
+#' @param sort (`NULL` | `character(1)`)\cr
+#'   Field to sort the results by, e.g. `"entity.legalName"`. Prefix with `"-"` for descending
+#'   order, e.g. `"-registration.lastUpdateDate"`. Default `NULL` uses the API's default order.
 #' @param limit (`NULL` | `integer(1)`)\cr
 #'   Maximum number of records to return. Default `200L`. Use `NULL` to fetch all matching records.
 #' @param simplify (`logical(1)`)\cr
@@ -100,6 +103,9 @@ lei_record_by_id <- function(id, simplify = TRUE) {
 #'
 #' # filter by country and registration status
 #' head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
+#'
+#' # most recently updated records first
+#' head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
 #' }
 lei_records <- function(
   legal_name = NULL,
@@ -111,6 +117,7 @@ lei_records <- function(
   category = NULL,
   isin = NULL,
   ...,
+  sort = NULL,
   limit = 200L,
   simplify = TRUE
 ) {
@@ -123,6 +130,7 @@ lei_records <- function(
     is_string(entity_status, null_ok = TRUE),
     is_string(category, null_ok = TRUE),
     is_string(isin, null_ok = TRUE),
+    is_string(sort, null_ok = TRUE),
     is_count(limit, null_ok = TRUE),
     is_flag(simplify)
   )
@@ -135,7 +143,8 @@ lei_records <- function(
       `filter[registration.status]` = registration_status,
       `filter[entity.status]` = entity_status,
       `filter[entity.category]` = category,
-      `filter[isin]` = isin
+      `filter[isin]` = isin,
+      sort = sort
     ),
     list(...)
   )

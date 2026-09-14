@@ -14,6 +14,7 @@ lei_records(
   category = NULL,
   isin = NULL,
   ...,
+  sort = NULL,
   limit = 200L,
   simplify = TRUE
 )
@@ -47,6 +48,10 @@ Filter by ISIN.}
 These are appended as query parameters, e.g.
 \code{"filter[entity.subCategory]" = "CENTRAL_GOVERNMENT"}.}
 
+\item{sort}{(\code{NULL} | \code{character(1)})\cr
+Field to sort the results by, e.g. \code{"entity.legalName"}. Prefix with \code{"-"} for descending
+order, e.g. \code{"-registration.lastUpdateDate"}. Default \code{NULL} uses the API's default order.}
+
 \item{limit}{(\code{NULL} | \code{integer(1)})\cr
 Maximum number of records to return. Default \code{200L}. Use \code{NULL} to fetch all matching records.}
 
@@ -77,6 +82,9 @@ head(lei_records(legal_name = "Deutsche Bank", limit = 5))
 
 # filter by country and registration status
 head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
+
+# most recently updated records first
+head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
 }
 }
 \seealso{

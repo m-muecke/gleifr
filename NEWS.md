@@ -1,6 +1,7 @@
 # gleifr (development version)
 
 * `lei_children()`, `lei_isins()`, `lei_modifications()`, `lei_parent()`, and `lei_record_by_id()` now validate that `id` is a 20 character LEI, instead of silently returning a malformed `data.frame()` for values such as `""`.
+* `lei_records()` gains a `sort` argument to order results by an API field, e.g. `sort = "-registration.lastUpdateDate"` for the most recently updated records first.
 * `lei_registration_authorities()` now returns the international and local organization names supplied by GLEIF.
 
 # gleifr 0.2.0
