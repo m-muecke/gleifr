@@ -53,7 +53,7 @@ for full records.
 lei_autocomplete("Appl")
 #>        value                  lei
 #> 1   AppLogic 724500S2JQ8M9Q67N911
-#> 2   AT APPLI                 <NA>
+#> 2   AT APPLI 254900RKVKGKPHAN8C29
 #> 3   APPLE 12 969500RDBEVTUKOLE690
 #> 4   APPLISOL 969500QR5XNTB9QQIQ09
 #> 5   APPLITEC                 <NA>

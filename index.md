@@ -84,6 +84,10 @@ lei_parent("529900W18LQJJN6SJ336")
 
 # direct children
 lei_children("529900W18LQJJN6SJ336")
+
+# the relationship records themselves, with type, status, and periods
+lei_parent_relationship("529900W18LQJJN6SJ336")
+lei_child_relationships("529900W18LQJJN6SJ336")
 ```
 
 ### Identifier mappings

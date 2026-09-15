@@ -2,6 +2,11 @@
 
 ## gleifr (development version)
 
+- New
+  [`lei_child_relationships()`](https://m-muecke.github.io/gleifr/reference/lei_child_relationships.md)
+  and
+  [`lei_parent_relationship()`](https://m-muecke.github.io/gleifr/reference/lei_parent_relationship.md)
+  fetch the relationship records of a LEI.
 - [`lei_children()`](https://m-muecke.github.io/gleifr/reference/lei_children.md),
   [`lei_isins()`](https://m-muecke.github.io/gleifr/reference/lei_isins.md),
   [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md),
@@ -12,6 +17,11 @@
   returning a malformed
   [`data.frame()`](https://rdrr.io/r/base/data.frame.html) for values
   such as `""`.
+- [`lei_issuers()`](https://m-muecke.github.io/gleifr/reference/lei_issuers.md)
+  now returns `accreditation_date` as `POSIXct` in UTC instead of a
+  character string.
+- [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md)
+  now returns `date` as `POSIXct` in UTC instead of a character string.
 - [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)
   gains a `sort` argument to order results by an API field,
   e.g. `sort = "-registration.lastUpdateDate"` for the most recently

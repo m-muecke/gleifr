@@ -75,7 +75,7 @@ Maximum number of records to return. Default <code>200L</code>. Use <code>NULL</
 <li><p><strong>record_type</strong>: The record the change applies to, <code>"LEI"</code> or <code>"RR"</code></p></li>
 <li><p><strong>modification_type</strong>: The type of change, e.g. <code>"UPDATE"</code></p></li>
 <li><p><strong>field</strong>: The path of the changed field</p></li>
-<li><p><strong>date</strong>: The date of the change</p></li>
+<li><p><strong>date</strong>: The date of the change as <code>POSIXct</code> in UTC</p></li>
 <li><p><strong>value_old</strong>: The previous value, or <code>NA</code> if none</p></li>
 <li><p><strong>value_new</strong>: The new value, or <code>NA</code> if none</p></li>
 </ul><p>When the LEI has no modifications, <code>NULL</code>.</p>
@@ -99,13 +99,13 @@ Maximum number of records to return. Default <code>200L</code>. Use <code>NULL</
 <span class="r-out co"><span class="r-pr">#&gt;</span> 4                                         /rr:RelationshipData/rr:RelationshipRecords/rr:RelationshipRecord/rr:Registration/rr:LastUpdateDate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 5 /rr:RelationshipData/rr:RelationshipRecords/rr:RelationshipRecord/rr:Relationship/rr:RelationshipPeriods/rr:RelationshipPeriod/rr:StartDate</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 6 /rr:RelationshipData/rr:RelationshipRecords/rr:RelationshipRecord/rr:Relationship/rr:RelationshipPeriods/rr:RelationshipPeriod/rr:StartDate</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                   date                 value_old                 value_new</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2026-09-08T16:00:00Z 2026-10-18T00:00:00+02:00 2027-10-18T00:00:00+02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2026-09-08T16:00:00Z 2026-10-18T00:00:00+02:00 2027-10-18T00:00:00+02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2026-09-08T16:00:00Z 2025-08-27T16:35:08+02:00 2026-09-08T10:51:36+02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2026-09-08T16:00:00Z 2025-08-27T16:35:08+02:00 2026-09-08T10:51:36+02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2026-09-08T16:00:00Z 2025-03-12T00:00:00+01:00 2026-05-13T00:00:00+02:00</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2026-09-08T16:00:00Z 2025-03-12T00:00:00+01:00 2026-05-13T00:00:00+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                  date                 value_old                 value_new</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 2026-09-08 16:00:00 2026-10-18T00:00:00+02:00 2027-10-18T00:00:00+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 2026-09-08 16:00:00 2026-10-18T00:00:00+02:00 2027-10-18T00:00:00+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 2026-09-08 16:00:00 2025-08-27T16:35:08+02:00 2026-09-08T10:51:36+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2026-09-08 16:00:00 2025-08-27T16:35:08+02:00 2026-09-08T10:51:36+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 2026-09-08 16:00:00 2025-03-12T00:00:00+01:00 2026-05-13T00:00:00+02:00</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 2026-09-08 16:00:00 2025-03-12T00:00:00+01:00 2026-05-13T00:00:00+02:00</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

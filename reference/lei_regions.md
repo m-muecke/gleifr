@@ -24,7 +24,7 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 # \donttest{
 head(lei_regions())
 #> iterating ■■■■                              12% | ETA:  8s
-#> iterating ■■■■■■■                           19% | ETA:  7s
+#> iterating ■■■■■■                            15% | ETA:  8s
 #> iterating ■■■■■■■■■■■■■■■■■                 54% | ETA:  4s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■     92% | ETA:  1s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s

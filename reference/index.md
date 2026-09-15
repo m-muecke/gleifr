@@ -4,6 +4,8 @@
 
 - [`lei_autocomplete()`](https://m-muecke.github.io/gleifr/reference/lei_autocomplete.md)
   : Autocomplete LEI records
+- [`lei_child_relationships()`](https://m-muecke.github.io/gleifr/reference/lei_child_relationships.md)
+  : Fetch the child relationship records of a LEI
 - [`lei_children()`](https://m-muecke.github.io/gleifr/reference/lei_children.md)
   : Fetch LEI child records
 - [`lei_countries()`](https://m-muecke.github.io/gleifr/reference/lei_countries.md)
@@ -24,6 +26,8 @@
   : Fetch the change history of a LEI record
 - [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
   : Fetch a LEI parent record
+- [`lei_parent_relationship()`](https://m-muecke.github.io/gleifr/reference/lei_parent_relationship.md)
+  : Fetch the parent relationship record of a LEI
 - [`lei_record_by_id()`](https://m-muecke.github.io/gleifr/reference/lei_record_by_id.md)
   : Fetch a LEI record
 - [`lei_records()`](https://m-muecke.github.io/gleifr/reference/lei_records.md)

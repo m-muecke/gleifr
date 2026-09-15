@@ -21,7 +21,7 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 
 - **website**: The issuer website
 
-- **accreditation_date**: The accreditation date
+- **accreditation_date**: The accreditation date as `POSIXct` in UTC
 
 ## Examples
 
@@ -49,12 +49,12 @@ head(lei_issuers())
 #> 4            National Settlement Depository, Russia
 #> 5                      Depozitarul Central, Romania
 #> 6                               Qatar Credit Bureau
-#>                                    website        accreditation_date
-#> 1 https://lei.cscs.ng/cscslei/cscs-lei.php 2018-01-30T00:00:00+00:00
-#> 2                      https://lei.cdcp.sk 2018-01-30T00:00:00+00:00
-#> 3                 https://www.lseg.com/LEI 2017-11-06T00:00:00+00:00
-#> 4                  https://www.lei-code.ru 2018-01-05T00:00:00+00:00
-#> 5                  https://lei.roclear.ro/ 2018-12-06T00:00:00+00:00
-#> 6               https://www.cb.gov.qa/lei/ 2019-07-26T00:00:00+00:00
+#>                                    website accreditation_date
+#> 1 https://lei.cscs.ng/cscslei/cscs-lei.php         2018-01-30
+#> 2                      https://lei.cdcp.sk         2018-01-30
+#> 3                 https://www.lseg.com/LEI         2017-11-06
+#> 4                  https://www.lei-code.ru         2018-01-05
+#> 5                  https://lei.roclear.ro/         2018-12-06
+#> 6               https://www.cb.gov.qa/lei/         2019-07-26
 # }
 ```
