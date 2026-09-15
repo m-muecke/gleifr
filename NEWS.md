@@ -1,4 +1,4 @@
-# gleifr (development version)
+# gleifr 0.3.0
 
 * New `lei_child_relationships()` and `lei_parent_relationship()` fetch the relationship records of a LEI.
 * `lei_children()`, `lei_isins()`, `lei_modifications()`, `lei_parent()`, and `lei_record_by_id()` now validate that `id` is a 20 character LEI, instead of silently returning a malformed `data.frame()` for values such as `""`.
