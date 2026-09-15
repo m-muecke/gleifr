@@ -13,7 +13,7 @@ A \code{data.frame()} with columns:
 \item \strong{name}: The issuer name
 \item \strong{marketing_name}: The marketing name
 \item \strong{website}: The issuer website
-\item \strong{accreditation_date}: The accreditation date
+\item \strong{accreditation_date}: The accreditation date as \code{POSIXct} in UTC
 }
 }
 \description{

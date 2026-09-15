@@ -1,0 +1,22 @@
+relationship_columns <- c(
+  "start_node",
+  "end_node",
+  "relationship_type",
+  "relationship_status",
+  "relationship_period_start",
+  "relationship_period_end",
+  "accounting_period_start",
+  "accounting_period_end",
+  "document_filing_period_start",
+  "document_filing_period_end",
+  "initial_registration_date",
+  "last_update_date",
+  "registration_status",
+  "next_renewal_date",
+  "managing_lou",
+  "corroboration_level",
+  "corroboration_documents",
+  "corroboration_reference",
+  "valid_from",
+  "valid_to"
+)

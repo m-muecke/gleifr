@@ -8,6 +8,7 @@ reference:
   - title: LEI data
     contents:
       - lei_autocomplete
+      - lei_child_relationships
       - lei_children
       - lei_countries
       - lei_fuzzy
@@ -18,6 +19,7 @@ reference:
       - lei_mapping
       - lei_modifications
       - lei_parent
+      - lei_parent_relationship
       - lei_record_by_id
       - lei_records
       - lei_regions

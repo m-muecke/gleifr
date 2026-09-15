@@ -48,6 +48,64 @@ test_that("lei_children validates inputs", {
   expect_error(lei_children(id = "529900W18LQJJN6SJ336", limit = -1))
 })
 
+test_that("lei_parent_relationship validates inputs", {
+  expect_error(lei_parent_relationship(""))
+  expect_error(lei_parent_relationship("529900W18LQJJN6SJ336", type = "foo"))
+})
+
+test_that("lei_child_relationships validates inputs", {
+  expect_error(lei_child_relationships(""))
+  expect_error(lei_child_relationships("529900W18LQJJN6SJ336", type = "foo"))
+  expect_error(lei_child_relationships("529900W18LQJJN6SJ336", limit = 0L))
+})
+
+test_that("simplify_relationship flattens periods and fills missing values", {
+  attrs <- list(
+    validFrom = "2022-03-29T16:00:00Z",
+    validTo = NULL,
+    relationship = list(
+      startNode = list(id = "A", type = "LEI"),
+      endNode = list(id = "B", type = "LEI"),
+      type = "IS_DIRECTLY_CONSOLIDATED_BY",
+      status = "ACTIVE",
+      periods = list(
+        list(startDate = "2017-12-20T23:00:00Z", type = "RELATIONSHIP_PERIOD"),
+        list(
+          startDate = "2015-12-31T23:00:00Z",
+          endDate = "2016-12-30T23:00:00Z",
+          type = "ACCOUNTING_PERIOD"
+        )
+      )
+    ),
+    registration = list(
+      initialRegistrationDate = "2018-03-28T22:00:00Z",
+      lastUpdateDate = "2021-02-24T22:08:53Z",
+      status = "LAPSED",
+      nextRenewalDate = "2019-03-29T08:08:58Z",
+      managingLou = "C",
+      corroborationLevel = "FULLY_CORROBORATED",
+      corroborationDocuments = NULL,
+      corroborationReference = NULL
+    )
+  )
+  res <- simplify_relationship(attrs)
+  expect_identical(nrow(res), 1L)
+  expect_identical(res$start_node, "A")
+  expect_identical(res$end_node, "B")
+  expect_identical(res$relationship_period_start, as.POSIXct("2017-12-20 23:00:00", tz = "UTC"))
+  expect_identical(res$relationship_period_end, as.POSIXct(NA_character_, tz = "UTC"))
+  expect_identical(res$accounting_period_end, as.POSIXct("2016-12-30 23:00:00", tz = "UTC"))
+  expect_identical(res$document_filing_period_start, as.POSIXct(NA_character_, tz = "UTC"))
+  expect_identical(res$corroboration_documents, NA_character_)
+  expect_identical(res$valid_to, as.POSIXct(NA_character_, tz = "UTC"))
+})
+
+test_that("as_utc parses API timestamps and missing values", {
+  expect_identical(as_utc("2017-04-13T00:00:00+00:00"), as.POSIXct("2017-04-13", tz = "UTC"))
+  expect_identical(as_utc("2026-09-08T16:00:00Z"), as.POSIXct("2026-09-08 16:00:00", tz = "UTC"))
+  expect_identical(as_utc(NULL), as.POSIXct(NA_character_, tz = "UTC"))
+})
+
 test_that("lei_isins validates inputs", {
   expect_error(lei_isins(id = 123))
   expect_error(lei_isins(id = ""))
@@ -94,6 +152,8 @@ test_that("lei_issuers returns expected format", {
   expect_s3_class(res, "data.frame")
   expect_named(res, c("lei", "name", "marketing_name", "website", "accreditation_date"))
   expect_gt(nrow(res), 0L)
+  expect_s3_class(res$accreditation_date, "POSIXct")
+  expect_identical(attr(res$accreditation_date, "tzone"), "UTC")
 })
 
 test_that("lei_regions returns expected format", {
@@ -265,6 +325,34 @@ test_that("lei_parent returns expected format", {
   expect_gt(nrow(res), 0L)
 })
 
+test_that("lei_parent_relationship returns expected format", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_if_offline()
+
+  res <- lei_parent_relationship("529900W18LQJJN6SJ336")
+  expect_s3_class(res, "data.frame")
+  expect_identical(nrow(res), 1L)
+  expect_identical(res$start_node, "529900W18LQJJN6SJ336")
+  expect_identical(res$relationship_type, "IS_DIRECTLY_CONSOLIDATED_BY")
+  expect_identical(names(res), relationship_columns)
+  expect_s3_class(res$last_update_date, "POSIXct")
+  expect_identical(attr(res$last_update_date, "tzone"), "UTC")
+})
+
+test_that("lei_child_relationships returns expected format", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_if_offline()
+
+  res <- lei_child_relationships("O2RNE8IBXP4R0TD8PU41", limit = 5L)
+  expect_s3_class(res, "data.frame")
+  expect_identical(nrow(res), 5L)
+  expect_all_equal(res$end_node, "O2RNE8IBXP4R0TD8PU41")
+  expect_identical(names(res), relationship_columns)
+  expect_null(lei_child_relationships("391200PZ5RP5VU2YAA53"))
+})
+
 test_that("lei_modifications returns expected format", {
   skip_on_cran()
   skip_on_ci()
@@ -285,6 +373,8 @@ test_that("lei_modifications returns expected format", {
     )
   )
   expect_gt(nrow(res), 0L)
+  expect_s3_class(res$date, "POSIXct")
+  expect_identical(attr(res$date, "tzone"), "UTC")
 })
 
 test_that("lei_fuzzy returns expected format", {

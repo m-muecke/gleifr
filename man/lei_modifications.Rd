@@ -23,7 +23,7 @@ A \code{data.frame()} with columns:
 \item \strong{record_type}: The record the change applies to, \code{"LEI"} or \code{"RR"}
 \item \strong{modification_type}: The type of change, e.g. \code{"UPDATE"}
 \item \strong{field}: The path of the changed field
-\item \strong{date}: The date of the change
+\item \strong{date}: The date of the change as \code{POSIXct} in UTC
 \item \strong{value_old}: The previous value, or \code{NA} if none
 \item \strong{value_new}: The new value, or \code{NA} if none
 }
