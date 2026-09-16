@@ -11,7 +11,7 @@ record by its LEI, see lei_record_by_id()."></head><body>
 
     <a class="navbar-brand me-2" href="../index.html">gleifr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -185,20 +185,13 @@ Should the output be simplified? Default <code>TRUE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># most recently updated records first</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_records</span><span class="op">(</span>country <span class="op">=</span> <span class="st">"DE"</span>, sort <span class="op">=</span> <span class="st">"-registration.lastUpdateDate"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                               name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 967600C0GFIY1TJKA183             entity_legal_name_name</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 967600C0GFIY1TJKA183         entity_legal_name_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 967600C0GFIY1TJKA183      entity_legal_address_language</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 967600C0GFIY1TJKA183 entity_legal_address_address_lines</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 967600C0GFIY1TJKA183          entity_legal_address_city</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 967600C0GFIY1TJKA183        entity_legal_address_region</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                     value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 DOLPHIN Consulting GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2                      de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3                      de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4          Am Weinberg 16</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5        Selters (Taunus)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6                   DE-HE</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                          name                value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 984500S5L2A5F057A609        entity_legal_name_name Fax.de GmbH &amp; Co. KG</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 984500S5L2A5F057A609    entity_legal_name_language                   de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 984500S5L2A5F057A609       entity_other_names_name          FAX.de GmbH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 984500S5L2A5F057A609   entity_other_names_language                   de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 984500S5L2A5F057A609       entity_other_names_type  PREVIOUS_LEGAL_NAME</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 984500S5L2A5F057A609 entity_legal_address_language                   de</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

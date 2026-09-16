@@ -1,6 +1,6 @@
 # Changelog
 
-## gleifr (development version)
+## gleifr 0.3.0
 
 - New
   [`lei_child_relationships()`](https://m-muecke.github.io/gleifr/reference/lei_child_relationships.md)
