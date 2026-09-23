@@ -22,9 +22,8 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_jurisdictions())
-#> iterating ■■■■■■■                           19% | ETA:  5s
-#> iterating ■■■■■■■■                          22% | ETA:  5s
-#> iterating ■■■■■■■■■■■■■■■■■■■■■             67% | ETA:  2s
+#> iterating ■■■■■■■■                          22% | ETA:  4s
+#> iterating ■■■■■■■■■■■■■■■■■                 52% | ETA:  2s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>    code    name
 #> 1    AD Andorra

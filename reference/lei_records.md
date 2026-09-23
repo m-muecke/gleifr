@@ -153,12 +153,19 @@ head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 
 # most recently updated records first
 head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
-#>                    lei                          name                value
-#> 1 984500S5L2A5F057A609        entity_legal_name_name Fax.de GmbH & Co. KG
-#> 2 984500S5L2A5F057A609    entity_legal_name_language                   de
-#> 3 984500S5L2A5F057A609       entity_other_names_name          FAX.de GmbH
-#> 4 984500S5L2A5F057A609   entity_other_names_language                   de
-#> 5 984500S5L2A5F057A609       entity_other_names_type  PREVIOUS_LEGAL_NAME
-#> 6 984500S5L2A5F057A609 entity_legal_address_language                   de
+#>                    lei                               name
+#> 1 9845008D6A0DD8608706             entity_legal_name_name
+#> 2 9845008D6A0DD8608706         entity_legal_name_language
+#> 3 9845008D6A0DD8608706      entity_legal_address_language
+#> 4 9845008D6A0DD8608706 entity_legal_address_address_lines
+#> 5 9845008D6A0DD8608706          entity_legal_address_city
+#> 6 9845008D6A0DD8608706        entity_legal_address_region
+#>                          value
+#> 1 PL Vermögensverwaltungs GmbH
+#> 2                           de
+#> 3                           de
+#> 4               Am Forsthaus 5
+#> 5                Dietmannsried
+#> 6                        DE-BY
 # }
 ```

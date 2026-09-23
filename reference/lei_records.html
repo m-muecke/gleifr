@@ -185,13 +185,20 @@ Should the output be simplified? Default <code>TRUE</code>.</p></dd>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># most recently updated records first</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="fu">lei_records</span><span class="op">(</span>country <span class="op">=</span> <span class="st">"DE"</span>, sort <span class="op">=</span> <span class="st">"-registration.lastUpdateDate"</span>, limit <span class="op">=</span> <span class="fl">5</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                          name                value</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1 984500S5L2A5F057A609        entity_legal_name_name Fax.de GmbH &amp; Co. KG</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2 984500S5L2A5F057A609    entity_legal_name_language                   de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3 984500S5L2A5F057A609       entity_other_names_name          FAX.de GmbH</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4 984500S5L2A5F057A609   entity_other_names_language                   de</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5 984500S5L2A5F057A609       entity_other_names_type  PREVIOUS_LEGAL_NAME</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6 984500S5L2A5F057A609 entity_legal_address_language                   de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                    lei                               name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 9845008D6A0DD8608706             entity_legal_name_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 9845008D6A0DD8608706         entity_legal_name_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 9845008D6A0DD8608706      entity_legal_address_language</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 9845008D6A0DD8608706 entity_legal_address_address_lines</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 9845008D6A0DD8608706          entity_legal_address_city</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 9845008D6A0DD8608706        entity_legal_address_region</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                          value</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 PL Vermögensverwaltungs GmbH</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                           de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                           de</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4               Am Forsthaus 5</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5                Dietmannsried</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6                        DE-BY</span>
 <span class="r-in"><span><span class="co"># }</span></span></span>
 </code></pre></div>
     </div>

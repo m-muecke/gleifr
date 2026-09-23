@@ -58,14 +58,14 @@ head(lei_parent("529900W18LQJJN6SJ336"))
 #> 3 O2RNE8IBXP4R0TD8PU41      entity_legal_address_language
 #> 4 O2RNE8IBXP4R0TD8PU41 entity_legal_address_address_lines
 #> 5 O2RNE8IBXP4R0TD8PU41          entity_legal_address_city
-#> 6 O2RNE8IBXP4R0TD8PU41       entity_legal_address_country
+#> 6 O2RNE8IBXP4R0TD8PU41        entity_legal_address_region
 #>                    value
 #> 1       SOCIETE GENERALE
 #> 2                     fr
 #> 3                     fr
 #> 4 29 BOULEVARD HAUSSMANN
 #> 5                  PARIS
-#> 6                     FR
+#> 6                 FR-75C
 
 # get ultimate parent
 head(lei_parent("529900W18LQJJN6SJ336", type = "ultimate"))
@@ -75,13 +75,13 @@ head(lei_parent("529900W18LQJJN6SJ336", type = "ultimate"))
 #> 3 O2RNE8IBXP4R0TD8PU41      entity_legal_address_language
 #> 4 O2RNE8IBXP4R0TD8PU41 entity_legal_address_address_lines
 #> 5 O2RNE8IBXP4R0TD8PU41          entity_legal_address_city
-#> 6 O2RNE8IBXP4R0TD8PU41       entity_legal_address_country
+#> 6 O2RNE8IBXP4R0TD8PU41        entity_legal_address_region
 #>                    value
 #> 1       SOCIETE GENERALE
 #> 2                     fr
 #> 3                     fr
 #> 4 29 BOULEVARD HAUSSMANN
 #> 5                  PARIS
-#> 6                     FR
+#> 6                 FR-75C
 # }
 ```

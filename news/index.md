@@ -4,6 +4,8 @@
 
 ## gleifr 0.3.0
 
+CRAN release: 2026-09-16
+
 - New
   [`lei_child_relationships()`](https://m-muecke.github.io/gleifr/reference/lei_child_relationships.md)
   and
