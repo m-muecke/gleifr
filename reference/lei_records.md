@@ -154,18 +154,18 @@ head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 # most recently updated records first
 head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
 #>                    lei                               name
-#> 1 9845008D6A0DD8608706             entity_legal_name_name
-#> 2 9845008D6A0DD8608706         entity_legal_name_language
-#> 3 9845008D6A0DD8608706      entity_legal_address_language
-#> 4 9845008D6A0DD8608706 entity_legal_address_address_lines
-#> 5 9845008D6A0DD8608706          entity_legal_address_city
-#> 6 9845008D6A0DD8608706        entity_legal_address_region
-#>                          value
-#> 1 PL Vermögensverwaltungs GmbH
-#> 2                           de
-#> 3                           de
-#> 4               Am Forsthaus 5
-#> 5                Dietmannsried
-#> 6                        DE-BY
+#> 1 529900T0G7JTXVS6ZU04             entity_legal_name_name
+#> 2 529900T0G7JTXVS6ZU04         entity_legal_name_language
+#> 3 529900T0G7JTXVS6ZU04      entity_legal_address_language
+#> 4 529900T0G7JTXVS6ZU04 entity_legal_address_address_lines
+#> 5 529900T0G7JTXVS6ZU04          entity_legal_address_city
+#> 6 529900T0G7JTXVS6ZU04        entity_legal_address_region
+#>                      value
+#> 1 Datalog Werbemittel GmbH
+#> 2                       de
+#> 3                       de
+#> 4             Knickrehm 14
+#> 5            Bad Schwartau
+#> 6                    DE-SH
 # }
 ```
