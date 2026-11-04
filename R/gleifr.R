@@ -812,27 +812,6 @@ fetch_completions <- function(path, field, q) {
   do.call(rbind, out)
 }
 
-simplify_records <- function(x) {
-  x <- unlist(x)
-  lei <- x[["lei"]]
-  x <- x[names(x) != "lei"]
-  data.frame(
-    lei = lei,
-    name = names(x),
-    value = unname(x),
-    check.names = FALSE
-  )
-}
-
-clean_names <- function(tab) {
-  if (is.null(tab)) {
-    return(NULL)
-  }
-  tab$name <- gsub(".", "_", tab$name, fixed = TRUE)
-  tab$name <- to_snake_case(tab$name)
-  tab
-}
-
 latest_url <- function(type = c("isin", "bic", "mic", "oc")) {
   type <- match.arg(type)
   url <- "https://www.gleif.org/en/lei-data/lei-mapping"
