@@ -156,6 +156,19 @@ test_that("lei_issuers returns expected format", {
   expect_identical(attr(res$accreditation_date, "tzone"), "UTC")
 })
 
+test_that("lei_vlei_issuers returns expected format", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_if_offline()
+
+  res <- lei_vlei_issuers()
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("lei", "name", "marketing_name", "website", "qualification_date"))
+  expect_gt(nrow(res), 0L)
+  expect_s3_class(res$qualification_date, "POSIXct")
+  expect_identical(attr(res$qualification_date, "tzone"), "UTC")
+})
+
 test_that("lei_official_roles returns expected format", {
   skip_on_cran()
   skip_on_ci()

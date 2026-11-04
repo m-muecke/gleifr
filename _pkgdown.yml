@@ -26,6 +26,7 @@ reference:
       - lei_regions
       - lei_registration_agents
       - lei_registration_authorities
+      - lei_vlei_issuers
   - title: Cache
     contents:
       - cache

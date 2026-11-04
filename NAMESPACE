@@ -21,6 +21,7 @@ export(lei_records)
 export(lei_regions)
 export(lei_registration_agents)
 export(lei_registration_authorities)
+export(lei_vlei_issuers)
 importFrom(httr2,
   iterate_with_cursor,
   iterate_with_offset,

@@ -216,6 +216,40 @@ lei_issuers <- function() {
   do.call(rbind, out)
 }
 
+#' Fetch vLEI issuers
+#'
+#' Fetches the list of qualified vLEI issuers from the GLEIF API. These organizations are qualified
+#' by GLEIF to issue verifiable LEI (vLEI) credentials, the digital counterpart of a LEI.
+#'
+#' @returns A `data.frame()` with columns:
+#' - **lei**: The Legal Entity Identifier of the issuer
+#' - **name**: The issuer name
+#' - **marketing_name**: The marketing name, or `NA` if none
+#' - **website**: The issuer website, or `NA` if none
+#' - **qualification_date**: The qualification date as `POSIXct` in UTC
+#' @seealso [lei_issuers()] for the accredited LEI issuers, [lei_official_roles()] for the roles
+#'   used in vLEI role credentials.
+#' @export
+#' @examples
+#' \donttest{
+#' head(lei_vlei_issuers())
+#' }
+lei_vlei_issuers <- function() {
+  data <- lei_fetch_iter("vlei-issuers")
+  out <- lapply(data, function(x) {
+    attrs <- x$attributes
+    data.frame(
+      lei = attrs$lei,
+      name = attrs$name,
+      marketing_name = attrs$marketingName %||% NA_character_,
+      website = attrs$website %||% NA_character_,
+      qualification_date = as_utc(attrs$qualificationDate),
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, out)
+}
+
 #' Fetch LEI registration agents
 #'
 #' Fetches the list of registration agents from the GLEIF API. Registration agents help legal
