@@ -702,7 +702,6 @@ clean_names <- function(tab) {
   if (is.null(tab)) {
     return(NULL)
   }
-  tab$name <- sub("\\.X$", "", tab$name)
   tab$name <- gsub(".", "_", tab$name, fixed = TRUE)
   tab$name <- to_snake_case(tab$name)
   tab

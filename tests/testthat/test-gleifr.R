@@ -8,7 +8,7 @@ test_that("to_snake_case works", {
 test_that("clean_names cleans attribute names", {
   tab <- data.frame(
     lei = "123",
-    name = c("entity.legalName.X", "entity.status"),
+    name = c("entity.legalName", "entity.status"),
     value = c("Foo", "ACTIVE")
   )
   res <- clean_names(tab)
