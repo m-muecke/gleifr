@@ -1,6 +1,6 @@
 # Changelog
 
-## gleifr (development version)
+## gleifr 0.4.0
 
 - New
   [`lei_official_roles()`](https://m-muecke.github.io/gleifr/reference/lei_official_roles.md)
