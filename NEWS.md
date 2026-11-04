@@ -1,3 +1,5 @@
+# gleifr (development version)
+
 # gleifr 0.4.0
 
 * New `lei_official_roles()` fetches the official organizational roles (OOR codes) used in vLEI role credentials.
