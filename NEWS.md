@@ -1,5 +1,7 @@
 # gleifr (development version)
 
+* New `lei_registration_agents()` fetches the registration agents that help entities obtain a LEI through an accredited issuer.
+
 # gleifr 0.3.0
 
 * New `lei_child_relationships()` and `lei_parent_relationship()` fetch the relationship records of a LEI.

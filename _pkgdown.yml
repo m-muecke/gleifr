@@ -23,6 +23,7 @@ reference:
       - lei_record_by_id
       - lei_records
       - lei_regions
+      - lei_registration_agents
       - lei_registration_authorities
   - title: Cache
     contents:

@@ -216,6 +216,39 @@ lei_issuers <- function() {
   do.call(rbind, out)
 }
 
+#' Fetch LEI registration agents
+#'
+#' Fetches the list of registration agents from the GLEIF API. Registration agents help legal
+#' entities obtain a LEI but do not issue LEIs themselves; they work with an accredited issuer (see
+#' [lei_issuers()]).
+#'
+#' @returns A `data.frame()` with one row per agent and website, and columns:
+#' - **name**: The registration agent name
+#' - **lei**: The Legal Entity Identifier of the agent, or `NA` if none
+#' - **lei_issuer**: The LEI of the issuer the agent works with
+#' - **website**: The agent website, or `NA` if none
+#' @seealso [lei_issuers()] for the accredited issuers.
+#' @export
+#' @examples
+#' \donttest{
+#' head(lei_registration_agents())
+#' }
+lei_registration_agents <- function() {
+  data <- lei_fetch("registration-agents")$data
+  out <- lapply(data, function(x) {
+    attrs <- x$attributes
+    websites <- unlist(attrs$websites)
+    data.frame(
+      name = attrs$name,
+      lei = attrs$lei %||% NA_character_,
+      lei_issuer = attrs$leiIssuer %||% NA_character_,
+      website = if (length(websites) > 0L) websites else NA_character_,
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, out)
+}
+
 #' Fetch the list of countries
 #'
 #' Fetches the list of countries (ISO 3166-1) recognized by the GLEIF API.
