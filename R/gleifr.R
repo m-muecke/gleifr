@@ -324,6 +324,65 @@ lei_legal_forms <- function() {
   do.call(rbind, out)
 }
 
+#' Fetch the list of official organizational roles
+#'
+#' Fetches the list of official organizational roles (OOR codes) recognized by the GLEIF API. These
+#' are the roles, such as director or general partner, that a person can hold in a legal entity
+#' under a given legal form, as used in verifiable LEI (vLEI) role credentials.
+#'
+#' @returns A `data.frame()` with one row per role and name, and columns:
+#' - **code**: The official organizational role (OOR) code
+#' - **country**: The country the role applies to
+#' - **country_code**: The country code
+#' - **jurisdiction**: The jurisdiction the role applies to, or `NA` if none
+#' - **subdivision_code**: The country subdivision code, or `NA` if none
+#' - **elf_code**: The entity legal form (ELF) code the role belongs to, see [lei_legal_forms()]
+#' - **status**: The status of the role, e.g. `"ACTV"`
+#' - **date_created**: The date the role was created as `Date`
+#' - **name**: The local name of the role
+#' - **language**: The language of the name
+#' - **transliterated_name**: The name transliterated into Latin script
+#' @seealso [lei_legal_forms()] for the legal forms the roles belong to.
+#' @export
+#' @examples
+#' \donttest{
+#' head(lei_official_roles())
+#' }
+lei_official_roles <- function() {
+  data <- lei_fetch_iter("official-organizational-roles")
+  out <- lapply(data, function(x) {
+    attrs <- x$attributes
+    nms <- attrs$names
+    data.frame(
+      code = attrs$code,
+      country = attrs$country %||% NA_character_,
+      country_code = attrs$countryCode %||% NA_character_,
+      jurisdiction = attrs$jurisdiction %||% NA_character_,
+      subdivision_code = attrs$subdivisionCode %||% NA_character_,
+      elf_code = attrs$elfCode %||% NA_character_,
+      status = attrs$status %||% NA_character_,
+      date_created = as.Date(attrs$dateCreated %||% NA_character_),
+      name = if (length(nms) > 0L) {
+        vapply(nms, \(x) x$name %||% NA_character_, "")
+      } else {
+        NA_character_
+      },
+      language = if (length(nms) > 0L) {
+        vapply(nms, \(x) x$language %||% NA_character_, "")
+      } else {
+        NA_character_
+      },
+      transliterated_name = if (length(nms) > 0L) {
+        vapply(nms, \(x) x$transliteratedName %||% NA_character_, "")
+      } else {
+        NA_character_
+      },
+      check.names = FALSE
+    )
+  })
+  do.call(rbind, out)
+}
+
 #' Fetch the list of registration authorities
 #'
 #' Fetches the list of registration authorities (RA codes) recognized by the GLEIF API. These

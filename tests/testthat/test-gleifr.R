@@ -156,6 +156,33 @@ test_that("lei_issuers returns expected format", {
   expect_identical(attr(res$accreditation_date, "tzone"), "UTC")
 })
 
+test_that("lei_official_roles returns expected format", {
+  skip_on_cran()
+  skip_on_ci()
+  skip_if_offline()
+
+  res <- lei_official_roles()
+  expect_s3_class(res, "data.frame")
+  expect_named(
+    res,
+    c(
+      "code",
+      "country",
+      "country_code",
+      "jurisdiction",
+      "subdivision_code",
+      "elf_code",
+      "status",
+      "date_created",
+      "name",
+      "language",
+      "transliterated_name"
+    )
+  )
+  expect_gt(nrow(res), 0L)
+  expect_s3_class(res$date_created, "Date")
+})
+
 test_that("lei_registration_agents returns expected format", {
   skip_on_cran()
   skip_on_ci()

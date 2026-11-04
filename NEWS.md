@@ -1,5 +1,6 @@
 # gleifr (development version)
 
+* New `lei_official_roles()` fetches the official organizational roles (OOR codes) used in vLEI role credentials.
 * New `lei_registration_agents()` fetches the registration agents that help entities obtain a LEI through an accredited issuer.
 
 # gleifr 0.3.0
