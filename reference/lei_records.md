@@ -153,19 +153,19 @@ head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 
 # most recently updated records first
 head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
-#>                    lei                               name
-#> 1 529900T0G7JTXVS6ZU04             entity_legal_name_name
-#> 2 529900T0G7JTXVS6ZU04         entity_legal_name_language
-#> 3 529900T0G7JTXVS6ZU04      entity_legal_address_language
-#> 4 529900T0G7JTXVS6ZU04 entity_legal_address_address_lines
-#> 5 529900T0G7JTXVS6ZU04          entity_legal_address_city
-#> 6 529900T0G7JTXVS6ZU04        entity_legal_address_region
-#>                      value
-#> 1 Datalog Werbemittel GmbH
-#> 2                       de
-#> 3                       de
-#> 4             Knickrehm 14
-#> 5            Bad Schwartau
-#> 6                    DE-SH
+#>                    lei                                       name
+#> 1 529900UH89W8BKA8ZI60                     entity_legal_name_name
+#> 2 529900UH89W8BKA8ZI60                 entity_legal_name_language
+#> 3 529900UH89W8BKA8ZI60     entity_transliterated_other_names_name
+#> 4 529900UH89W8BKA8ZI60 entity_transliterated_other_names_language
+#> 5 529900UH89W8BKA8ZI60     entity_transliterated_other_names_type
+#> 6 529900UH89W8BKA8ZI60              entity_legal_address_language
+#>                                                          value
+#> 1 Dreilinden Gesellschaft für gemeinnütziges Privatkapital mbH
+#> 2                                                           de
+#> 3 Dreilinden Gesellschaft fur gemeinnutziges Privatkapital mbH
+#> 4                                                           de
+#> 5                         AUTO_ASCII_TRANSLITERATED_LEGAL_NAME
+#> 6                                                           de
 # }
 ```

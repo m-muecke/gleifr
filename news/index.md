@@ -2,6 +2,19 @@
 
 ## gleifr (development version)
 
+- New
+  [`lei_official_roles()`](https://m-muecke.github.io/gleifr/reference/lei_official_roles.md)
+  fetches the official organizational roles (OOR codes) used in vLEI
+  role credentials.
+- New
+  [`lei_registration_agents()`](https://m-muecke.github.io/gleifr/reference/lei_registration_agents.md)
+  fetches the registration agents that help entities obtain a LEI
+  through an accredited issuer.
+- New
+  [`lei_vlei_issuers()`](https://m-muecke.github.io/gleifr/reference/lei_vlei_issuers.md)
+  fetches the organizations qualified by GLEIF to issue verifiable LEI
+  (vLEI) credentials.
+
 ## gleifr 0.3.0
 
 CRAN release: 2026-09-16

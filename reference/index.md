@@ -24,6 +24,8 @@
   : Download the latest LEI mapping data
 - [`lei_modifications()`](https://m-muecke.github.io/gleifr/reference/lei_modifications.md)
   : Fetch the change history of a LEI record
+- [`lei_official_roles()`](https://m-muecke.github.io/gleifr/reference/lei_official_roles.md)
+  : Fetch the list of official organizational roles
 - [`lei_parent()`](https://m-muecke.github.io/gleifr/reference/lei_parent.md)
   : Fetch a LEI parent record
 - [`lei_parent_relationship()`](https://m-muecke.github.io/gleifr/reference/lei_parent_relationship.md)
@@ -34,8 +36,12 @@
   : Fetch LEI records
 - [`lei_regions()`](https://m-muecke.github.io/gleifr/reference/lei_regions.md)
   : Fetch LEI regions
+- [`lei_registration_agents()`](https://m-muecke.github.io/gleifr/reference/lei_registration_agents.md)
+  : Fetch LEI registration agents
 - [`lei_registration_authorities()`](https://m-muecke.github.io/gleifr/reference/lei_registration_authorities.md)
   : Fetch the list of registration authorities
+- [`lei_vlei_issuers()`](https://m-muecke.github.io/gleifr/reference/lei_vlei_issuers.md)
+  : Fetch vLEI issuers
 
 ## Cache
 
