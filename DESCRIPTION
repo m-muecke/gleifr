@@ -22,7 +22,7 @@ Imports:
     httr2 (>= 1.0.0),
     stats,
     utils,
-    xml2
+    xml2 (>= 1.0.0)
 Suggests:
     testthat (>= 3.3.0)
 Config/roxygen2/markdown: TRUE
