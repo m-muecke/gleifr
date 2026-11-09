@@ -4,6 +4,8 @@
 
 ## gleifr 0.4.0
 
+CRAN release: 2026-11-04
+
 - New
   [`lei_official_roles()`](https://m-muecke.github.io/gleifr/reference/lei_official_roles.md)
   fetches the official organizational roles (OOR codes) used in vLEI

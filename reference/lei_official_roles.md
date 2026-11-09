@@ -51,7 +51,7 @@ for the legal forms the roles belong to.
 ``` r
 # \donttest{
 head(lei_official_roles())
-#> iterating ■■■■■■■■■■■■■■■                   45% | ETA:  1s
+#> iterating ■■■■■■■■■■■■                      36% | ETA:  2s
 #> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>     code                  country country_code jurisdiction subdivision_code
 #> 1 01D0O4                    Qatar           QA         <NA>             <NA>

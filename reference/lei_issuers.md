@@ -28,6 +28,8 @@ A [`data.frame()`](https://rdrr.io/r/base/data.frame.html) with columns:
 ``` r
 # \donttest{
 head(lei_issuers())
+#> ⠙ iterating 1 done (0.28/s) | 3.5s
+#> iterating ■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■  100% | ETA:  0s
 #>                    lei
 #> 1 029200067A7K6CH0H586
 #> 2 097900BEFH0000000217

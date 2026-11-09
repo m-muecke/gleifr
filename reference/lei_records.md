@@ -153,19 +153,19 @@ head(lei_records(country = "DE", registration_status = "ISSUED", limit = 5))
 
 # most recently updated records first
 head(lei_records(country = "DE", sort = "-registration.lastUpdateDate", limit = 5))
-#>                    lei                                       name
-#> 1 529900UH89W8BKA8ZI60                     entity_legal_name_name
-#> 2 529900UH89W8BKA8ZI60                 entity_legal_name_language
-#> 3 529900UH89W8BKA8ZI60     entity_transliterated_other_names_name
-#> 4 529900UH89W8BKA8ZI60 entity_transliterated_other_names_language
-#> 5 529900UH89W8BKA8ZI60     entity_transliterated_other_names_type
-#> 6 529900UH89W8BKA8ZI60              entity_legal_address_language
-#>                                                          value
-#> 1 Dreilinden Gesellschaft für gemeinnütziges Privatkapital mbH
-#> 2                                                           de
-#> 3 Dreilinden Gesellschaft fur gemeinnutziges Privatkapital mbH
-#> 4                                                           de
-#> 5                         AUTO_ASCII_TRANSLITERATED_LEGAL_NAME
-#> 6                                                           de
+#>                    lei                               name
+#> 1 9676000UVOJJG74WJU55             entity_legal_name_name
+#> 2 9676000UVOJJG74WJU55         entity_legal_name_language
+#> 3 9676000UVOJJG74WJU55      entity_legal_address_language
+#> 4 9676000UVOJJG74WJU55 entity_legal_address_address_lines
+#> 5 9676000UVOJJG74WJU55          entity_legal_address_city
+#> 6 9676000UVOJJG74WJU55        entity_legal_address_region
+#>                               value
+#> 1 Schmidt Produktions GmbH & Co. KG
+#> 2                                de
+#> 3                                de
+#> 4                    Töllen Linde 3
+#> 5                          Delbrück
+#> 6                             DE-NW
 # }
 ```
